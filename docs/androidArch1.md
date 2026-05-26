@@ -23,19 +23,11 @@ MVC是所有现代架构的鼻祖，它第一次提出了"分层"的思想，将
 
 MVC的核心问题在于**三者两两交互**，形成闭环的三角形依赖：View可直接读写Model，Model变化直接通知View，Controller同时依赖两者。
 这就导致了整整6根连线的复杂关系：
-
-```mermaid
-flowchart LR
-    View <--> Controller
-    Controller <--> Model
-    View <--> Model
-    
-    style View fill:#f9f,stroke:#333,stroke-width:2px
-    style Controller fill:#bbf,stroke:#333,stroke-width:2px
-    style Model fill:#bfb,stroke:#333,stroke-width:2px
 ```
-
-**连线数：6根**
+View ←→ Controller ←→ Model
+↑                   ↑
+└───────────────────┘
+```
 - View → Controller
 - View → Model
 - Controller → View
@@ -49,35 +41,21 @@ flowchart LR
 MVP是对MVC的第一次重大改进，它做了一个最简单但最有效的改变：**彻底禁止View和Model直接交互**。
 
 所有的跨层交互都必须通过Presenter进行，原本的三角形依赖被打破，变成了线性依赖：
-
-```mermaid
-flowchart LR
-    View <--> Presenter
-    Presenter <--> Model
-    
-    style View fill:#f9f,stroke:#333,stroke-width:2px
-    style Presenter fill:#bbf,stroke:#333,stroke-width:2px
-    style Model fill:#bfb,stroke:#333,stroke-width:2px
+```
+View ←→ Presenter ←→ Model
 ```
 
-**连线数：4根**（减少33%）
+连线数从6根直接减少到了4根，系统复杂度降低了33%。View只负责纯UI展示，Model只负责纯数据处理，Presenter负责所有业务逻辑。这在2015-2018年间极大地改善了Android项目的可维护性。
 
 #### 3. MVVM：用观察者模式实现依赖反转（3根连线）
 MVVM进一步削弱了View和ViewModel之间的耦合，它引入了**数据绑定**和**观察者模式**，实现了依赖反转。
 
 此时的引用关系变成了：
-
-```mermaid
-flowchart LR
-    View --> ViewModel
-    ViewModel <--> Model
-    
-    style View fill:#f9f,stroke:#333,stroke-width:2px
-    style ViewModel fill:#bbf,stroke:#333,stroke-width:2px
-    style Model fill:#bfb,stroke:#333,stroke-width:2px
+```
+View → ViewModel ←→ Model
 ```
 
-**连线数：3根**（减少25%）
+View仍持有ViewModel的引用，但是**ViewModel不再持有任何View的引用**。它做完工作后，只会更新一个可观测的数据状态，完全不知道也不关心谁在观察这个状态、谁会去渲染UI，耦合度降到了历史新低。
 
 这就是为什么MVVM能迅速取代MVP成为行业主流：它用框架自动完成了View和ViewModel之间的状态同步，省去了90%的手动更新UI代码和接口定义。
 
@@ -87,32 +65,16 @@ MVI是最新的架构趋势，它在MVVM的基础上更进一步，解决了MVVM
 MVI的核心思想是**把所有的用户操作都汇聚成Intent，所有的UI状态都汇聚成一个唯一的、不可变的State，实现严格的单向数据流循环**。
 
 在MVI中，完整的数据流是：
-
-```mermaid
-flowchart LR
-    用户操作 --> Intent --> ViewModel --> Model --> State --> View渲染
-    
-    style 用户操作 fill:#ddd,stroke:#333
-    style Intent fill:#ff9,stroke:#333
-    style ViewModel fill:#bbf,stroke:#333,stroke-width:2px
-    style Model fill:#bfb,stroke:#333,stroke-width:2px
-    style State fill:#f99,stroke:#333
-    style View渲染 fill:#f9f,stroke:#333
+```
+用户操作 → Intent → ViewModel → Model → 新State → View渲染
 ```
 
 从**引用关系**来看，MVI和MVVM完全相同，都是3根连线：
-
-```mermaid
-flowchart LR
-    View --> ViewModel_Store
-    ViewModel_Store <--> Model
-    
-    style View fill:#f9f,stroke:#333,stroke-width:2px
-    style ViewModel_Store fill:#bbf,stroke:#333,stroke-width:2px
-    style Model fill:#bfb,stroke:#333,stroke-width:2px
+```
+View → ViewModel(Store) ←→ Model
 ```
 
-**连线数：3根**
+ViewModel仍然完全不持有View的任何引用，这一点和MVVM是一致的。
 
 **但MVI的革命性在于它彻底改变了数据流的性质**：
 - MVVM的数据流是双向的：View可以直接修改ViewModel的数据
