@@ -23,6 +23,7 @@ import com.joy.appres.R as AppResR
 import com.joy.common.extend.onClick200
 import com.joy.common.extend.onClick300
 import com.joy.common.router.AppRouter
+import com.joy.common.router.LoginRouter
 import com.joy.common.router.RouterConstants
 import com.joy.common.utils.DimensUtil
 import com.joy.common.utils.SizeUtils
@@ -58,6 +59,10 @@ class GoodsDetailActivity : AppCompatActivity() {
 
     private val statusBarTitle2FillColor: Int by lazy {
         ContextCompat.getColor(this, AppResR.color.func_gray_bg_2)
+    }
+
+    private val loginRouter: LoginRouter by lazy {
+        LoginRouter(this)
     }
 
     private enum class DetailAnchorTab {
@@ -288,12 +293,12 @@ class GoodsDetailActivity : AppCompatActivity() {
             ToastUtils.show(this, getString(R.string.goods_action_add_cart_hint))
         }
         binding.btnBuyNow.onClick300 {
-            val detail = currentDetail
-            if (detail == null) {
-                ToastUtils.show(this, getString(R.string.goods_detail_loading_tip))
-                return@onClick300
+            loginRouter.runBlock {
+                //do something
+                //to orderConfirm
+                ToastUtils.show(this,"登陆成功后跳转，比登陆拦截器更加灵活")
+                AppRouter.openGoodsDetail(this,"")
             }
-            goToLogin()
         }
     }
 
@@ -490,10 +495,6 @@ class GoodsDetailActivity : AppCompatActivity() {
             isAppearanceLightStatusBars = false
             isAppearanceLightNavigationBars = true
         }
-    }
-
-    private fun goToLogin() {
-        AppRouter.openLogin(this)
     }
 
     private inner class RecommendGridSpacingDecoration : RecyclerView.ItemDecoration() {
