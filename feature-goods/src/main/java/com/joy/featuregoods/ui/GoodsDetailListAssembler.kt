@@ -6,6 +6,7 @@ import com.joy.featuregoods.model.GoodsDetailProductSectionState
 
 object GoodsDetailListAssembler {
 
+    //根据不同商品，数据有所不同，分割线的数量也不同，需要动态规划
     fun build(
         productSection: GoodsDetailProductSectionState,
         detail: GoodsDetail,

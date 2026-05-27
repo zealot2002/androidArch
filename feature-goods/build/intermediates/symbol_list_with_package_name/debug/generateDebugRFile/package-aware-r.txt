@@ -70,7 +70,6 @@ id llParams
 id llRecommend
 id llReviewImages
 id llReviewStars
-id llServices
 id llSkus
 id llTitle2
 id llViewAllReviews
@@ -173,7 +172,6 @@ layout item_goods_detail_recommend_title
 layout item_goods_detail_review
 layout item_goods_detail_section_divider
 layout item_goods_detail_service_sales
-layout item_goods_detail_services
 layout item_goods_detail_shop
 layout item_goods_detail_spec
 layout item_goods_detail_spec_selection

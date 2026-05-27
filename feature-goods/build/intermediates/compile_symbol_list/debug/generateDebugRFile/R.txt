@@ -69,7 +69,6 @@ int id llParams 0x0
 int id llRecommend 0x0
 int id llReviewImages 0x0
 int id llReviewStars 0x0
-int id llServices 0x0
 int id llSkus 0x0
 int id llTitle2 0x0
 int id llViewAllReviews 0x0
@@ -172,7 +171,6 @@ int layout item_goods_detail_recommend_title 0x0
 int layout item_goods_detail_review 0x0
 int layout item_goods_detail_section_divider 0x0
 int layout item_goods_detail_service_sales 0x0
-int layout item_goods_detail_services 0x0
 int layout item_goods_detail_shop 0x0
 int layout item_goods_detail_spec 0x0
 int layout item_goods_detail_spec_selection 0x0
