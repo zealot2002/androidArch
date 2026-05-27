@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reviewListPanelRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <View
+        android:id="@+id/reviewListScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/func_black_alpha_2" />
+
+    <FrameLayout
+        android:id="@+id/reviewListPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/func_gray_bg_2"
+        android:clickable="true"
+        android:elevation="@dimen/dp_8">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/reviewListFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_goods_review_list" />
+    </FrameLayout>
+</FrameLayout>

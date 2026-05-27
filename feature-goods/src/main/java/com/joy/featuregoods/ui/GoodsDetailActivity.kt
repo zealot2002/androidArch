@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -30,6 +31,7 @@ import com.joy.featuregoods.R
 import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
 import com.joy.featuregoods.model.GoodsDetail
 import com.joy.featuregoods.model.GoodsDetailProductSectionState
+import com.joy.featuregoods.model.GoodsDetailReviewState
 import com.joy.featuregoods.ui.DetailAnchorTab
 import com.joy.featuregoods.ui.GoodsImagePagerAdapter
 import com.joy.featuregoods.ui.RecommendGridSpacingDecoration
@@ -65,12 +67,22 @@ class GoodsDetailActivity : BaseActivity() {
         LoginRouter(this)
     }
 
+    private lateinit var reviewListPanelController: ReviewListPanelController
+    private var currentReviewState: GoodsDetailReviewState? = null
+
+    private val reviewPanelBackCallback = object : OnBackPressedCallback(false) {
+        override fun handleOnBackPressed() {
+            reviewListPanelController.hide()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityGoodsDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         applyEdgeToEdgeInsets(binding.root)
+        setupReviewListPanel()
         setupDetailRecyclerView()
         setupScrollToTop()
         setupTopBarScroll()
@@ -78,6 +90,31 @@ class GoodsDetailActivity : BaseActivity() {
         setupPager()
         observeViewModel()
         loadData()
+    }
+
+    private fun setupReviewListPanel() {
+        onBackPressedDispatcher.addCallback(this, reviewPanelBackCallback)
+        reviewListPanelController = ReviewListPanelController(
+            activity = this,
+            panelRoot = binding.reviewListPanelOverlay.root,
+            scrim = binding.reviewListPanelOverlay.reviewListScrim,
+            panel = binding.reviewListPanelOverlay.reviewListPanel,
+            fragmentContainerId = binding.reviewListPanelOverlay.reviewListFragmentContainer.id,
+        )
+        reviewListPanelController.onVisibilityChanged = { visible ->
+            reviewPanelBackCallback.isEnabled = visible
+        }
+    }
+
+    private fun showReviewListPanel() {
+        val detail = currentDetail ?: run {
+            ToastUtils.show(this, getString(R.string.goods_detail_loading_tip))
+            return
+        }
+        val reviewState = currentReviewState ?: GoodsDetailReviewMapper.from(detail).also {
+            currentReviewState = it
+        }
+        reviewListPanelController.show(reviewState)
     }
 
     private fun loadData() {
@@ -91,6 +128,7 @@ class GoodsDetailActivity : BaseActivity() {
     private fun observeViewModel() {
         viewModel.detail.observe(this) { detail ->
             currentDetail = detail
+            currentReviewState = GoodsDetailReviewMapper.from(detail)
             imageAdapter.submit(detail.bannerImages)
             updateImageCount(position = 0, total = detail.bannerImages.size)
             rebuildDetailList()
@@ -136,7 +174,7 @@ class GoodsDetailActivity : BaseActivity() {
                 }
 
                 override fun onRowReviewClick() {
-                    ToastUtils.show(this@GoodsDetailActivity, getString(R.string.goods_action_review_hint))
+                    showReviewListPanel()
                 }
 
                 override fun onEnterShopClick() {
@@ -476,6 +514,7 @@ class GoodsDetailActivity : BaseActivity() {
         binding.detailTitleOverlay.updatePadding(top = top)
         applyMoreBadgeLayout(top)
         binding.llBottomBar.updatePadding(bottom = bottom)
+        binding.reviewListPanelOverlay.reviewListPanel.updatePadding(top = top, bottom = bottom)
         setWindowStatusBarColor(Color.TRANSPARENT)
         statusBarShowingTitle2Fill = false
     }

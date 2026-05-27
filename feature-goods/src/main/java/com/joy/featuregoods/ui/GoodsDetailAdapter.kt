@@ -330,6 +330,7 @@ class GoodsDetailAdapter(
             bindReviewImages(binding.llReviewImages, preview.imageUrls)
             val openReviewList = { callbacks.onRowReviewClick() }
             binding.rowReviewHeader.onClick200 { openReviewList() }
+            binding.llViewAllReviews.onClick200 { openReviewList() }
         }
     }
 
