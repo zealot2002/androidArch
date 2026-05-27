@@ -70,7 +70,7 @@
 
         <TextView
             android:id="@+id/tvCouponIcon"
-            style="@style/tv_white_1_size_11"
+            style="@style/tv_red_1_size_12"
             android:background="@drawable/bg_red_field_rect_1"
             android:gravity="center"
             android:minWidth="@dimen/dp_18"

@@ -46,6 +46,8 @@
     <color name="orange_2">#FCEACC</color>
     <color name="orange_3">#FF9944</color>
     <color name="orange_4">#FF4B00</color>
+    <color name="orange_5">#D3850F</color>
+    <color name="orange_6">#F57614</color>
     <!-- 夜间等主题映射用（仅基础层定义色值） -->
     <color name="orange_0">#4D2E1A</color>
     <color name="orange_2b">#FFAA66</color>

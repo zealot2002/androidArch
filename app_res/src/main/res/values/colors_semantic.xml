@@ -7,16 +7,16 @@
     -->
 
     <!-- ========== 通用功能色层（App通用职能层）========== -->
-    <!-- 文本色：7色系 × 4档 -->
-    <color name="func_black_text_1">@color/t_black_8</color>
-    <color name="func_black_text_2">@color/t_black_7</color>
-    <color name="func_black_text_3">@color/t_black_5</color>
-    <color name="func_black_text_4">@color/t_black_3</color>
+    <!-- 文本色：对齐电商浅色主题（深灰正文，避免纯黑/纯灰阶误用） -->
+    <color name="func_black_text_1">@color/black_7</color>
+    <color name="func_black_text_2">@color/black_6</color>
+    <color name="func_black_text_3">@color/black_4</color>
+    <color name="func_black_text_4">@color/black_2</color>
 
-    <color name="func_gray_text_1">@color/t_gray_4</color>
-    <color name="func_gray_text_2">@color/t_gray_5</color>
-    <color name="func_gray_text_3">@color/t_gray_6</color>
-    <color name="func_gray_text_4">@color/t_gray_7</color>
+    <color name="func_gray_text_1">@color/black_6</color>
+    <color name="func_gray_text_2">@color/black_5</color>
+    <color name="func_gray_text_3">@color/black_4</color>
+    <color name="func_gray_text_4">@color/black_3</color>
 
     <color name="func_white_text_1">@color/t_on_emphasis_light_1</color>
 
@@ -45,13 +45,13 @@
     <color name="func_green_text_3">@color/t_green_2</color>
     <color name="func_green_text_4">@color/t_green_1</color>
 
-    <!-- 背景色：7色系 × 2档 -->
+    <!-- 背景色：页面浅灰 / 卡片白 / 控件浅灰底 -->
     <color name="func_black_bg_1">@color/t_black_8</color>
     <color name="func_black_bg_2">@color/t_black_7</color>
 
-    <color name="func_gray_bg_1">@color/t_gray_1</color>
-    <color name="func_gray_bg_2">@color/t_gray_3</color>
-    <color name="func_gray_bg_3">@color/t_black_3</color>
+    <color name="func_gray_bg_1">@color/white_4</color>
+    <color name="func_gray_bg_2">@color/white_1</color>
+    <color name="func_gray_bg_3">@color/black_1</color>
 
     <color name="func_white_bg_1">@color/t_white_1</color>
 
@@ -61,8 +61,8 @@
     <color name="func_yellow_bg_1">@color/t_yellow_4</color>
     <color name="func_yellow_bg_2">@color/t_yellow_1</color>
 
-    <color name="func_orange_bg_1">@color/t_orange_4</color>
-    <color name="func_orange_bg_2">@color/t_orange_1</color>
+    <color name="func_orange_bg_1">@color/orange_6</color>
+    <color name="func_orange_bg_2">@color/orange_1</color>
 
     <color name="func_blue_bg_1">@color/t_blue_4</color>
     <color name="func_blue_bg_2">@color/t_blue_1</color>
@@ -96,8 +96,8 @@
     <color name="func_black_divider_1">@color/t_black_3</color>
     <color name="func_black_divider_2">@color/t_black_1</color>
 
-    <color name="func_gray_divider_1">@color/t_gray_2</color>
-    <color name="func_gray_divider_2">@color/t_gray_3</color>
+    <color name="func_gray_divider_1">@color/black_2</color>
+    <color name="func_gray_divider_2">@color/black_1</color>
 
     <color name="func_red_divider_1">@color/t_red_3</color>
     <color name="func_red_divider_2">@color/t_red_1</color>

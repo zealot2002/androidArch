@@ -1,12 +1,14 @@
-<!--
-       iconfont 项目 5173497「易店园」
-       源：/Users/zzy/Downloads/font_5173497_rpx327ozntp/iconfont.ttf
-       新的 iconfont 字体文件已更新到 assets/iconfont.ttf
+<?xml version="1.0" encoding="utf-8"?>
+<resources translatable="false">
 
-       命名：icons_{小写十六进制} 与码位一致；业务请优先使用 iconfont_* 语义别名。
-     -->
+    <!--
+      iconfont 项目 5173497「易店园」
+      源：/Users/zzy/Downloads/font_5173497_rpx327ozntp/iconfont.ttf
+      新的 iconfont 字体文件已更新到 assets/iconfont.ttf
 
-<resources>
+      命名：icons_{小写十六进制} 与码位一致；业务请优先使用 iconfont_* 语义别名。
+    -->
+
     <!-- 基础图标 U+E60A 起 -->
     <string name="icons_60a">&#xe60a;</string>
     <string name="icons_606">&#xe606;</string>
@@ -16,58 +18,290 @@
     <string name="icons_635">&#xe635;</string>
     <string name="icons_63f">&#xe63f;</string>
     <string name="icons_642">&#xe642;</string>
-    
+    <string name="icons_644">&#xe644;</string>
+    <string name="icons_657">&#xe657;</string>
+    <string name="icons_673">&#xe673;</string>
+    <string name="icons_675">&#xe675;</string>
+    <string name="icons_696">&#xe696;</string>
+    <string name="icons_69b">&#xe69b;</string>
+    <string name="icons_6af">&#xe6af;</string>
+    <string name="icons_6b8">&#xe6b8;</string>
+    <string name="icons_6b9">&#xe6b9;</string>
+    <string name="icons_6bb">&#xe6bb;</string>
+    <string name="icons_6de">&#xe6de;</string>
+    <string name="icons_6e3">&#xe6e3;</string>
+    <string name="icons_702">&#xe702;</string>
+    <string name="icons_73b">&#xe73b;</string>
+    <string name="icons_740">&#xe740;</string>
+    <string name="icons_741">&#xe741;</string>
+    <string name="icons_7b3">&#xe7b3;</string>
+    <string name="icons_7bd">&#xe7bd;</string>
+    <string name="icons_7be">&#xe7be;</string>
+    <string name="icons_7bf">&#xe7bf;</string>
+
     <!-- 语义化别名 - 业务代码应使用这些名称 -->
-    <string name="iconfont_more1">&#xe8ae;</string>
-    <string name="iconfont_more2">&#xe8b1;</string>
-    <string name="iconfont_filter">&#xe66a;</string>
-    <string name="iconfont_edit">&#xe66b;</string>
-    <string name="iconfont_home">&#xe66c;</string>
-    <string name="iconfont_favorite">&#xe66d;</string>
-    <string name="iconfont_back">&#xe66e;</string>
-    <string name="iconfont_sort">&#xe66f;</string>
-    <string name="iconfont_more">&#xe670;</string>
-    <string name="iconfont_checkbox_unchecked">&#xe671;</string>
-    <string name="iconfont_message">&#xe672;</string>
-    <string name="iconfont_close">&#xe673;</string>
-    <string name="iconfont_category">&#xe674;</string>
-    <string name="iconfont_profile">&#xe675;</string>
-    <string name="iconfont_uncomment">&#xe676;</string>
-    <string name="iconfont_calendar">&#xe677;</string>
-    <string name="iconfont_check">&#xe678;</string>
-    <string name="iconfont_coupon">&#xe679;</string>
-    <string name="iconfont_cart">&#xe67a;</string>
-    <string name="iconfont_minus">&#xe67b;</string>
-    <string name="iconfont_unreceived">&#xe67c;</string>
-    <string name="iconfont_history">&#xe67d;</string>
-    <string name="iconfont_location">&#xe67e;</string>
-    <string name="iconfont_search">&#xe67f;</string>
-    <string name="iconfont_arrow_down">&#xe680;</string>
-    <string name="iconfont_notification">&#xe681;</string>
-    <string name="iconfont_order">&#xe682;</string>
-    <string name="iconfont_clock">&#xe683;</string>
-    <string name="iconfont_share">&#xe684;</string>
-    <string name="iconfont_buy_now">&#xe685;</string>
-    <string name="iconfont_plus">&#xe686;</string>
-    <string name="iconfont_logistics">&#xe687;</string>
-    <string name="iconfont_wallet">&#xe688;</string>
-    <string name="iconfont_delete">&#xe689;</string>
-    <string name="iconfont_image">&#xe68a;</string>
-    <string name="iconfont_camera">&#xe68b;</string>
-    <string name="iconfont_unpaid">&#xe68c;</string>
-    <string name="iconfont_unsent">&#xe68d;</string>
-    <string name="iconfont_checkbox_checked">&#xe68e;</string>
-    <string name="iconfont_scan">&#xe68f;</string>
-    <string name="iconfont_point">&#xe690;</string>
-    <string name="iconfont_refresh">&#xe691;</string>
-    <string name="iconfont_service">&#xe692;</string>
-    <string name="iconfont_settings">&#xe693;</string>
-    <string name="iconfont_add_cart">&#xe694;</string>
+    <string name="iconfont_add_cart">&#xe73e;</string>
+    <string name="iconfont_buy_now">&#xe673;</string>
+    <string name="iconfont_back">&#xe779;</string>
+    <string name="iconfont_close">&#xe723;</string>
+    <string name="iconfont_category">&#xe78e;</string>
+    <string name="iconfont_calendar">&#xe74f;</string>
+    <string name="iconfont_arrow_down">&#xe771;</string>
+    <string name="iconfont_check">&#xe72e;</string>
+    <string name="iconfont_history">&#xe617;</string>
+    <string name="iconfont_home">&#xe736;</string>
+    <string name="iconfont_search">&#xe752;</string>
+    <string name="iconfont_image">&#xe763;</string>
+    <string name="iconfont_clock">&#xe74e;</string>
+    <string name="iconfont_filter">&#xe74a;</string>
+    <string name="iconfont_cart">&#xe73e;</string>
+    <string name="iconfont_notification">&#xe759;</string>
+    <string name="iconfont_camera">&#xe77f;</string>
+    <string name="iconfont_coupon">&#xe748;</string>
+    <string name="iconfont_favorite">&#xe642;</string>
+    <string name="iconfont_point">&#xe733;</string>
+    <string name="iconfont_delete">&#xe74b;</string>
+    <string name="iconfont_minus">&#xe729;</string>
+    <string name="iconfont_message">&#xe763;</string>
+    <string name="iconfont_edit">&#xe725;</string>
+    <string name="iconfont_plus">&#xe726;</string>
+    <string name="iconfont_location">&#xe769;</string>
+    <string name="iconfont_scan">&#xe749;</string>
+    <string name="iconfont_profile">&#xe75e;</string>
+    <string name="iconfont_wallet">&#xe785;</string>
+    <string name="iconfont_logistics">&#xe75f;</string>
+    <string name="iconfont_sort">&#xe74a;</string>
+    <string name="iconfont_share">&#xe739;</string>
+    <string name="iconfont_unreceived">&#xe75f;</string>
+    <string name="iconfont_uncomment">&#xe744;</string>
+    <string name="iconfont_order">&#xe737;</string>
+    <string name="iconfont_more">&#xe73a;</string>
+    <string name="iconfont_service">&#xec2e;</string>
+    <string name="iconfont_unsent">&#xe7ac;</string>
+    <string name="iconfont_refresh">&#xe782;</string>
+    <string name="iconfont_settings">&#xe69b;</string>
+    <string name="iconfont_unpaid">&#xe75a;</string>
+
+    <!-- 自定义扩展别名 -->
     <string name="iconfont_row_chevron">&#xe775;</string>
+    <string name="iconfont_checkbox_checked">&#xe730;</string>
+    <string name="iconfont_checkbox_unchecked">&#xe72f;</string>
+
+    <!-- 安全相关 -->
+    <string name="iconfont_security">&#xec4d;</string>
+
+    <!-- 深色模式 -->
+    <string name="iconfont_dark_mode">&#xe635;</string>
+
+    <!-- 活动 -->
+    <string name="iconfont_activity">&#xe606;</string>
+    <string name="iconfont_activity_want">&#xe88d;</string>
+
+    <!-- 关注/收藏 -->
+    <string name="iconfont_follow">&#xe6de;</string>
     <string name="iconfont_follow_fill">&#xe8b9;</string>
+
+    <!-- 快递包裹 -->
+    <string name="iconfont_package">&#xe8b7;</string>
+    <string name="iconfont_package_full">&#xe8b6;</string>
+
+    <!-- 赞赏 -->
+    <string name="iconfont_appreciate">&#xe644;</string>
+    <string name="iconfont_appreciate_fill">&#xe6e3;</string>
+
+    <!-- 单选/复选 -->
+    <string name="iconfont_radio_fill">&#xe71e;</string>
+    <string name="iconfont_radio">&#xe71f;</string>
+    <string name="iconfont_checkbox_square_unchecked">&#xe720;</string>
+    <string name="iconfont_checkbox_square_checked_fill">&#xe721;</string>
+    <string name="iconfont_checkbox_square_checked">&#xe722;</string>
+
+    <!-- 加号/减号 -->
+    <string name="iconfont_add">&#xe726;</string>
+    <string name="iconfont_add1">&#xe727;</string>
+    <string name="iconfont_add2_fill">&#xe728;</string>
+
+    <!-- 提示/问号 -->
+    <string name="iconfont_tip_fill">&#xe72a;</string>
+    <string name="iconfont_tip">&#xe72b;</string>
+    <string name="iconfont_question_fill">&#xe72c;</string>
+    <string name="iconfont_question">&#xe72d;</string>
+
+    <!-- 店铺 -->
+    <string name="iconfont_shop_fill">&#xe735;</string>
     <string name="iconfont_shop">&#xe736;</string>
+
+    <!-- 反馈 -->
     <string name="iconfont_feedback">&#xe738;</string>
+
+    <!-- 购物袋 -->
+    <string name="iconfont_bag">&#xe73e;</string>
+
+    <!-- 列表/卡片 -->
+    <string name="iconfont_card_mode">&#xe73f;</string>
+    <string name="iconfont_list_mode">&#xe742;</string>
+
+    <!-- 留言 -->
+    <string name="iconfont_comment_fill">&#xe743;</string>
+    <string name="iconfont_comment">&#xe744;</string>
+
+    <!-- 清除 -->
+    <string name="iconfont_clear">&#xe747;</string>
+
+    <!-- 时钟 -->
+    <string name="iconfont_time_fill">&#xe74e;</string>
+    <string name="iconfont_time">&#xe74f;</string>
+
+    <!-- 喜欢 -->
+    <string name="iconfont_like_fill">&#xe760;</string>
+    <string name="iconfont_like">&#xe761;</string>
+
+    <!-- 优惠券 -->
+    <string name="iconfont_voucher">&#xe764;</string>
+
+    <!-- 足迹 -->
+    <string name="iconfont_footprint">&#xe767;</string>
+
+    <!-- 坐标 -->
+    <string name="iconfont_location_fill">&#xe768;</string>
+
+    <!-- 方向箭头 -->
+    <string name="iconfont_arrow_up">&#xe76d;</string>
+    <string name="iconfont_arrow_right">&#xe775;</string>
+    <string name="iconfont_arrow_left">&#xe779;</string>
+
+    <!-- 相机 -->
+    <string name="iconfont_camera_fill">&#xe77e;</string>
+    <string name="iconfont_camera2">&#xe780;</string>
+
+    <!-- 加载 -->
+    <string name="iconfont_loading">&#xe781;</string>
+
+    <!-- WiFi -->
+    <string name="iconfont_wifi">&#xe783;</string>
+
+    <!-- 红包 -->
+    <string name="iconfont_red_packet">&#xe784;</string>
+
+    <!-- 信用卡 -->
+    <string name="iconfont_credit_card">&#xe785;</string>
+
+    <!-- 促销 -->
+    <string name="iconfont_sale_fill">&#xe78a;</string>
+    <string name="iconfont_sale">&#xe78b;</string>
+
+    <!-- 赠送 -->
+    <string name="iconfont_gift">&#xe78c;</string>
+
+    <!-- Android更多 -->
+    <string name="iconfont_android_more">&#xe78d;</string>
+
+    <!-- 帮助中心 -->
+    <string name="iconfont_help">&#xe78f;</string>
+
+    <!-- 菜单 -->
+    <string name="iconfont_menu">&#xe790;</string>
+
+    <!-- 电话 -->
+    <string name="iconfont_phone">&#xe797;</string>
+
+    <!-- 单品 -->
+    <string name="iconfont_single_product">&#xe7ab;</string>
+
+    <!-- 多种支付 -->
+    <string name="iconfont_multi_payment">&#xe7ac;</string>
+
+    <!-- 二维码 -->
+    <string name="iconfont_qrcode">&#xe7ad;</string>
+
+    <!-- 国际物流 -->
+    <string name="iconfont_intl_logistics">&#xe7ae;</string>
+
+    <!-- 缺失的图标补充 -->
+    <string name="iconfont_message2">&#xe60a;</string>
+    <string name="iconfont_send">&#xe675;</string>
+    <string name="iconfont_dark_mode2">&#xe63f;</string>
+    <string name="iconfont_activity2">&#xe657;</string>
+    <string name="iconfont_browse_history">&#xe624;</string>
+    <string name="iconfont_people_fill">&#xe73c;</string>
+    <string name="iconfont_people">&#xe73d;</string>
+    <string name="iconfont_close2_fill">&#xe724;</string>
     <string name="iconfont_star_fill">&#xe732;</string>
     <string name="iconfont_check_outline">&#xe731;</string>
+    <string name="iconfont_undo">&#xe734;</string>
+    <string name="iconfont_friend_fill">&#xe745;</string>
+    <string name="iconfont_friend">&#xe746;</string>
+    <string name="iconfont_identity">&#xe74d;</string>
+    <string name="iconfont_search_category_fill">&#xe753;</string>
+    <string name="iconfont_search_category">&#xe754;</string>
+    <string name="iconfont_notification_fill">&#xe758;</string>
+    <string name="iconfont_my_fill">&#xe75d;</string>
+    <string name="iconfont_info_fill">&#xe762;</string>
+    <string name="iconfont_organize">&#xe766;</string>
+    <string name="iconfont_location_fill2">&#xe768;</string>
+    <string name="iconfont_bottom">&#xe76a;</string>
+    <string name="iconfont_top_forbidden">&#xe76b;</string>
     <string name="iconfont_top2">&#xe76c;</string>
+    <string name="iconfont_up2">&#xe76e;</string>
+    <string name="iconfont_up3">&#xe76f;</string>
+    <string name="iconfont_up4">&#xe770;</string>
+    <string name="iconfont_down2">&#xe772;</string>
+    <string name="iconfont_down3">&#xe773;</string>
+    <string name="iconfont_down4">&#xe774;</string>
+    <string name="iconfont_right2">&#xe776;</string>
+    <string name="iconfont_right3_fill">&#xe777;</string>
+    <string name="iconfont_right3">&#xe778;</string>
+    <string name="iconfont_left2">&#xe77a;</string>
+    <string name="iconfont_camera3">&#xe77f;</string>
+    <string name="iconfont_camera3_1">&#xe780;</string>
+    <string name="iconfont_category2">&#xe78e;</string>
+    <string name="iconfont_help_center">&#xe78f;</string>
+    <string name="iconfont_up5">&#xe795;</string>
+    <string name="iconfont_down5">&#xe796;</string>
+    <string name="iconfont_outdoor">&#xe7b0;</string>
+    <string name="iconfont_home_living">&#xe7b1;</string>
+    <string name="iconfont_pants">&#xe7b2;</string>
+    <string name="iconfont_maternity">&#xe7b4;</string>
+    <string name="iconfont_menswear">&#xe7b5;</string>
+    <string name="iconfont_lingerie">&#xe7b6;</string>
+    <string name="iconfont_womenswear">&#xe7b7;</string>
+    <string name="iconfont_brand">&#xe7b8;</string>
+    <string name="iconfont_exclusive_privilege">&#xe7b9;</string>
+    <string name="iconfont_bags">&#xe7ba;</string>
+    <string name="iconfont_sold_out">&#xe7bb;</string>
+    <string name="iconfont_others">&#xe7bc;</string>
+    <string name="iconfont_settings2">&#xe8b8;</string>
+    <string name="iconfont_express_package_full">&#xe8b6;</string>
+    <string name="iconfont_express_package">&#xe8b7;</string>
+    <string name="iconfont_customer_service2">&#xec2e;</string>
+
+    <!-- 新补充图标 - 编辑 -->
+    <string name="iconfont_edit_icon">&#xe702;</string>
+
+    <!-- 新补充图标 - 收藏系列 -->
+    <string name="iconfont_favorite3">&#xe60b;</string>
+
+    <!-- 新补充图标 - 关注系列 -->
+    <string name="iconfont_attention_fill">&#xe740;</string>
+    <string name="iconfont_attention">&#xe741;</string>
+    <string name="iconfont_attention_forbid">&#xe7b3;</string>
+    <string name="iconfont_attention_forbid_fill">&#xe7bd;</string>
+    <string name="iconfont_attention_favor_fill">&#xe7be;</string>
+    <string name="iconfont_attention_favor">&#xe7bf;</string>
+
+    <!-- 新补充图标 - 设置系列 -->
+    <string name="iconfont_settings3">&#xe696;</string>
+
+    <!-- 新补充图标 - 攻略 -->
+    <string name="iconfont_strategy">&#xe73b;</string>
+
+    <!-- 新补充图标 - 购物车/首页简单版 -->
+    <string name="iconfont_cart_simple">&#xe6af;</string>
+    <string name="iconfont_home_simple">&#xe6b8;</string>
+    <string name="iconfont_cart_simple_fill">&#xe6b9;</string>
+    <string name="iconfont_home_simple_fill">&#xe6bb;</string>
+
+    <!-- 密码可见性图标 -->
+    <string name="iconfont_password_visible">&#xe741;</string>
+    <string name="iconfont_password_hidden">&#xe7b3;</string>
 </resources>
