@@ -98,7 +98,7 @@ class GoodsDetailActivity : AppCompatActivity() {
     }
 
     private fun setupDetailRecyclerView() {
-        detailAdapter = GoodsDetailAdapter(
+        detailAdapter = GoodsDetailAdapter(this,
             object : GoodsDetailAdapter.Callbacks {
                 override fun onCouponClick() {
                     ToastUtils.show(this@GoodsDetailActivity, getString(R.string.goods_action_coupon_hint))

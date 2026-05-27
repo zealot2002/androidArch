@@ -1,5 +1,6 @@
 package com.joy.featuregoods.ui
 
+import android.content.Context
 import android.graphics.Paint
 import android.graphics.drawable.BitmapDrawable
 import android.util.TypedValue
@@ -13,8 +14,12 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexboxLayout
+import com.joy.common.extend.getCoroutineScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import com.joy.appres.R as AppResR
 import com.joy.common.extend.onClick
 import com.joy.common.extend.onClick200
@@ -49,6 +54,7 @@ import com.joy.featuregoods.model.GoodsDetailShopRating
 import com.joy.featuregoods.model.GoodsDetailShopState
 
 class GoodsDetailAdapter(
+    private val context: Context,
     private val callbacks: Callbacks,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -371,6 +377,7 @@ class GoodsDetailAdapter(
                             else -> drawable.toBitmap()
                         }
                         PaletteColorUtils.computeMutedBackgroundGradient(
+                            context.getCoroutineScope(),
                             bitmap = bitmap,
                             endColor = endColor,
                             fallbackStartColor = fallbackStartColor,
