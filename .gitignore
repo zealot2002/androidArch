@@ -1,3 +1,4 @@
+# Android Studio / IntelliJ IDEA
 *.iml
 .gradle
 /local.properties
@@ -7,9 +8,54 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/*.xml
+/.idea/
+*.ipr
+*.iws
+
+# OSX
 .DS_Store
+
+# Build outputs
 /build
+*/build
+/buildSrc/build
+*.apk
+*.ap_
+*.aab
+*.dex
+
+# Captures
 /captures
+
+# Native build
 .externalNativeBuild
 .cxx
+*.so
+
+# Local properties
 local.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Logs
+*.log
+*.txt
+
+# Proguard
+proguard/
+
+# Test reports
+/reports
+/test-results
+
+# Misc
+*.swp
+*.bak
+*.tmp
+*.snap

@@ -18,18 +18,24 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
-    override fun initView() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initView()
+        initData()
+        initObserver()
+    }
+    fun initView() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
-    override fun initData() {
+    fun initData() {
         val userRepository = MockUserRepository()
         val loginUseCase = LoginUseCase(userRepository)
         loginViewModel = LoginViewModel(loginUseCase)
     }
 
-    override fun initObserver() {
+    fun initObserver() {
         loginViewModel.loginState.observe(this) { result ->
             when (result) {
                 is Result.Loading -> LoadingUtils.show(this)

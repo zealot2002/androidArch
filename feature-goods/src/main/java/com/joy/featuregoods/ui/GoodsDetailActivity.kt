@@ -8,9 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.android.material.appbar.AppBarLayout
+import com.joy.common.base.BaseActivity
 import com.joy.appres.R as AppResR
 import com.joy.common.extend.onClick200
 import com.joy.common.extend.onClick300
@@ -31,11 +30,14 @@ import com.joy.featuregoods.R
 import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
 import com.joy.featuregoods.model.GoodsDetail
 import com.joy.featuregoods.model.GoodsDetailProductSectionState
+import com.joy.featuregoods.ui.DetailAnchorTab
+import com.joy.featuregoods.ui.GoodsImagePagerAdapter
+import com.joy.featuregoods.ui.RecommendGridSpacingDecoration
 import com.joy.featuregoods.viewmodel.GoodsDetailViewModel
 import kotlin.math.abs
 
 @Route(path = RouterConstants.GOODS_DETAIL)
-class GoodsDetailActivity : AppCompatActivity() {
+class GoodsDetailActivity : BaseActivity() {
 
     private lateinit var binding: ActivityGoodsDetailBinding
     private val viewModel: GoodsDetailViewModel by lazy {
@@ -63,19 +65,12 @@ class GoodsDetailActivity : AppCompatActivity() {
         LoginRouter(this)
     }
 
-    private enum class DetailAnchorTab {
-        PRODUCT,
-        REVIEW,
-        DETAIL,
-        RECOMMEND,
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityGoodsDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        applyEdgeToEdgeInsets()
+        applyEdgeToEdgeInsets(binding.root)
         setupDetailRecyclerView()
         setupScrollToTop()
         setupTopBarScroll()
@@ -301,8 +296,8 @@ class GoodsDetailActivity : AppCompatActivity() {
     }
 
     private fun applyDemoBadges() {
-        binding.tvMoreBadge.setCount(DEMO_MORE_BADGE_COUNT)
-        binding.tvCartBadge.setCount(DEMO_CART_BADGE_COUNT)
+        binding.tvMoreBadge.setCount(23)
+        binding.tvCartBadge.setCount(8)
     }
 
     private fun setupPager() {
@@ -477,26 +472,11 @@ class GoodsDetailActivity : AppCompatActivity() {
         binding.tvMoreBadge.layoutParams = params
     }
 
-    private fun applyEdgeToEdgeInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
-            val bars = insets.getInsets(
-                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout(),
-            )
-            binding.detailTitleOverlay.updatePadding(top = bars.top)
-            applyMoreBadgeLayout(bars.top)
-            binding.llBottomBar.updatePadding(bottom = bars.bottom)
-            insets
-        }
+    override fun onApplyWindowInsets(left: Int, top: Int, right: Int, bottom: Int) {
+        binding.detailTitleOverlay.updatePadding(top = top)
+        applyMoreBadgeLayout(top)
+        binding.llBottomBar.updatePadding(bottom = bottom)
         setWindowStatusBarColor(Color.TRANSPARENT)
         statusBarShowingTitle2Fill = false
-        WindowCompat.getInsetsController(window, window.decorView).apply {
-            isAppearanceLightStatusBars = false
-            isAppearanceLightNavigationBars = true
-        }
-    }
-
-    companion object {
-        private const val DEMO_MORE_BADGE_COUNT = 23
-        private const val DEMO_CART_BADGE_COUNT = 8
     }
 }
