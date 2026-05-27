@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ====================== 基础基类 ====================== -->
+    <!-- 默认 wrap 宽高（多数场景）。列表/表单里要撑满一行时在布局写 android:layout_width="match_parent"。 -->
+    <style name="tv_base" tools:ignore="ResourceName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- ====================== 黑色文字（主文本） ====================== -->
+    <style name="tv_black_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_1</item>
+    </style>
+    <style name="tv_black_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_2</item>
+    </style>
+    <style name="tv_black_3" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_3</item>
+    </style>
+
+    <!-- ====================== 灰色文字（辅助/提示） ====================== -->
+    <style name="tv_gray_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_1</item>
+    </style>
+    <style name="tv_gray_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_2</item>
+    </style>
+    <style name="tv_gray_3" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_3</item>
+    </style>
+
+    <!-- ====================== 白色文字（深色背景用） ====================== -->
+    <style name="tv_white_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_white_text_1</item>
+    </style>
+
+    <!-- ====================== 橙色文字（主色/强调） ====================== -->
+    <style name="tv_orange_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_orange_text_1</item>
+    </style>
+    <style name="tv_orange_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_orange_text_2</item>
+    </style>
+
+    <!-- ====================== 红色文字（价格/错误/促销） ====================== -->
+    <style name="tv_red_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_red_text_1</item>
+    </style>
+    <style name="tv_red_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_red_text_2</item>
+    </style>
+
+    <!-- ====================== 绿色文字（成功/状态） ====================== -->
+    <style name="tv_green_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_green_text_1</item>
+    </style>
+
+    <!-- ====================== 蓝色文字（链接/说明） ====================== -->
+    <style name="tv_blue_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_blue_text_1</item>
+    </style>
+
+    <!-- ====================== 黑色文字 + 字号（最常用，全覆盖）更多定义视情况自行添加 ====================== -->
+    <style name="tv_black_1_size_9" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">9sp</item>
+    </style>
+    <style name="tv_black_1_size_10" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="tv_black_1_size_11" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_black_1_size_12" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_black_1_size_13" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_black_1_size_14" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_black_1_size_15" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="tv_black_1_size_16" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="tv_black_1_size_18" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="tv_black_1_size_20" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="tv_black_1_size_24" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- 黑次级 + 字号 -->
+    <style name="tv_black_2_size_13" parent="tv_black_2" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- 灰 + 字号 -->
+    <style name="tv_gray_1_size_12" parent="tv_gray_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_gray_1_size_14" parent="tv_gray_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_gray_2_size_12" parent="tv_gray_2" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_gray_2_size_14" parent="tv_gray_2" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_gray_3_size_10" parent="tv_gray_3" tools:ignore="ResourceName">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="tv_gray_3_size_11" parent="tv_gray_3" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- 白 + 字号 -->
+    <style name="tv_white_1_size_13" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_white_1_size_15" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 橙 + 字号 -->
+    <style name="tv_orange_1_size_14" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_orange_1_size_15" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 红 / 蓝 / 绿 + 字号 -->
+    <style name="tv_red_1_size_14" parent="tv_red_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_blue_1_size_14" parent="tv_blue_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_green_1_size_14" parent="tv_green_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

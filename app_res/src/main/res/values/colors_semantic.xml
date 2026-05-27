@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      通用功能色层（semantic）：定义 App 通用职能层，引用主题适配层的颜色。
+      通过语义化命名（text、bg、border、divider、alpha、shadow）实现业务场景的颜色映射。
+    -->
+
+    <!-- ========== 通用功能色层（App通用职能层）========== -->
+    <!-- 文本色：7色系 × 4档 -->
+    <color name="func_black_text_1">@color/t_black_8</color>
+    <color name="func_black_text_2">@color/t_black_7</color>
+    <color name="func_black_text_3">@color/t_black_5</color>
+    <color name="func_black_text_4">@color/t_black_3</color>
+
+    <color name="func_gray_text_1">@color/t_gray_4</color>
+    <color name="func_gray_text_2">@color/t_gray_5</color>
+    <color name="func_gray_text_3">@color/t_gray_6</color>
+    <color name="func_gray_text_4">@color/t_gray_7</color>
+
+    <color name="func_white_text_1">@color/t_on_emphasis_light_1</color>
+
+    <color name="func_red_text_1">@color/t_red_4</color>
+    <color name="func_red_text_2">@color/t_red_3</color>
+    <color name="func_red_text_3">@color/t_red_2</color>
+    <color name="func_red_text_4">@color/t_red_1</color>
+
+    <color name="func_yellow_text_1">@color/t_yellow_4</color>
+    <color name="func_yellow_text_2">@color/t_yellow_3</color>
+    <color name="func_yellow_text_3">@color/t_yellow_2</color>
+    <color name="func_yellow_text_4">@color/t_yellow_1</color>
+
+    <color name="func_orange_text_1">@color/t_orange_4</color>
+    <color name="func_orange_text_2">@color/t_orange_3</color>
+    <color name="func_orange_text_3">@color/t_orange_2</color>
+    <color name="func_orange_text_4">@color/t_orange_1</color>
+
+    <color name="func_blue_text_1">@color/t_blue_4</color>
+    <color name="func_blue_text_2">@color/t_blue_3</color>
+    <color name="func_blue_text_3">@color/t_blue_2</color>
+    <color name="func_blue_text_4">@color/t_blue_1</color>
+
+    <color name="func_green_text_1">@color/t_green_4</color>
+    <color name="func_green_text_2">@color/t_green_3</color>
+    <color name="func_green_text_3">@color/t_green_2</color>
+    <color name="func_green_text_4">@color/t_green_1</color>
+
+    <!-- 背景色：7色系 × 2档 -->
+    <color name="func_black_bg_1">@color/t_black_8</color>
+    <color name="func_black_bg_2">@color/t_black_7</color>
+
+    <color name="func_gray_bg_1">@color/t_gray_1</color>
+    <color name="func_gray_bg_2">@color/t_gray_3</color>
+
+    <color name="func_red_bg_1">@color/t_red_4</color>
+    <color name="func_red_bg_2">@color/t_red_1</color>
+
+    <color name="func_yellow_bg_1">@color/t_yellow_4</color>
+    <color name="func_yellow_bg_2">@color/t_yellow_1</color>
+
+    <color name="func_orange_bg_1">@color/t_orange_4</color>
+    <color name="func_orange_bg_2">@color/t_orange_1</color>
+
+    <color name="func_blue_bg_1">@color/t_blue_4</color>
+    <color name="func_blue_bg_2">@color/t_blue_1</color>
+
+    <color name="func_green_bg_1">@color/t_green_4</color>
+    <color name="func_green_bg_2">@color/t_green_1</color>
+
+    <!-- 边框色：7色系 × 2档 -->
+    <color name="func_black_border_1">@color/t_black_4</color>
+    <color name="func_black_border_2">@color/t_black_2</color>
+
+    <color name="func_gray_border_1">@color/t_gray_2</color>
+    <color name="func_gray_border_2">@color/t_gray_4</color>
+
+    <color name="func_red_border_1">@color/t_red_4</color>
+    <color name="func_red_border_2">@color/t_red_1</color>
+
+    <color name="func_yellow_border_1">@color/t_yellow_4</color>
+    <color name="func_yellow_border_2">@color/t_yellow_2</color>
+
+    <color name="func_orange_border_1">@color/t_orange_4</color>
+    <color name="func_orange_border_2">@color/t_orange_2</color>
+
+    <color name="func_blue_border_1">@color/t_blue_4</color>
+    <color name="func_blue_border_2">@color/t_blue_1</color>
+
+    <color name="func_green_border_1">@color/t_green_4</color>
+    <color name="func_green_border_2">@color/t_green_1</color>
+
+    <!-- 分割线：7色系 × 2档 -->
+    <color name="func_black_divider_1">@color/t_black_3</color>
+    <color name="func_black_divider_2">@color/t_black_1</color>
+
+    <color name="func_gray_divider_1">@color/t_gray_2</color>
+    <color name="func_gray_divider_2">@color/t_gray_3</color>
+
+    <color name="func_red_divider_1">@color/t_red_3</color>
+    <color name="func_red_divider_2">@color/t_red_1</color>
+
+    <color name="func_yellow_divider_1">@color/t_yellow_3</color>
+    <color name="func_yellow_divider_2">@color/t_yellow_1</color>
+
+    <color name="func_orange_divider_1">@color/t_orange_3</color>
+    <color name="func_orange_divider_2">@color/t_orange_1</color>
+
+    <color name="func_blue_divider_1">@color/t_blue_3</color>
+    <color name="func_blue_divider_2">@color/t_blue_1</color>
+
+    <color name="func_green_divider_1">@color/t_green_3</color>
+    <color name="func_green_divider_2">@color/t_green_1</color>
+
+    <!-- 透明度色：7色系 × 2档 -->
+    <color name="func_black_alpha_1">@color/t_black_8_alpha20</color>
+    <color name="func_black_alpha_2">@color/t_black_8_alpha40</color>
+
+    <color name="func_gray_alpha_1">@color/t_gray_4_alpha30</color>
+    <color name="func_gray_alpha_2">@color/t_gray_6_alpha50</color>
+
+    <color name="func_red_alpha_1">@color/t_red_4_alpha20</color>
+    <color name="func_red_alpha_2">@color/t_red_4_alpha40</color>
+
+    <color name="func_yellow_alpha_1">@color/t_yellow_4_alpha20</color>
+    <color name="func_yellow_alpha_2">@color/t_yellow_4_alpha40</color>
+
+    <color name="func_orange_alpha_1">@color/t_orange_4_alpha20</color>
+    <color name="func_orange_alpha_2">@color/t_orange_4_alpha40</color>
+
+    <color name="func_blue_alpha_1">@color/t_blue_4_alpha20</color>
+    <color name="func_blue_alpha_2">@color/t_blue_4_alpha40</color>
+
+    <color name="func_green_alpha_1">@color/t_green_4_alpha20</color>
+    <color name="func_green_alpha_2">@color/t_green_4_alpha40</color>
+
+    <!-- 阴影色：7色系 × 2档 -->
+    <color name="func_black_shadow_1">@color/t_black_8_alpha10</color>
+    <color name="func_black_shadow_2">@color/t_black_8_alpha20</color>
+
+    <color name="func_gray_shadow_1">@color/t_gray_6_alpha15</color>
+    <color name="func_gray_shadow_2">@color/t_gray_7_alpha25</color>
+
+    <color name="func_red_shadow_1">@color/t_red_4_alpha10</color>
+    <color name="func_red_shadow_2">@color/t_red_4_alpha20</color>
+
+    <color name="func_yellow_shadow_1">@color/t_yellow_4_alpha10</color>
+    <color name="func_yellow_shadow_2">@color/t_yellow_4_alpha20</color>
+
+    <color name="func_orange_shadow_1">@color/t_orange_4_alpha10</color>
+    <color name="func_orange_shadow_2">@color/t_orange_4_alpha20</color>
+
+    <color name="func_blue_shadow_1">@color/t_blue_4_alpha10</color>
+    <color name="func_blue_shadow_2">@color/t_blue_4_alpha20</color>
+
+    <color name="func_green_shadow_1">@color/t_green_4_alpha10</color>
+    <color name="func_green_shadow_2">@color/t_green_4_alpha20</color>
+
+    <!-- 页面根背景：浅色为白，深色随 t_white_1 主题映射 -->
+    <color name="func_surface_paper_1">@color/t_white_1</color>
+
+    <!-- Drawable 全透明占位（不映射主题，避免在 shape 中写 # 色值） -->
+    <color name="func_clear_1">@android:color/transparent</color>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AndroidArch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/red_4</item>
+        <item name="colorPrimaryDark">@color/red_4</item>
+        <item name="colorAccent">@color/orange_1</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+    </style>
+</resources>

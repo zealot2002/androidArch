@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.AndroidArch" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.AndroidArch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/func_surface_paper_1</item>
+        <item name="android:statusBarColor">@color/func_surface_paper_1</item>
+        <item name="android:navigationBarColor">@color/func_surface_paper_1</item>
+        <item name="colorPrimary">@color/orange_4</item>
+        <item name="colorPrimaryVariant">@color/orange_3</item>
+        <item name="colorOnPrimary">@color/white_1</item>
+    </style>
 </resources>

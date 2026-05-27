@@ -19,9 +19,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "androidArch"
 include(":app")
- 
+include(":tools")
+include(":common")
+include(":app_res")
+include(":feature-goods")
+include(":feature-login")

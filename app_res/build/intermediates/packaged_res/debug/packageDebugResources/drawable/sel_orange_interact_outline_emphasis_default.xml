@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bg_gray_stroke_interact_3"
+        android:state_enabled="false" />
+    <item
+        android:drawable="@drawable/bg_orange_stroke_interact_2"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/bg_orange_stroke_interact_1" />
+</selector>

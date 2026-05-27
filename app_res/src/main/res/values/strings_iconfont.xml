@@ -1,0 +1,66 @@
+<!--
+       iconfont 项目 5173497「易店园」
+       源：/Users/zzy/Downloads/font_5173497_rpx327ozntp/iconfont.ttf
+       新的 iconfont 字体文件已更新到 assets/iconfont.ttf
+
+       命名：icons_{小写十六进制} 与码位一致；业务请优先使用 iconfont_* 语义别名。
+     -->
+
+<resources>
+    <!-- 基础图标 U+E60A 起 -->
+    <string name="icons_60a">&#xe60a;</string>
+    <string name="icons_606">&#xe606;</string>
+    <string name="icons_60b">&#xe60b;</string>
+    <string name="icons_617">&#xe617;</string>
+    <string name="icons_624">&#xe624;</string>
+    <string name="icons_635">&#xe635;</string>
+    <string name="icons_63f">&#xe63f;</string>
+    <string name="icons_642">&#xe642;</string>
+    
+    <!-- 语义化别名 - 业务代码应使用这些名称 -->
+    <string name="iconfont_more1">&#xe8ae;</string>
+    <string name="iconfont_more2">&#xe8b1;</string>
+    <string name="iconfont_filter">&#xe66a;</string>
+    <string name="iconfont_edit">&#xe66b;</string>
+    <string name="iconfont_home">&#xe66c;</string>
+    <string name="iconfont_favorite">&#xe66d;</string>
+    <string name="iconfont_back">&#xe66e;</string>
+    <string name="iconfont_sort">&#xe66f;</string>
+    <string name="iconfont_more">&#xe670;</string>
+    <string name="iconfont_checkbox_unchecked">&#xe671;</string>
+    <string name="iconfont_message">&#xe672;</string>
+    <string name="iconfont_close">&#xe673;</string>
+    <string name="iconfont_category">&#xe674;</string>
+    <string name="iconfont_profile">&#xe675;</string>
+    <string name="iconfont_uncomment">&#xe676;</string>
+    <string name="iconfont_calendar">&#xe677;</string>
+    <string name="iconfont_check">&#xe678;</string>
+    <string name="iconfont_coupon">&#xe679;</string>
+    <string name="iconfont_cart">&#xe67a;</string>
+    <string name="iconfont_minus">&#xe67b;</string>
+    <string name="iconfont_unreceived">&#xe67c;</string>
+    <string name="iconfont_history">&#xe67d;</string>
+    <string name="iconfont_location">&#xe67e;</string>
+    <string name="iconfont_search">&#xe67f;</string>
+    <string name="iconfont_arrow_down">&#xe680;</string>
+    <string name="iconfont_notification">&#xe681;</string>
+    <string name="iconfont_order">&#xe682;</string>
+    <string name="iconfont_clock">&#xe683;</string>
+    <string name="iconfont_share">&#xe684;</string>
+    <string name="iconfont_buy_now">&#xe685;</string>
+    <string name="iconfont_plus">&#xe686;</string>
+    <string name="iconfont_logistics">&#xe687;</string>
+    <string name="iconfont_wallet">&#xe688;</string>
+    <string name="iconfont_delete">&#xe689;</string>
+    <string name="iconfont_image">&#xe68a;</string>
+    <string name="iconfont_camera">&#xe68b;</string>
+    <string name="iconfont_unpaid">&#xe68c;</string>
+    <string name="iconfont_unsent">&#xe68d;</string>
+    <string name="iconfont_checkbox_checked">&#xe68e;</string>
+    <string name="iconfont_scan">&#xe68f;</string>
+    <string name="iconfont_point">&#xe690;</string>
+    <string name="iconfont_refresh">&#xe691;</string>
+    <string name="iconfont_service">&#xe692;</string>
+    <string name="iconfont_settings">&#xe693;</string>
+    <string name="iconfont_add_cart">&#xe694;</string>
+</resources>

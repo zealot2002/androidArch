@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Drawable 体系统一圆角 -->
+    <dimen name="draw_corner_sm">4dp</dimen>
+    <dimen name="draw_corner_md">8dp</dimen>
+    <dimen name="draw_corner_lg">16dp</dimen>
+    <dimen name="draw_corner_capsule">24dp</dimen>
+
+    <!-- 描边：仅允许二档 -->
+    <dimen name="draw_stroke_hair">0.5dp</dimen>
+    <dimen name="draw_stroke_reg">1dp</dimen>
+
+    <!-- 内容内边距分级（layer-list / inset） -->
+    <dimen name="draw_inset_sm">8dp</dimen>
+    <dimen name="draw_inset_md">12dp</dimen>
+    <dimen name="draw_inset_lg">16dp</dimen>
+
+    <!-- 阴影层垂直位移 -->
+    <dimen name="draw_shadow_dy_sm">2dp</dimen>
+    <dimen name="draw_shadow_dy_md">4dp</dimen>
+</resources>

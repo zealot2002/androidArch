@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      基础色层（primitive）：命名对齐 arch_ui_token_spec —— family_number，按色系分段；仅 hex / 系统透明。
+      不在 values-night 覆写。语义与昼夜映射见 colors_semantic.xml / colors_theme_tokens.xml。
+    -->
+
+    <color name="transparent">@android:color/transparent</color>
+
+    <!-- ========== 白色系（数字越小越浅）========== -->
+    <color name="white_1">#FFFFFF</color>
+    <color name="white_2">#FDFDFD</color>
+    <color name="white_3">#FAFAFA</color>
+    <color name="white_4">#F5F5F5</color>
+
+    <!-- ========== 黑色系（数字越小越浅）========== -->
+    <color name="black_1">#F0F0F0</color>
+    <color name="black_2">#D9D9D9</color>
+    <color name="black_3">#BFBFBF</color>
+    <color name="black_4">#808080</color>
+    <color name="black_5">#595959</color>
+    <color name="black_6">#262626</color>
+    <color name="black_7">#1F1F1F</color>
+    <color name="black_8">#000000</color>
+    <!-- 介于 black_5 与 black_6 之间，供暗色主题背景阶 t_white_* 映射 -->
+    <color name="black_5a">#454545</color>
+
+    <!-- ========== 灰色系（数字越大越深）========== -->
+    <color name="gray_1">#EEEEEE</color>
+    <color name="gray_2">#E0E0E0</color>
+    <color name="gray_3">#BDBDBD</color>
+    <color name="gray_4">#9E9E9E</color>
+    <color name="gray_5">#757575</color>
+    <color name="gray_6">#616161</color>
+    <color name="gray_7">#424242</color>
+
+    <!-- ========== 红色系（数字越小饱和度越低）========== -->
+    <color name="red_1">#F6C6C9</color>
+    <color name="red_2">#EE989E</color>
+    <color name="red_3">#E83F49</color>
+    <color name="red_4">#DB121F</color>
+
+    <!-- ========== 橙色系（数字越小越浅；含主色 #FF4B00）========== -->
+    <color name="orange_1">#FFF5E6</color>
+    <color name="orange_2">#FCEACC</color>
+    <color name="orange_3">#FF9944</color>
+    <color name="orange_4">#FF4B00</color>
+    <!-- 夜间等主题映射用（仅基础层定义色值） -->
+    <color name="orange_0">#4D2E1A</color>
+    <color name="orange_2b">#FFAA66</color>
+    <color name="orange_3b">#FF8833</color>
+
+    <!-- ========== 黄色系 ========== -->
+    <color name="yellow_1">#FCEACC</color>
+    <color name="yellow_2">#ECCB98</color>
+    <color name="yellow_3">#F5AE14</color>
+    <color name="yellow_4">#DB9B3A</color>
+
+    <!-- ========== 蓝色系 ========== -->
+    <color name="blue_1">#98BADE</color>
+    <color name="blue_2">#6A9BCF</color>
+    <color name="blue_3">#3B7CC1</color>
+    <color name="blue_4">#105FB3</color>
+
+    <!-- ========== 绿色系 ========== -->
+    <color name="green_1">#A8DBA0</color>
+    <color name="green_2">#64C139</color>
+    <color name="green_3">#42B30E</color>
+    <color name="green_4">#0C8F60</color>
+
+    <!-- ========== 基础色透明度变体 ========== -->
+    <!-- 白色透明度 -->
+    <color name="white_1_alpha10">#1AFFFFFF</color>
+    <color name="white_1_alpha20">#33FFFFFF</color>
+    <color name="white_1_alpha35">#59FFFFFF</color>
+    <color name="white_1_alpha40">#66FFFFFF</color>
+    <color name="white_1_alpha55">#8CFFFFFF</color>
+    <color name="white_1_alpha60">#99FFFFFF</color>
+    <color name="white_1_alpha65">#A6FFFFFF</color>
+    <color name="white_1_alpha80">#CCFFFFFF</color>
+
+    <!-- 黑色透明度（基于black_8） -->
+    <color name="black_8_alpha10">#1A000000</color>
+    <color name="black_8_alpha20">#33000000</color>
+    <color name="black_8_alpha35">#59000000</color>
+    <color name="black_8_alpha40">#66000000</color>
+    <color name="black_8_alpha55">#8C000000</color>
+    <color name="black_8_alpha60">#99000000</color>
+    <color name="black_8_alpha65">#A6000000</color>
+    <color name="black_8_alpha80">#CC000000</color>
+
+    <!-- 灰色透明度 -->
+    <color name="gray_4_alpha30">#4D9E9E9E</color>
+    <color name="gray_6_alpha15">#26616161</color>
+    <color name="gray_6_alpha50">#80616161</color>
+    <color name="gray_7_alpha25">#40424242</color>
+
+    <!-- 彩色透明度 -->
+    <color name="red_4_alpha10">#1ADB121F</color>
+    <color name="red_4_alpha20">#33DB121F</color>
+    <color name="red_4_alpha30">#4DDB121F</color>
+    <color name="red_4_alpha40">#66DB121F</color>
+    <!-- 基于 red_3，供暗色主题下 t_red_4_alpha* 映射 -->
+    <color name="red_3_alpha10">#1AE83F49</color>
+    <color name="red_3_alpha20">#33E83F49</color>
+    <color name="red_3_alpha40">#66E83F49</color>
+
+    <color name="blue_4_alpha10">#1A105FB3</color>
+    <color name="blue_4_alpha20">#33105FB3</color>
+    <color name="blue_4_alpha40">#66105FB3</color>
+    <color name="blue_2_alpha10">#1A6A9BCF</color>
+    <color name="blue_2_alpha20">#336A9BCF</color>
+    <color name="blue_2_alpha40">#666A9BCF</color>
+
+    <color name="yellow_4_alpha10">#1ADB9B3A</color>
+    <color name="yellow_4_alpha20">#33DB9B3A</color>
+    <color name="yellow_4_alpha40">#66DB9B3A</color>
+
+    <color name="orange_4_alpha10">#1AFF4B00</color>
+    <color name="orange_4_alpha20">#33FF4B00</color>
+    <color name="orange_4_alpha40">#66FF4B00</color>
+
+    <color name="green_4_alpha10">#1A0C8F60</color>
+    <color name="green_4_alpha20">#330C8F60</color>
+    <color name="green_4_alpha40">#660C8F60</color>
+    <color name="green_2_alpha10">#1A64C139</color>
+    <color name="green_2_alpha20">#3364C139</color>
+    <color name="green_2_alpha40">#6664C139</color>
+
+    <color name="orange_3b_alpha10">#1AFF8833</color>
+    <color name="orange_3b_alpha20">#33FF8833</color>
+    <color name="orange_3b_alpha40">#66FF8833</color>
+
+</resources>

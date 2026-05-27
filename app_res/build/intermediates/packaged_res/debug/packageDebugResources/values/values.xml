@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="black_1">#F0F0F0</color>
+    <color name="black_2">#D9D9D9</color>
+    <color name="black_3">#BFBFBF</color>
+    <color name="black_4">#808080</color>
+    <color name="black_5">#595959</color>
+    <color name="black_5a">#454545</color>
+    <color name="black_6">#262626</color>
+    <color name="black_7">#1F1F1F</color>
+    <color name="black_8">#000000</color>
+    <color name="black_8_alpha10">#1A000000</color>
+    <color name="black_8_alpha20">#33000000</color>
+    <color name="black_8_alpha35">#59000000</color>
+    <color name="black_8_alpha40">#66000000</color>
+    <color name="black_8_alpha55">#8C000000</color>
+    <color name="black_8_alpha60">#99000000</color>
+    <color name="black_8_alpha65">#A6000000</color>
+    <color name="black_8_alpha80">#CC000000</color>
+    <color name="blue_1">#98BADE</color>
+    <color name="blue_2">#6A9BCF</color>
+    <color name="blue_2_alpha10">#1A6A9BCF</color>
+    <color name="blue_2_alpha20">#336A9BCF</color>
+    <color name="blue_2_alpha40">#666A9BCF</color>
+    <color name="blue_3">#3B7CC1</color>
+    <color name="blue_4">#105FB3</color>
+    <color name="blue_4_alpha10">#1A105FB3</color>
+    <color name="blue_4_alpha20">#33105FB3</color>
+    <color name="blue_4_alpha40">#66105FB3</color>
+    <color name="func_black_alpha_1">@color/t_black_8_alpha20</color>
+    <color name="func_black_alpha_2">@color/t_black_8_alpha40</color>
+    <color name="func_black_bg_1">@color/t_black_8</color>
+    <color name="func_black_bg_2">@color/t_black_7</color>
+    <color name="func_black_border_1">@color/t_black_4</color>
+    <color name="func_black_border_2">@color/t_black_2</color>
+    <color name="func_black_divider_1">@color/t_black_3</color>
+    <color name="func_black_divider_2">@color/t_black_1</color>
+    <color name="func_black_shadow_1">@color/t_black_8_alpha10</color>
+    <color name="func_black_shadow_2">@color/t_black_8_alpha20</color>
+    <color name="func_black_text_1">@color/t_black_8</color>
+    <color name="func_black_text_2">@color/t_black_7</color>
+    <color name="func_black_text_3">@color/t_black_5</color>
+    <color name="func_black_text_4">@color/t_black_3</color>
+    <color name="func_blue_alpha_1">@color/t_blue_4_alpha20</color>
+    <color name="func_blue_alpha_2">@color/t_blue_4_alpha40</color>
+    <color name="func_blue_bg_1">@color/t_blue_4</color>
+    <color name="func_blue_bg_2">@color/t_blue_1</color>
+    <color name="func_blue_border_1">@color/t_blue_4</color>
+    <color name="func_blue_border_2">@color/t_blue_1</color>
+    <color name="func_blue_divider_1">@color/t_blue_3</color>
+    <color name="func_blue_divider_2">@color/t_blue_1</color>
+    <color name="func_blue_shadow_1">@color/t_blue_4_alpha10</color>
+    <color name="func_blue_shadow_2">@color/t_blue_4_alpha20</color>
+    <color name="func_blue_text_1">@color/t_blue_4</color>
+    <color name="func_blue_text_2">@color/t_blue_3</color>
+    <color name="func_blue_text_3">@color/t_blue_2</color>
+    <color name="func_blue_text_4">@color/t_blue_1</color>
+    <color name="func_clear_1">@android:color/transparent</color>
+    <color name="func_gray_alpha_1">@color/t_gray_4_alpha30</color>
+    <color name="func_gray_alpha_2">@color/t_gray_6_alpha50</color>
+    <color name="func_gray_bg_1">@color/t_gray_1</color>
+    <color name="func_gray_bg_2">@color/t_gray_3</color>
+    <color name="func_gray_border_1">@color/t_gray_2</color>
+    <color name="func_gray_border_2">@color/t_gray_4</color>
+    <color name="func_gray_divider_1">@color/t_gray_2</color>
+    <color name="func_gray_divider_2">@color/t_gray_3</color>
+    <color name="func_gray_shadow_1">@color/t_gray_6_alpha15</color>
+    <color name="func_gray_shadow_2">@color/t_gray_7_alpha25</color>
+    <color name="func_gray_text_1">@color/t_gray_4</color>
+    <color name="func_gray_text_2">@color/t_gray_5</color>
+    <color name="func_gray_text_3">@color/t_gray_6</color>
+    <color name="func_gray_text_4">@color/t_gray_7</color>
+    <color name="func_green_alpha_1">@color/t_green_4_alpha20</color>
+    <color name="func_green_alpha_2">@color/t_green_4_alpha40</color>
+    <color name="func_green_bg_1">@color/t_green_4</color>
+    <color name="func_green_bg_2">@color/t_green_1</color>
+    <color name="func_green_border_1">@color/t_green_4</color>
+    <color name="func_green_border_2">@color/t_green_1</color>
+    <color name="func_green_divider_1">@color/t_green_3</color>
+    <color name="func_green_divider_2">@color/t_green_1</color>
+    <color name="func_green_shadow_1">@color/t_green_4_alpha10</color>
+    <color name="func_green_shadow_2">@color/t_green_4_alpha20</color>
+    <color name="func_green_text_1">@color/t_green_4</color>
+    <color name="func_green_text_2">@color/t_green_3</color>
+    <color name="func_green_text_3">@color/t_green_2</color>
+    <color name="func_green_text_4">@color/t_green_1</color>
+    <color name="func_orange_alpha_1">@color/t_orange_4_alpha20</color>
+    <color name="func_orange_alpha_2">@color/t_orange_4_alpha40</color>
+    <color name="func_orange_bg_1">@color/t_orange_4</color>
+    <color name="func_orange_bg_2">@color/t_orange_1</color>
+    <color name="func_orange_border_1">@color/t_orange_4</color>
+    <color name="func_orange_border_2">@color/t_orange_2</color>
+    <color name="func_orange_divider_1">@color/t_orange_3</color>
+    <color name="func_orange_divider_2">@color/t_orange_1</color>
+    <color name="func_orange_shadow_1">@color/t_orange_4_alpha10</color>
+    <color name="func_orange_shadow_2">@color/t_orange_4_alpha20</color>
+    <color name="func_orange_text_1">@color/t_orange_4</color>
+    <color name="func_orange_text_2">@color/t_orange_3</color>
+    <color name="func_orange_text_3">@color/t_orange_2</color>
+    <color name="func_orange_text_4">@color/t_orange_1</color>
+    <color name="func_red_alpha_1">@color/t_red_4_alpha20</color>
+    <color name="func_red_alpha_2">@color/t_red_4_alpha40</color>
+    <color name="func_red_bg_1">@color/t_red_4</color>
+    <color name="func_red_bg_2">@color/t_red_1</color>
+    <color name="func_red_border_1">@color/t_red_4</color>
+    <color name="func_red_border_2">@color/t_red_1</color>
+    <color name="func_red_divider_1">@color/t_red_3</color>
+    <color name="func_red_divider_2">@color/t_red_1</color>
+    <color name="func_red_shadow_1">@color/t_red_4_alpha10</color>
+    <color name="func_red_shadow_2">@color/t_red_4_alpha20</color>
+    <color name="func_red_text_1">@color/t_red_4</color>
+    <color name="func_red_text_2">@color/t_red_3</color>
+    <color name="func_red_text_3">@color/t_red_2</color>
+    <color name="func_red_text_4">@color/t_red_1</color>
+    <color name="func_surface_paper_1">@color/t_white_1</color>
+    <color name="func_white_text_1">@color/t_on_emphasis_light_1</color>
+    <color name="func_yellow_alpha_1">@color/t_yellow_4_alpha20</color>
+    <color name="func_yellow_alpha_2">@color/t_yellow_4_alpha40</color>
+    <color name="func_yellow_bg_1">@color/t_yellow_4</color>
+    <color name="func_yellow_bg_2">@color/t_yellow_1</color>
+    <color name="func_yellow_border_1">@color/t_yellow_4</color>
+    <color name="func_yellow_border_2">@color/t_yellow_2</color>
+    <color name="func_yellow_divider_1">@color/t_yellow_3</color>
+    <color name="func_yellow_divider_2">@color/t_yellow_1</color>
+    <color name="func_yellow_shadow_1">@color/t_yellow_4_alpha10</color>
+    <color name="func_yellow_shadow_2">@color/t_yellow_4_alpha20</color>
+    <color name="func_yellow_text_1">@color/t_yellow_4</color>
+    <color name="func_yellow_text_2">@color/t_yellow_3</color>
+    <color name="func_yellow_text_3">@color/t_yellow_2</color>
+    <color name="func_yellow_text_4">@color/t_yellow_1</color>
+    <color name="gray_1">#EEEEEE</color>
+    <color name="gray_2">#E0E0E0</color>
+    <color name="gray_3">#BDBDBD</color>
+    <color name="gray_4">#9E9E9E</color>
+    <color name="gray_4_alpha30">#4D9E9E9E</color>
+    <color name="gray_5">#757575</color>
+    <color name="gray_6">#616161</color>
+    <color name="gray_6_alpha15">#26616161</color>
+    <color name="gray_6_alpha50">#80616161</color>
+    <color name="gray_7">#424242</color>
+    <color name="gray_7_alpha25">#40424242</color>
+    <color name="green_1">#A8DBA0</color>
+    <color name="green_2">#64C139</color>
+    <color name="green_2_alpha10">#1A64C139</color>
+    <color name="green_2_alpha20">#3364C139</color>
+    <color name="green_2_alpha40">#6664C139</color>
+    <color name="green_3">#42B30E</color>
+    <color name="green_4">#0C8F60</color>
+    <color name="green_4_alpha10">#1A0C8F60</color>
+    <color name="green_4_alpha20">#330C8F60</color>
+    <color name="green_4_alpha40">#660C8F60</color>
+    <color name="orange_0">#4D2E1A</color>
+    <color name="orange_1">#FFF5E6</color>
+    <color name="orange_2">#FCEACC</color>
+    <color name="orange_2b">#FFAA66</color>
+    <color name="orange_3">#FF9944</color>
+    <color name="orange_3b">#FF8833</color>
+    <color name="orange_3b_alpha10">#1AFF8833</color>
+    <color name="orange_3b_alpha20">#33FF8833</color>
+    <color name="orange_3b_alpha40">#66FF8833</color>
+    <color name="orange_4">#FF4B00</color>
+    <color name="orange_4_alpha10">#1AFF4B00</color>
+    <color name="orange_4_alpha20">#33FF4B00</color>
+    <color name="orange_4_alpha40">#66FF4B00</color>
+    <color name="red_1">#F6C6C9</color>
+    <color name="red_2">#EE989E</color>
+    <color name="red_3">#E83F49</color>
+    <color name="red_3_alpha10">#1AE83F49</color>
+    <color name="red_3_alpha20">#33E83F49</color>
+    <color name="red_3_alpha40">#66E83F49</color>
+    <color name="red_4">#DB121F</color>
+    <color name="red_4_alpha10">#1ADB121F</color>
+    <color name="red_4_alpha20">#33DB121F</color>
+    <color name="red_4_alpha30">#4DDB121F</color>
+    <color name="red_4_alpha40">#66DB121F</color>
+    <color name="t_black_1">@color/black_1</color>
+    <color name="t_black_2">@color/black_2</color>
+    <color name="t_black_3">@color/black_3</color>
+    <color name="t_black_4">@color/black_4</color>
+    <color name="t_black_5">@color/black_5</color>
+    <color name="t_black_6">@color/black_6</color>
+    <color name="t_black_7">@color/black_7</color>
+    <color name="t_black_8">@color/black_8</color>
+    <color name="t_black_8_alpha10">@color/black_8_alpha10</color>
+    <color name="t_black_8_alpha20">@color/black_8_alpha20</color>
+    <color name="t_black_8_alpha35">@color/black_8_alpha35</color>
+    <color name="t_black_8_alpha40">@color/black_8_alpha40</color>
+    <color name="t_black_8_alpha55">@color/black_8_alpha55</color>
+    <color name="t_black_8_alpha80">@color/black_8_alpha80</color>
+    <color name="t_blue_1">@color/blue_1</color>
+    <color name="t_blue_2">@color/blue_2</color>
+    <color name="t_blue_3">@color/blue_3</color>
+    <color name="t_blue_4">@color/blue_4</color>
+    <color name="t_blue_4_alpha10">@color/blue_4_alpha10</color>
+    <color name="t_blue_4_alpha20">@color/blue_4_alpha20</color>
+    <color name="t_blue_4_alpha40">@color/blue_4_alpha40</color>
+    <color name="t_gray_1">@color/gray_1</color>
+    <color name="t_gray_2">@color/gray_2</color>
+    <color name="t_gray_3">@color/gray_3</color>
+    <color name="t_gray_4">@color/gray_4</color>
+    <color name="t_gray_4_alpha30">@color/gray_4_alpha30</color>
+    <color name="t_gray_5">@color/gray_5</color>
+    <color name="t_gray_6">@color/gray_6</color>
+    <color name="t_gray_6_alpha15">@color/gray_6_alpha15</color>
+    <color name="t_gray_6_alpha50">@color/gray_6_alpha50</color>
+    <color name="t_gray_7">@color/gray_7</color>
+    <color name="t_gray_7_alpha25">@color/gray_7_alpha25</color>
+    <color name="t_green_1">@color/green_1</color>
+    <color name="t_green_2">@color/green_2</color>
+    <color name="t_green_3">@color/green_3</color>
+    <color name="t_green_4">@color/green_4</color>
+    <color name="t_green_4_alpha10">@color/green_4_alpha10</color>
+    <color name="t_green_4_alpha20">@color/green_4_alpha20</color>
+    <color name="t_green_4_alpha40">@color/green_4_alpha40</color>
+    <color name="t_on_emphasis_light_1">@color/white_1</color>
+    <color name="t_orange_1">@color/orange_1</color>
+    <color name="t_orange_2">@color/orange_2</color>
+    <color name="t_orange_3">@color/orange_3</color>
+    <color name="t_orange_4">@color/orange_4</color>
+    <color name="t_orange_4_alpha10">@color/orange_4_alpha10</color>
+    <color name="t_orange_4_alpha20">@color/orange_4_alpha20</color>
+    <color name="t_orange_4_alpha40">@color/orange_4_alpha40</color>
+    <color name="t_red_1">@color/red_1</color>
+    <color name="t_red_2">@color/red_2</color>
+    <color name="t_red_3">@color/red_3</color>
+    <color name="t_red_4">@color/red_4</color>
+    <color name="t_red_4_alpha10">@color/red_4_alpha10</color>
+    <color name="t_red_4_alpha20">@color/red_4_alpha20</color>
+    <color name="t_red_4_alpha40">@color/red_4_alpha40</color>
+    <color name="t_white_1">@color/white_1</color>
+    <color name="t_white_1_alpha20">@color/white_1_alpha20</color>
+    <color name="t_white_1_alpha35">@color/white_1_alpha35</color>
+    <color name="t_white_1_alpha60">@color/white_1_alpha60</color>
+    <color name="t_white_1_alpha65">@color/white_1_alpha65</color>
+    <color name="t_white_1_alpha80">@color/white_1_alpha80</color>
+    <color name="t_white_2">@color/white_2</color>
+    <color name="t_white_3">@color/white_3</color>
+    <color name="t_white_4">@color/white_4</color>
+    <color name="t_yellow_1">@color/yellow_1</color>
+    <color name="t_yellow_2">@color/yellow_2</color>
+    <color name="t_yellow_3">@color/yellow_3</color>
+    <color name="t_yellow_4">@color/yellow_4</color>
+    <color name="t_yellow_4_alpha10">@color/yellow_4_alpha10</color>
+    <color name="t_yellow_4_alpha20">@color/yellow_4_alpha20</color>
+    <color name="t_yellow_4_alpha40">@color/yellow_4_alpha40</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="white_1">#FFFFFF</color>
+    <color name="white_1_alpha10">#1AFFFFFF</color>
+    <color name="white_1_alpha20">#33FFFFFF</color>
+    <color name="white_1_alpha35">#59FFFFFF</color>
+    <color name="white_1_alpha40">#66FFFFFF</color>
+    <color name="white_1_alpha55">#8CFFFFFF</color>
+    <color name="white_1_alpha60">#99FFFFFF</color>
+    <color name="white_1_alpha65">#A6FFFFFF</color>
+    <color name="white_1_alpha80">#CCFFFFFF</color>
+    <color name="white_2">#FDFDFD</color>
+    <color name="white_3">#FAFAFA</color>
+    <color name="white_4">#F5F5F5</color>
+    <color name="yellow_1">#FCEACC</color>
+    <color name="yellow_2">#ECCB98</color>
+    <color name="yellow_3">#F5AE14</color>
+    <color name="yellow_4">#DB9B3A</color>
+    <color name="yellow_4_alpha10">#1ADB9B3A</color>
+    <color name="yellow_4_alpha20">#33DB9B3A</color>
+    <color name="yellow_4_alpha40">#66DB9B3A</color>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
+    <dimen name="dp_13">13dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_140">140dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_460">460dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_52">52dp</dimen>
+    <dimen name="dp_56">56dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_96">96dp</dimen>
+    <dimen name="draw_corner_capsule">24dp</dimen>
+    <dimen name="draw_corner_lg">16dp</dimen>
+    <dimen name="draw_corner_md">8dp</dimen>
+    <dimen name="draw_corner_sm">4dp</dimen>
+    <dimen name="draw_inset_lg">16dp</dimen>
+    <dimen name="draw_inset_md">12dp</dimen>
+    <dimen name="draw_inset_sm">8dp</dimen>
+    <dimen name="draw_shadow_dy_md">4dp</dimen>
+    <dimen name="draw_shadow_dy_sm">2dp</dimen>
+    <dimen name="draw_stroke_hair">0.5dp</dimen>
+    <dimen name="draw_stroke_reg">1dp</dimen>
+    <string name="app_name">Token 样例</string>
+    <string name="demo_btn_disabled_hint">以下为禁用态（继承 selector 内 drawable）</string>
+    <string name="demo_btn_outline">幽灵按钮 · outline emphasis</string>
+    <string name="demo_btn_primary">主操作 · capsule emphasis</string>
+    <string name="demo_btn_secondary">次操作 · capsule neutral</string>
+    <string name="demo_btn_text">文字按钮 · flat neutral</string>
+    <string name="demo_field_disabled">禁用</string>
+    <string name="demo_field_error">错误态 · sel_red_field_rect_alert_static</string>
+    <string name="demo_field_hint">弱提示描边 · sel_gray_field_rect_hint_static</string>
+    <string name="demo_field_normal">常态 · sel_gray_field_rect_idle_default</string>
+    <string name="demo_label_block">fill_block_1</string>
+    <string name="demo_label_card">card · lift · float</string>
+    <string name="demo_label_gradient">gradient_panel_1</string>
+    <string name="demo_label_lift">左→右：card_1 · lift_1 · float_1</string>
+    <string name="demo_label_panel">surface_panel_1</string>
+    <string name="demo_scrim_label">bg_black_fill_scrim_1 + tv_white_1</string>
+    <string name="demo_section_buttons">按钮（实心 / 描边 / 文字）</string>
+    <string name="demo_section_fields">输入框</string>
+    <string name="demo_section_fill">填充块与渐变</string>
+    <string name="demo_section_scrim">遮罩（dim scrim）</string>
+    <string name="demo_section_surfaces">表面（card / lift / float）</string>
+    <string name="demo_section_typography">文字样式</string>
+    <string name="demo_typography_sample">Drawable · func_ 文字样式 · 深浅色随 t_ 映射</string>
+    <string name="icon_add_cart"></string>
+    <string name="icon_arrow_down"></string>
+    <string name="icon_back"></string>
+    <string name="icon_buy_now"></string>
+    <string name="icon_calendar"></string>
+    <string name="icon_camera"></string>
+    <string name="icon_cart"></string>
+    <string name="icon_category"></string>
+    <string name="icon_check"></string>
+    <string name="icon_checkbox_checked"></string>
+    <string name="icon_checkbox_unchecked"></string>
+    <string name="icon_clock"></string>
+    <string name="icon_close"></string>
+    <string name="icon_coupon"></string>
+    <string name="icon_delete"></string>
+    <string name="icon_edit"></string>
+    <string name="icon_favorite"></string>
+    <string name="icon_filter"></string>
+    <string name="icon_history"></string>
+    <string name="icon_home"></string>
+    <string name="icon_image"></string>
+    <string name="icon_location"></string>
+    <string name="icon_logistics"></string>
+    <string name="icon_message"></string>
+    <string name="icon_minus"></string>
+    <string name="icon_more"></string>
+    <string name="icon_more1"></string>
+    <string name="icon_more2"></string>
+    <string name="icon_notification"></string>
+    <string name="icon_order"></string>
+    <string name="icon_plus"></string>
+    <string name="icon_point"></string>
+    <string name="icon_profile"></string>
+    <string name="icon_refresh"></string>
+    <string name="icon_scan"></string>
+    <string name="icon_search"></string>
+    <string name="icon_service"></string>
+    <string name="icon_settings"></string>
+    <string name="icon_share"></string>
+    <string name="icon_sort"></string>
+    <string name="icon_uncomment"></string>
+    <string name="icon_unpaid"></string>
+    <string name="icon_unreceived"></string>
+    <string name="icon_unsent"></string>
+    <string name="icon_wallet"></string>
+    <string name="iconfont_add_cart"></string>
+    <string name="iconfont_arrow_down"></string>
+    <string name="iconfont_back"></string>
+    <string name="iconfont_buy_now"></string>
+    <string name="iconfont_calendar"></string>
+    <string name="iconfont_camera"></string>
+    <string name="iconfont_cart"></string>
+    <string name="iconfont_category"></string>
+    <string name="iconfont_check"></string>
+    <string name="iconfont_checkbox_checked"></string>
+    <string name="iconfont_checkbox_unchecked"></string>
+    <string name="iconfont_clock"></string>
+    <string name="iconfont_close"></string>
+    <string name="iconfont_coupon"></string>
+    <string name="iconfont_delete"></string>
+    <string name="iconfont_edit"></string>
+    <string name="iconfont_favorite"></string>
+    <string name="iconfont_filter"></string>
+    <string name="iconfont_history"></string>
+    <string name="iconfont_home"></string>
+    <string name="iconfont_image"></string>
+    <string name="iconfont_location"></string>
+    <string name="iconfont_logistics"></string>
+    <string name="iconfont_message"></string>
+    <string name="iconfont_minus"></string>
+    <string name="iconfont_more"></string>
+    <string name="iconfont_more1"></string>
+    <string name="iconfont_more2"></string>
+    <string name="iconfont_notification"></string>
+    <string name="iconfont_order"></string>
+    <string name="iconfont_plus"></string>
+    <string name="iconfont_point"></string>
+    <string name="iconfont_profile"></string>
+    <string name="iconfont_refresh"></string>
+    <string name="iconfont_scan"></string>
+    <string name="iconfont_search"></string>
+    <string name="iconfont_service"></string>
+    <string name="iconfont_settings"></string>
+    <string name="iconfont_share"></string>
+    <string name="iconfont_sort"></string>
+    <string name="iconfont_uncomment"></string>
+    <string name="iconfont_unpaid"></string>
+    <string name="iconfont_unreceived"></string>
+    <string name="iconfont_unsent"></string>
+    <string name="iconfont_wallet"></string>
+    <string name="icons_606"></string>
+    <string name="icons_60a"></string>
+    <string name="icons_60b"></string>
+    <string name="icons_617"></string>
+    <string name="icons_624"></string>
+    <string name="icons_635"></string>
+    <string name="icons_63f"></string>
+    <string name="icons_642"></string>
+    <string name="theme_toggle_cd">切换浅色 / 深色模式</string>
+    <style name="BaseButton" parent="android:Widget.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="Btn.Gray.Capsule.Neutral" parent="BaseButton">
+        <item name="android:background">@drawable/sel_gray_interact_capsule_neutral_default</item>
+        <item name="android:textColor">@color/func_black_text_1</item>
+    </style>
+    <style name="Btn.Gray.Capsule.Neutral.Small" parent="BaseButton">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/sel_gray_interact_capsule_neutral_default</item>
+        <item name="android:textColor">@color/func_black_text_1</item>
+    </style>
+    <style name="Btn.Gray.Text.Neutral" parent="BaseButton">
+        <item name="android:background">@drawable/sel_gray_interact_flat_neutral_default</item>
+        <item name="android:textColor">@color/func_gray_text_2</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+    <style name="Btn.Orange.Capsule.Emphasis" parent="BaseButton">
+        <item name="android:background">@drawable/sel_orange_interact_capsule_emphasis_default</item>
+        <item name="android:textColor">@color/func_white_text_1</item>
+    </style>
+    <style name="Btn.Orange.Capsule.Small" parent="BaseButton">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/sel_orange_interact_capsule_emphasis_default</item>
+        <item name="android:textColor">@color/func_white_text_1</item>
+    </style>
+    <style name="Btn.Orange.Outline.Emphasis" parent="BaseButton">
+        <item name="android:background">@drawable/sel_orange_interact_outline_emphasis_default</item>
+        <item name="android:textColor">@color/func_orange_text_1</item>
+    </style>
+    <style name="Btn.Orange.Outline.Small" parent="BaseButton">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/sel_orange_interact_outline_emphasis_default</item>
+        <item name="android:textColor">@color/func_orange_text_1</item>
+    </style>
+    <style name="Btn.Orange.Text.Emphasis" parent="BaseButton">
+        <item name="android:background">@drawable/sel_gray_interact_flat_neutral_default</item>
+        <item name="android:textColor">@color/func_orange_text_1</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+    <style name="Theme.AndroidArch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/red_4</item>
+        <item name="colorPrimaryDark">@color/red_4</item>
+        <item name="colorAccent">@color/orange_1</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+    </style>
+    <style name="Theme.ArchUiTokenSpec" parent="Theme.ArchUiTokenSpec.Base"/>
+    <style name="Theme.ArchUiTokenSpec.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/func_surface_paper_1</item>
+        <item name="android:statusBarColor">@color/func_surface_paper_1</item>
+        <item name="android:navigationBarColor">@color/func_surface_paper_1</item>
+        <item name="colorPrimary">@color/orange_4</item>
+        <item name="colorPrimaryVariant">@color/orange_3</item>
+        <item name="colorOnPrimary">@color/white_1</item>
+    </style>
+    <style name="tv_base" tools:ignore="ResourceName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="tv_black_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_1</item>
+    </style>
+    <style name="tv_black_1_size_10" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="tv_black_1_size_11" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_black_1_size_12" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_black_1_size_13" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_black_1_size_14" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_black_1_size_15" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="tv_black_1_size_16" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="tv_black_1_size_18" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="tv_black_1_size_20" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="tv_black_1_size_24" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="tv_black_1_size_9" parent="tv_black_1" tools:ignore="ResourceName">
+        <item name="android:textSize">9sp</item>
+    </style>
+    <style name="tv_black_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_2</item>
+    </style>
+    <style name="tv_black_2_size_13" parent="tv_black_2" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_black_3" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_black_text_3</item>
+    </style>
+    <style name="tv_blue_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_blue_text_1</item>
+    </style>
+    <style name="tv_blue_1_size_14" parent="tv_blue_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_gray_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_1</item>
+    </style>
+    <style name="tv_gray_1_size_12" parent="tv_gray_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_gray_1_size_14" parent="tv_gray_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_gray_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_2</item>
+    </style>
+    <style name="tv_gray_2_size_12" parent="tv_gray_2" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="tv_gray_2_size_14" parent="tv_gray_2" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_gray_3" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_gray_text_3</item>
+    </style>
+    <style name="tv_gray_3_size_10" parent="tv_gray_3" tools:ignore="ResourceName">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="tv_gray_3_size_11" parent="tv_gray_3" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_green_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_green_text_1</item>
+    </style>
+    <style name="tv_green_1_size_14" parent="tv_green_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_orange_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_orange_text_1</item>
+    </style>
+    <style name="tv_orange_1_size_14" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_orange_1_size_15" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="tv_orange_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_orange_text_2</item>
+    </style>
+    <style name="tv_red_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_red_text_1</item>
+    </style>
+    <style name="tv_red_1_size_14" parent="tv_red_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tv_red_2" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_red_text_2</item>
+    </style>
+    <style name="tv_white_1" parent="tv_base" tools:ignore="ResourceName">
+        <item name="android:textColor">@color/func_white_text_1</item>
+    </style>
+    <style name="tv_white_1_size_13" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_white_1_size_15" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

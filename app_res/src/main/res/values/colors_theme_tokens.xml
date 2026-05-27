@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      主题适配层（theme_tokens）：定义主题映射关系，供 values-night 覆写实现昼夜切换。
+      日间模式映射到基础色层，夜间模式在 values-night/colors_theme_tokens.xml 中覆写。
+    -->
+
+    <!-- ========== 主题适配层（日间模式）========== -->
+    <!-- 白色系主题 -->
+    <color name="t_white_1">@color/white_1</color>
+    <color name="t_white_2">@color/white_2</color>
+    <color name="t_white_3">@color/white_3</color>
+    <color name="t_white_4">@color/white_4</color>
+
+    <!-- 黑色系主题 -->
+    <color name="t_black_1">@color/black_1</color>
+    <color name="t_black_2">@color/black_2</color>
+    <color name="t_black_3">@color/black_3</color>
+    <color name="t_black_4">@color/black_4</color>
+    <color name="t_black_5">@color/black_5</color>
+    <color name="t_black_6">@color/black_6</color>
+    <color name="t_black_7">@color/black_7</color>
+    <color name="t_black_8">@color/black_8</color>
+
+    <!-- 灰色系主题 -->
+    <color name="t_gray_1">@color/gray_1</color>
+    <color name="t_gray_2">@color/gray_2</color>
+    <color name="t_gray_3">@color/gray_3</color>
+    <color name="t_gray_4">@color/gray_4</color>
+    <color name="t_gray_5">@color/gray_5</color>
+    <color name="t_gray_6">@color/gray_6</color>
+    <color name="t_gray_7">@color/gray_7</color>
+
+    <!-- 灰色系主题透明度变体 -->
+    <color name="t_gray_4_alpha30">@color/gray_4_alpha30</color>
+    <color name="t_gray_6_alpha15">@color/gray_6_alpha15</color>
+    <color name="t_gray_6_alpha50">@color/gray_6_alpha50</color>
+    <color name="t_gray_7_alpha25">@color/gray_7_alpha25</color>
+
+    <!-- 红色系主题 -->
+    <color name="t_red_1">@color/red_1</color>
+    <color name="t_red_2">@color/red_2</color>
+    <color name="t_red_3">@color/red_3</color>
+    <color name="t_red_4">@color/red_4</color>
+
+    <!-- 橙色系主题 -->
+    <color name="t_orange_1">@color/orange_1</color>
+    <color name="t_orange_2">@color/orange_2</color>
+    <color name="t_orange_3">@color/orange_3</color>
+    <color name="t_orange_4">@color/orange_4</color>
+
+    <!-- 黄色系主题 -->
+    <color name="t_yellow_1">@color/yellow_1</color>
+    <color name="t_yellow_2">@color/yellow_2</color>
+    <color name="t_yellow_3">@color/yellow_3</color>
+    <color name="t_yellow_4">@color/yellow_4</color>
+
+    <!-- 蓝色系主题 -->
+    <color name="t_blue_1">@color/blue_1</color>
+    <color name="t_blue_2">@color/blue_2</color>
+    <color name="t_blue_3">@color/blue_3</color>
+    <color name="t_blue_4">@color/blue_4</color>
+
+    <!-- 绿色系主题 -->
+    <color name="t_green_1">@color/green_1</color>
+    <color name="t_green_2">@color/green_2</color>
+    <color name="t_green_3">@color/green_3</color>
+    <color name="t_green_4">@color/green_4</color>
+
+    <!-- 主题透明度变体 -->
+    <color name="t_white_1_alpha20">@color/white_1_alpha20</color>
+    <color name="t_white_1_alpha35">@color/white_1_alpha35</color>
+    <color name="t_white_1_alpha60">@color/white_1_alpha60</color>
+    <color name="t_white_1_alpha65">@color/white_1_alpha65</color>
+    <color name="t_white_1_alpha80">@color/white_1_alpha80</color>
+
+    <color name="t_black_8_alpha10">@color/black_8_alpha10</color>
+    <color name="t_black_8_alpha20">@color/black_8_alpha20</color>
+    <color name="t_black_8_alpha35">@color/black_8_alpha35</color>
+    <color name="t_black_8_alpha40">@color/black_8_alpha40</color>
+    <color name="t_black_8_alpha55">@color/black_8_alpha55</color>
+    <color name="t_black_8_alpha80">@color/black_8_alpha80</color>
+
+    <!-- 彩色主题透明度变体 -->
+    <color name="t_red_4_alpha10">@color/red_4_alpha10</color>
+    <color name="t_red_4_alpha20">@color/red_4_alpha20</color>
+    <color name="t_red_4_alpha40">@color/red_4_alpha40</color>
+
+    <color name="t_yellow_4_alpha10">@color/yellow_4_alpha10</color>
+    <color name="t_yellow_4_alpha20">@color/yellow_4_alpha20</color>
+    <color name="t_yellow_4_alpha40">@color/yellow_4_alpha40</color>
+
+    <color name="t_blue_4_alpha10">@color/blue_4_alpha10</color>
+    <color name="t_blue_4_alpha20">@color/blue_4_alpha20</color>
+    <color name="t_blue_4_alpha40">@color/blue_4_alpha40</color>
+
+    <color name="t_green_4_alpha10">@color/green_4_alpha10</color>
+    <color name="t_green_4_alpha20">@color/green_4_alpha20</color>
+    <color name="t_green_4_alpha40">@color/green_4_alpha40</color>
+
+    <color name="t_orange_4_alpha10">@color/orange_4_alpha10</color>
+    <color name="t_orange_4_alpha20">@color/orange_4_alpha20</color>
+    <color name="t_orange_4_alpha40">@color/orange_4_alpha40</color>
+
+    <!-- 强调色块上的浅色字：引用基础白，不在 values-night 覆写则昼夜均为浅字（适配主按钮等） -->
+    <color name="t_on_emphasis_light_1">@color/white_1</color>
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="@dimen/draw_shadow_dy_sm">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/func_black_shadow_1" />
+            <corners android:radius="@dimen/draw_corner_md" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/draw_shadow_dy_sm"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/func_gray_bg_1" />
+            <corners android:radius="@dimen/draw_corner_md" />
+        </shape>
+    </item>
+</layer-list>

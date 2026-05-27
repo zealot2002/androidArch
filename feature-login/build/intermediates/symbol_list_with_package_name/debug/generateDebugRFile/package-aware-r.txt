@@ -1,0 +1,6 @@
+com.joy.featurelogin
+id btn_login
+id et_password
+id et_phone
+id tv_register
+layout activity_login
