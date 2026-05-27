@@ -1,7 +1,6 @@
 package com.joy.featuregoods.ui
 
 import android.graphics.Color
-import android.graphics.Rect
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
@@ -25,7 +24,6 @@ import com.joy.common.extend.onClick300
 import com.joy.common.router.AppRouter
 import com.joy.common.router.LoginRouter
 import com.joy.common.router.RouterConstants
-import com.joy.common.utils.DimensUtil
 import com.joy.common.utils.SizeUtils
 import com.joy.common.utils.ToastUtils
 import com.joy.common.widget.popup.QuickMenuPopup
@@ -167,7 +165,7 @@ class GoodsDetailActivity : AppCompatActivity() {
         }
         binding.rvDetailContent.layoutManager = gridLayoutManager
         binding.rvDetailContent.adapter = detailAdapter
-        binding.rvDetailContent.addItemDecoration(RecommendGridSpacingDecoration())
+        binding.rvDetailContent.addItemDecoration(RecommendGridSpacingDecoration(this, detailAdapter))
         binding.rvDetailContent.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -494,37 +492,6 @@ class GoodsDetailActivity : AppCompatActivity() {
         WindowCompat.getInsetsController(window, window.decorView).apply {
             isAppearanceLightStatusBars = false
             isAppearanceLightNavigationBars = true
-        }
-    }
-
-    private inner class RecommendGridSpacingDecoration : RecyclerView.ItemDecoration() {
-        private val cellSpacingPx = DimensUtil.dimen(this@GoodsDetailActivity, 5)
-        private val edgeInsetPx = DimensUtil.dimen(this@GoodsDetailActivity, 14)
-
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State,
-        ) {
-            val position = parent.getChildAdapterPosition(view)
-            if (position == RecyclerView.NO_POSITION) return
-            if (detailAdapter.getItemViewType(position) != GoodsDetailAdapter.VIEW_TYPE_RECOMMEND_PRODUCT) {
-                return
-            }
-            val lp = view.layoutParams as? GridLayoutManager.LayoutParams ?: return
-            outRect.top = cellSpacingPx
-            outRect.bottom = cellSpacingPx
-            when (lp.spanIndex) {
-                0 -> {
-                    outRect.left = edgeInsetPx
-                    outRect.right = cellSpacingPx
-                }
-                else -> {
-                    outRect.left = cellSpacingPx
-                    outRect.right = edgeInsetPx
-                }
-            }
         }
     }
 
