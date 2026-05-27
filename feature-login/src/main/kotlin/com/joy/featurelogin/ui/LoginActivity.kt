@@ -1,16 +1,19 @@
 package com.joy.featurelogin.ui
 
-import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
 import com.joy.common.data.Result
 import com.joy.common.domain.MockUserRepository
+import com.joy.common.router.AppRouter
+import com.joy.common.router.RouterConstants
 import com.joy.common.utils.LoadingUtils
 import com.joy.common.utils.ToastUtils
 import com.joy.featurelogin.databinding.ActivityLoginBinding
 import com.joy.featurelogin.domain.LoginUseCase
 import com.joy.featurelogin.domain.LoginViewModel
 
+@Route(path = RouterConstants.LOGIN_MAIN)
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
@@ -65,15 +68,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun goToProductDetail() {
-        // 使用反射避免循环依赖
-        try {
-            val clazz = Class.forName("com.joy.featuregoods.ui.ProductDetailActivity")
-            val intent = Intent(this, clazz)
-            intent.putExtra("productId", "p001")
-            startActivity(intent)
-            finish()
-        } catch (e: ClassNotFoundException) {
-            ToastUtils.show(this, "商品详情页未找到")
-        }
+        AppRouter.openGoodsDetail(this, spuId = "mock-salmon")
+        finish()
     }
 }

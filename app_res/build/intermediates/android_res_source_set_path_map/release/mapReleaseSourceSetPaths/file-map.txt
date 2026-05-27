@@ -1,9 +1,0 @@
-com.joy.appres.app_res-pngs-0 /Users/zzy/github/androidArch/app_res/build/generated/res/pngs/release
-com.joy.appres.app_res-updated_navigation_xml-1 /Users/zzy/github/androidArch/app_res/build/generated/updated_navigation_xml/release
-com.joy.appres.app_res-mergeReleaseResources-2 /Users/zzy/github/androidArch/app_res/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
-com.joy.appres.app_res-mergeReleaseResources-3 /Users/zzy/github/androidArch/app_res/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-com.joy.appres.app_res-release-4 /Users/zzy/github/androidArch/app_res/build/intermediates/merged_res/release/mergeReleaseResources
-com.joy.appres.app_res-release-5 /Users/zzy/github/androidArch/app_res/build/intermediates/packaged_res/release/packageReleaseResources
-com.joy.appres.app_res-main-6 /Users/zzy/github/androidArch/app_res/src/main/res
-com.joy.appres.app_res-release-7 /Users/zzy/github/androidArch/app_res/src/release/res
-gradleHome-0 /Users/zzy/.gradle

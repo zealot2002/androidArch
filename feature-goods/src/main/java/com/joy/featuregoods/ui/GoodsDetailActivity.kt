@@ -17,10 +17,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.android.material.appbar.AppBarLayout
 import com.joy.appres.R as AppResR
 import com.joy.common.extend.onClick200
 import com.joy.common.extend.onClick300
+import com.joy.common.router.AppRouter
+import com.joy.common.router.RouterConstants
 import com.joy.common.utils.DimensUtil
 import com.joy.common.utils.SizeUtils
 import com.joy.common.utils.ToastUtils
@@ -32,6 +35,7 @@ import com.joy.featuregoods.model.GoodsDetailProductSectionState
 import com.joy.featuregoods.viewmodel.GoodsDetailViewModel
 import kotlin.math.abs
 
+@Route(path = RouterConstants.GOODS_DETAIL)
 class GoodsDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGoodsDetailBinding
@@ -79,7 +83,10 @@ class GoodsDetailActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        val spuId = intent.getStringExtra("spuId").orEmpty().ifBlank { "mock-salmon" }
+        val spuId = intent.getStringExtra(RouterConstants.EXTRA_GOODS_SPU_ID)
+            ?: intent.getStringExtra("spuId")
+            .orEmpty()
+            .ifBlank { "mock-salmon" }
         viewModel.load(spuId)
     }
 
@@ -139,10 +146,7 @@ class GoodsDetailActivity : AppCompatActivity() {
                 }
 
                 override fun onRecommendProductClick(spuId: String) {
-                    startActivity(
-                        android.content.Intent(this@GoodsDetailActivity, GoodsDetailActivity::class.java)
-                            .putExtra("spuId", spuId),
-                    )
+                    AppRouter.openGoodsDetail(this@GoodsDetailActivity, spuId)
                 }
             },
         )
@@ -489,12 +493,7 @@ class GoodsDetailActivity : AppCompatActivity() {
     }
 
     private fun goToLogin() {
-        try {
-            val clazz = Class.forName("com.joy.featurelogin.ui.LoginActivity")
-            startActivity(android.content.Intent(this, clazz))
-        } catch (_: ClassNotFoundException) {
-            ToastUtils.show(this, "登录页面未找到")
-        }
+        AppRouter.openLogin(this)
     }
 
     private inner class RecommendGridSpacingDecoration : RecyclerView.ItemDecoration() {

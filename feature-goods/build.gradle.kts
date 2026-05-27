@@ -1,5 +1,6 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -18,6 +19,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+ksp {
+    arg("AROUTER_MODULE_NAME", project.name)
 }
 
 dependencies {
@@ -39,4 +44,6 @@ dependencies {
     implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.kotlin.stdlib)
+
+    ksp(libs.arouter.ksp.compiler)
 }

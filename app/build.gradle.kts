@@ -41,7 +41,7 @@ dependencies {
     implementation(project(":app_res"))
     implementation(project(":feature-goods"))
     implementation(project(":feature-login"))
-    
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.recyclerview)

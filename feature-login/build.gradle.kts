@@ -1,5 +1,6 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -20,6 +21,10 @@ android {
     }
 }
 
+ksp {
+    arg("AROUTER_MODULE_NAME", project.name)
+}
+
 dependencies {
     implementation(project(":tools"))
     implementation(project(":common"))
@@ -27,4 +32,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.kotlin.stdlib)
+
+    ksp(libs.arouter.ksp.compiler)
 }

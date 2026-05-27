@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -21,6 +21,7 @@ android {
 }
 
 dependencies {
+    api(libs.arouter.api)
     implementation(project(":tools"))
     implementation(project(":app_res"))
     implementation(libs.androidx.core.ktx)

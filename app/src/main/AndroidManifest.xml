@@ -22,11 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <!-- Login Activity -->
-        <activity
-            android:name="com.joy.featurelogin.ui.LoginActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
