@@ -30,9 +30,7 @@ import com.joy.common.widget.popup.QuickMenuPopup
 import com.joy.featuregoods.R
 import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
 import com.joy.featuregoods.model.GoodsDetail
-import com.joy.featuregoods.model.GoodsDetailProductSectionState
 import com.joy.featuregoods.model.GoodsDetailReviewState
-import com.joy.featuregoods.ui.DetailAnchorTab
 import com.joy.featuregoods.ui.GoodsImagePagerAdapter
 import com.joy.featuregoods.ui.RecommendGridSpacingDecoration
 import com.joy.featuregoods.viewmodel.GoodsDetailViewModel
@@ -48,10 +46,6 @@ class GoodsDetailActivity : BaseActivity() {
     private val imageAdapter = GoodsImagePagerAdapter()
     private lateinit var detailAdapter: GoodsDetailAdapter
     private var currentDetail: GoodsDetail? = null
-    private var selectedWeightIndex = 0
-    private var selectedFlavorIndex = 0
-    private var purchaseQuantity = 1
-    private var productSectionState: GoodsDetailProductSectionState? = null
     private var statusBarShowingTitle2Fill: Boolean = false
     private var pendingDetailAnchorTab: DetailAnchorTab? = null
     private var scrollToTopScreenHeightPx: Int = 0
@@ -131,10 +125,15 @@ class GoodsDetailActivity : BaseActivity() {
             currentReviewState = GoodsDetailReviewMapper.from(detail)
             imageAdapter.submit(detail.bannerImages)
             updateImageCount(position = 0, total = detail.bannerImages.size)
-            rebuildDetailList()
         }
-        viewModel.recommendProducts.observe(this) { rebuildDetailList() }
-        viewModel.recommendHasMore.observe(this) { rebuildDetailList() }
+        viewModel.listItems.observe(this) { items ->
+            detailAdapter.submit(items, viewModel.detailImageUrls.value.orEmpty())
+        }
+        viewModel.detailImageUrls.observe(this) { imageUrls ->
+            viewModel.listItems.value?.let { items ->
+                detailAdapter.submit(items, imageUrls)
+            }
+        }
         viewModel.errorOb.observe(this) { error ->
             ToastUtils.show(this, error)
         }
@@ -152,25 +151,19 @@ class GoodsDetailActivity : BaseActivity() {
                 }
 
                 override fun onWeightSpecSelected(index: Int) {
-                    selectedWeightIndex = index
-                    rebuildDetailList()
+                    viewModel.selectWeightSpec(index)
                 }
 
                 override fun onFlavorSpecSelected(index: Int) {
-                    selectedFlavorIndex = index
-                    rebuildDetailList()
+                    viewModel.selectFlavorSpec(index)
                 }
 
                 override fun onQuantityMinus() {
-                    if (purchaseQuantity <= 1) return
-                    purchaseQuantity--
-                    rebuildDetailList()
+                    viewModel.decrementQuantity()
                 }
 
                 override fun onQuantityPlus() {
-                    if (purchaseQuantity >= 99) return
-                    purchaseQuantity++
-                    rebuildDetailList()
+                    viewModel.incrementQuantity()
                 }
 
                 override fun onRowReviewClick() {
@@ -244,26 +237,6 @@ class GoodsDetailActivity : BaseActivity() {
         performDetailAnchorScroll(DetailAnchorTab.PRODUCT)
         scrollToTopDistancePx = 0
         binding.scrollToTopFloatView.hide()
-    }
-
-    private fun rebuildDetailList() {
-        val detail = currentDetail ?: return
-        productSectionState = GoodsDetailProductSectionMapper.from(
-            detail = detail,
-            shipFromCity = detail.shipFromCity,
-            selectedWeightIndex = selectedWeightIndex,
-            selectedFlavorIndex = selectedFlavorIndex,
-            quantity = purchaseQuantity,
-        )
-        val section = productSectionState ?: return
-        val detailImageUrls = detail.detailImages.ifEmpty { detail.bannerImages }
-        detailAdapter.submit(
-            productSection = section,
-            detail = detail,
-            detailImageUrls = detailImageUrls,
-            recommendProducts = viewModel.recommendProducts.value.orEmpty(),
-            showListEndFooter = viewModel.recommendHasMore.value == false,
-        )
     }
 
     private fun setupActions() {

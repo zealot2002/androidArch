@@ -46,7 +46,6 @@ import com.joy.featuregoods.databinding.ItemGoodsDetailServiceSalesBinding
 import com.joy.featuregoods.databinding.ItemGoodsDetailShopBinding
 import com.joy.featuregoods.databinding.ItemGoodsDetailSpecSelectionBinding
 import com.joy.featuregoods.model.BrowseProduct
-import com.joy.featuregoods.model.GoodsDetail
 import com.joy.featuregoods.model.GoodsDetailProductSectionState
 import com.joy.featuregoods.model.GoodsDetailReviewState
 import com.joy.featuregoods.model.GoodsDetailReviewTag
@@ -98,23 +97,12 @@ class GoodsDetailAdapter(
     private var detailImageUrls: List<String> = emptyList()
 
     fun submit(
-        productSection: GoodsDetailProductSectionState,
-        detail: GoodsDetail,
-        detailImageUrls: List<String>,
-        recommendProducts: List<BrowseProduct>,
-        showListEndFooter: Boolean,
+        listItems: List<GoodsDetailListItem>,
+        imageUrls: List<String>,
     ) {
-        this.detailImageUrls = detailImageUrls
+        this.detailImageUrls = imageUrls
         items.clear()
-        items.addAll(
-            GoodsDetailListAssembler.build(
-                productSection = productSection,
-                detail = detail,
-                detailImageUrls = detailImageUrls,
-                recommendProducts = recommendProducts,
-                showListEndFooter = showListEndFooter,
-            ),
-        )
+        items.addAll(listItems)
         notifyDataSetChanged()
     }
 
