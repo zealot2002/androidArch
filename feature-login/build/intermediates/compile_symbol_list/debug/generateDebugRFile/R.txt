@@ -1,5 +1,0 @@
-int id btn_login 0x0
-int id et_password 0x0
-int id et_phone 0x0
-int id tv_register 0x0
-int layout activity_login 0x0
