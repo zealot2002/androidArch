@@ -1,4 +1,4 @@
-package com.joy.common.domain
+package com.joy.featurelogin.domain
 
 import com.joy.common.data.Result
 

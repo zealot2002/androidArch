@@ -2,8 +2,8 @@ package com.joy.featurelogin.domain
 
 import com.joy.common.base.BaseViewModel
 import com.joy.common.data.Result
-import com.joy.common.domain.User
-import com.joy.common.domain.UserRepository
+import com.joy.featurelogin.domain.User
+import com.joy.featurelogin.domain.UserRepository
 
 class LoginViewModel(
     private val loginUseCase: LoginUseCase

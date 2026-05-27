@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
 import com.joy.common.data.Result
-import com.joy.common.domain.MockUserRepository
+import com.joy.featurelogin.domain.MockUserRepository
 import com.joy.common.router.AppRouter
 import com.joy.common.router.RouterConstants
 import com.joy.common.utils.LoadingUtils

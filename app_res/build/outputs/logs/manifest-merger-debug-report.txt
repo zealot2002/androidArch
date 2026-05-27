@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml:2:13-83
-INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml:2:13-83
+ADDED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml:2:13-83
+INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml:2:13-83
 	package
-		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml
+		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml
 	xmlns:android
-		ADDED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml:2:23-81
+		ADDED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml:2:23-81
 uses-sdk
-INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml reason: use-sdk injection requested
-INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml
-INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml
+INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml reason: use-sdk injection requested
+INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml
+INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml
 	android:targetSdkVersion
-		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml
+		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml
 	android:minSdkVersion
-		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9085143547587674387.xml
+		INJECTED from /Users/zzy/github/androidArch/app_res/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest13836760609329144310.xml
