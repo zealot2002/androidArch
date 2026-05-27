@@ -32,8 +32,8 @@ import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
 import com.joy.featuregoods.model.GoodsDetail
 import com.joy.featuregoods.model.GoodsDetailReviewState
 import com.joy.featuregoods.ui.GoodsImagePagerAdapter
-import com.joy.featuregoods.ui.RecommendGridSpacingDecoration
 import com.joy.featuregoods.viewmodel.GoodsDetailViewModel
+import com.joy.common.widgets.recyclerview.GridSpacingDecoration
 import kotlin.math.abs
 
 @Route(path = RouterConstants.GOODS_DETAIL)
@@ -191,7 +191,14 @@ class GoodsDetailActivity : BaseActivity() {
         }
         binding.rvDetailContent.layoutManager = gridLayoutManager
         binding.rvDetailContent.adapter = detailAdapter
-        binding.rvDetailContent.addItemDecoration(RecommendGridSpacingDecoration(this, detailAdapter))
+        binding.rvDetailContent.addItemDecoration(
+                GridSpacingDecoration(
+                    context = this,
+                    cellSpacingDp = 5,
+                    edgeInsetDp = 14,
+                    targetViewType = GoodsDetailAdapter.VIEW_TYPE_RECOMMEND_PRODUCT,
+                )
+            )
         binding.rvDetailContent.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

@@ -1,4 +1,4 @@
-package com.joy.featuregoods.ui
+package com.joy.common.widgets.recyclerview
 
 import android.content.Context
 import android.graphics.Rect
@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.joy.common.utils.DimensUtil
 
-class RecommendGridSpacingDecoration(
+class GridSpacingDecoration(
     private val context: Context,
-    private val detailAdapter: GoodsDetailAdapter,
+    private val cellSpacingDp: Int = 5,
+    private val edgeInsetDp: Int = 14,
+    private val targetViewType: Int? = null,
 ) : RecyclerView.ItemDecoration() {
 
-    private val cellSpacingPx = DimensUtil.dimen(context, 5)
-    private val edgeInsetPx = DimensUtil.dimen(context, 14)
+    private val cellSpacingPx by lazy { DimensUtil.dimen(context, cellSpacingDp) }
+    private val edgeInsetPx by lazy { DimensUtil.dimen(context, edgeInsetDp) }
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -23,12 +25,18 @@ class RecommendGridSpacingDecoration(
     ) {
         val position = parent.getChildAdapterPosition(view)
         if (position == RecyclerView.NO_POSITION) return
-        if (detailAdapter.getItemViewType(position) != GoodsDetailAdapter.VIEW_TYPE_RECOMMEND_PRODUCT) {
-            return
+        
+        if (targetViewType != null) {
+            val adapter = parent.adapter ?: return
+            if (adapter.getItemViewType(position) != targetViewType) {
+                return
+            }
         }
+
         val lp = view.layoutParams as? GridLayoutManager.LayoutParams ?: return
         outRect.top = cellSpacingPx
         outRect.bottom = cellSpacingPx
+
         when (lp.spanIndex) {
             0 -> {
                 outRect.left = edgeInsetPx
