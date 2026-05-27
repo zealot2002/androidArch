@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bg_gray_field_rect_2"
+        android:state_enabled="false" />
+    <item
+        android:drawable="@drawable/bg_blue_field_rect_1"
+        android:state_focused="true" />
+    <item android:drawable="@drawable/bg_gray_field_rect_1" />
+</selector>

@@ -28,7 +28,8 @@ dependencies {
     implementation(libs.com.google.android.material)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    implementation(libs.kotlin.stdlib)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.palette:palette:1.0.0")
 }

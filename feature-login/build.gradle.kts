@@ -26,5 +26,5 @@ dependencies {
     implementation(project(":app_res"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    implementation(libs.kotlin.stdlib)
 }

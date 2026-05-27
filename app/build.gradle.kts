@@ -47,5 +47,5 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.com.google.android.material)
     implementation("androidx.viewpager2:viewpager2:1.0.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    implementation(libs.kotlin.stdlib)
 }

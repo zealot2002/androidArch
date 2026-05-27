@@ -71,4 +71,12 @@
     <string name="icon_service"></string>
     <string name="icon_settings"></string>
     <string name="icon_add_cart"></string>
+
+    <string name="quick_menu_title">快速到达</string>
+    <string name="quick_menu_message">消息</string>
+    <string name="quick_menu_home">首页</string>
+    <string name="quick_menu_mine">我的</string>
+    <string name="quick_menu_cart">购物车</string>
+    <string name="quick_menu_feedback">意见反馈</string>
+    <string name="quick_menu_search">搜索</string>
 </resources>

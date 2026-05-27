@@ -16,7 +16,9 @@ import androidx.viewbinding.ViewBindings;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.joy.common.widgets.BadgeView;
 import com.joy.common.widgets.IconFontView;
+import com.joy.common.widgets.ScrollToTopFloatView;
 import com.joy.featuregoods.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -46,6 +48,12 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
 
   @NonNull
   public final LinearLayout flTitle1;
+
+  @NonNull
+  public final FrameLayout flTitle1More;
+
+  @NonNull
+  public final FrameLayout flTitle2More;
 
   @NonNull
   public final IconFontView iconTitle1Back;
@@ -99,13 +107,16 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
   public final RecyclerView rvDetailContent;
 
   @NonNull
-  public final TextView scrollToTopFloatView;
+  public final ScrollToTopFloatView scrollToTopFloatView;
 
   @NonNull
-  public final TextView tvCartBadge;
+  public final BadgeView tvCartBadge;
 
   @NonNull
   public final TextView tvImageCount;
+
+  @NonNull
+  public final BadgeView tvMoreBadge;
 
   @NonNull
   public final TextView tvTabDetail;
@@ -126,7 +137,8 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
       @NonNull AppBarLayout appBarGoodsDetail, @NonNull TextView btnAddCart,
       @NonNull TextView btnBuyNow, @NonNull CollapsingToolbarLayout collapsingGoodsGallery,
       @NonNull CoordinatorLayout coordinatorGoodsDetail, @NonNull FrameLayout detailTitleOverlay,
-      @NonNull LinearLayout flTitle1, @NonNull IconFontView iconTitle1Back,
+      @NonNull LinearLayout flTitle1, @NonNull FrameLayout flTitle1More,
+      @NonNull FrameLayout flTitle2More, @NonNull IconFontView iconTitle1Back,
       @NonNull IconFontView iconTitle1Favorite, @NonNull IconFontView iconTitle1More,
       @NonNull IconFontView iconTitle1Search, @NonNull IconFontView iconTitle1Share,
       @NonNull IconFontView iconTitle2Back, @NonNull IconFontView iconTitle2Favorite,
@@ -135,10 +147,10 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
       @NonNull LinearLayout layoutService, @NonNull LinearLayout layoutShop,
       @NonNull LinearLayout layoutTitle2Search, @NonNull LinearLayout llBottomBar,
       @NonNull LinearLayout llTitle2, @NonNull RecyclerView rvDetailContent,
-      @NonNull TextView scrollToTopFloatView, @NonNull TextView tvCartBadge,
-      @NonNull TextView tvImageCount, @NonNull TextView tvTabDetail, @NonNull TextView tvTabProduct,
-      @NonNull TextView tvTabRecommend, @NonNull TextView tvTabReview,
-      @NonNull ViewPager2 vpGallery) {
+      @NonNull ScrollToTopFloatView scrollToTopFloatView, @NonNull BadgeView tvCartBadge,
+      @NonNull TextView tvImageCount, @NonNull BadgeView tvMoreBadge, @NonNull TextView tvTabDetail,
+      @NonNull TextView tvTabProduct, @NonNull TextView tvTabRecommend,
+      @NonNull TextView tvTabReview, @NonNull ViewPager2 vpGallery) {
     this.rootView = rootView;
     this.appBarGoodsDetail = appBarGoodsDetail;
     this.btnAddCart = btnAddCart;
@@ -147,6 +159,8 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
     this.coordinatorGoodsDetail = coordinatorGoodsDetail;
     this.detailTitleOverlay = detailTitleOverlay;
     this.flTitle1 = flTitle1;
+    this.flTitle1More = flTitle1More;
+    this.flTitle2More = flTitle2More;
     this.iconTitle1Back = iconTitle1Back;
     this.iconTitle1Favorite = iconTitle1Favorite;
     this.iconTitle1More = iconTitle1More;
@@ -167,6 +181,7 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
     this.scrollToTopFloatView = scrollToTopFloatView;
     this.tvCartBadge = tvCartBadge;
     this.tvImageCount = tvImageCount;
+    this.tvMoreBadge = tvMoreBadge;
     this.tvTabDetail = tvTabDetail;
     this.tvTabProduct = tvTabProduct;
     this.tvTabRecommend = tvTabRecommend;
@@ -240,6 +255,18 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
       id = R.id.flTitle1;
       LinearLayout flTitle1 = ViewBindings.findChildViewById(rootView, id);
       if (flTitle1 == null) {
+        break missingId;
+      }
+
+      id = R.id.flTitle1More;
+      FrameLayout flTitle1More = ViewBindings.findChildViewById(rootView, id);
+      if (flTitle1More == null) {
+        break missingId;
+      }
+
+      id = R.id.flTitle2More;
+      FrameLayout flTitle2More = ViewBindings.findChildViewById(rootView, id);
+      if (flTitle2More == null) {
         break missingId;
       }
 
@@ -346,13 +373,13 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
       }
 
       id = R.id.scrollToTopFloatView;
-      TextView scrollToTopFloatView = ViewBindings.findChildViewById(rootView, id);
+      ScrollToTopFloatView scrollToTopFloatView = ViewBindings.findChildViewById(rootView, id);
       if (scrollToTopFloatView == null) {
         break missingId;
       }
 
       id = R.id.tvCartBadge;
-      TextView tvCartBadge = ViewBindings.findChildViewById(rootView, id);
+      BadgeView tvCartBadge = ViewBindings.findChildViewById(rootView, id);
       if (tvCartBadge == null) {
         break missingId;
       }
@@ -360,6 +387,12 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
       id = R.id.tvImageCount;
       TextView tvImageCount = ViewBindings.findChildViewById(rootView, id);
       if (tvImageCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tvMoreBadge;
+      BadgeView tvMoreBadge = ViewBindings.findChildViewById(rootView, id);
+      if (tvMoreBadge == null) {
         break missingId;
       }
 
@@ -395,11 +428,12 @@ public final class ActivityGoodsDetailBinding implements ViewBinding {
 
       return new ActivityGoodsDetailBinding((LinearLayout) rootView, appBarGoodsDetail, btnAddCart,
           btnBuyNow, collapsingGoodsGallery, coordinatorGoodsDetail, detailTitleOverlay, flTitle1,
-          iconTitle1Back, iconTitle1Favorite, iconTitle1More, iconTitle1Search, iconTitle1Share,
-          iconTitle2Back, iconTitle2Favorite, iconTitle2More, iconTitle2Share, layoutCart,
-          layoutPrimaryActions, layoutService, layoutShop, layoutTitle2Search, llBottomBar,
-          llTitle2, rvDetailContent, scrollToTopFloatView, tvCartBadge, tvImageCount, tvTabDetail,
-          tvTabProduct, tvTabRecommend, tvTabReview, vpGallery);
+          flTitle1More, flTitle2More, iconTitle1Back, iconTitle1Favorite, iconTitle1More,
+          iconTitle1Search, iconTitle1Share, iconTitle2Back, iconTitle2Favorite, iconTitle2More,
+          iconTitle2Share, layoutCart, layoutPrimaryActions, layoutService, layoutShop,
+          layoutTitle2Search, llBottomBar, llTitle2, rvDetailContent, scrollToTopFloatView,
+          tvCartBadge, tvImageCount, tvMoreBadge, tvTabDetail, tvTabProduct, tvTabRecommend,
+          tvTabReview, vpGallery);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

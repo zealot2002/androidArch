@@ -51,6 +51,9 @@
 
     <color name="func_gray_bg_1">@color/t_gray_1</color>
     <color name="func_gray_bg_2">@color/t_gray_3</color>
+    <color name="func_gray_bg_3">@color/t_black_3</color>
+
+    <color name="func_white_bg_1">@color/t_white_1</color>
 
     <color name="func_red_bg_1">@color/t_red_4</color>
     <color name="func_red_bg_2">@color/t_red_1</color>

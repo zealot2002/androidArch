@@ -1,0 +1,9 @@
+com.joy.featuregoods.feature-goods-pngs-0 /Users/zzy/github/androidArch/feature-goods/build/generated/res/pngs/release
+com.joy.featuregoods.feature-goods-updated_navigation_xml-1 /Users/zzy/github/androidArch/feature-goods/build/generated/updated_navigation_xml/release
+com.joy.featuregoods.feature-goods-mergeReleaseResources-2 /Users/zzy/github/androidArch/feature-goods/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.joy.featuregoods.feature-goods-mergeReleaseResources-3 /Users/zzy/github/androidArch/feature-goods/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.joy.featuregoods.feature-goods-release-4 /Users/zzy/github/androidArch/feature-goods/build/intermediates/merged_res/release/mergeReleaseResources
+com.joy.featuregoods.feature-goods-release-5 /Users/zzy/github/androidArch/feature-goods/build/intermediates/packaged_res/release/packageReleaseResources
+com.joy.featuregoods.feature-goods-main-6 /Users/zzy/github/androidArch/feature-goods/src/main/res
+com.joy.featuregoods.feature-goods-release-7 /Users/zzy/github/androidArch/feature-goods/src/release/res
+gradleHome-0 /Users/zzy/.gradle

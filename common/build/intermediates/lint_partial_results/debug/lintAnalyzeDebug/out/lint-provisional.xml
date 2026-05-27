@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 9.2.1" type="conditional_incidents">
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getNetworkCapabilities: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="13"
+            column="32"
+            startOffset="473"
+            endLine="13"
+            endColumn="75"
+            endOffset="516"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getNetworkCapabilities: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getActiveNetwork: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="13"
+            column="58"
+            startOffset="499"
+            endLine="13"
+            endColumn="74"
+            endOffset="515"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getActiveNetwork: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="21"
+            column="33"
+            startOffset="910"
+            endLine="21"
+            endColumn="53"
+            endOffset="930"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getNetworkCapabilities: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="30"
+            column="32"
+            startOffset="1302"
+            endLine="30"
+            endColumn="75"
+            endOffset="1345"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getNetworkCapabilities: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getActiveNetwork: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="30"
+            column="58"
+            startOffset="1328"
+            endLine="30"
+            endColumn="74"
+            endOffset="1344"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getActiveNetwork: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="">
+        <fix-data missing="android.permission.ACCESS_NETWORK_STATE" message="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: %1$s" lastApi="2147483647" operator="&amp;"/>
+        <location
+            file="${:common*debug*MAIN*sourceProvider*0*javaDir*2}/com/joy/common/utils/NetworkUtils.kt"
+            line="34"
+            column="33"
+            startOffset="1537"
+            endLine="34"
+            endColumn="53"
+            endOffset="1557"/>
+        <map>
+            <entry
+                name="message"
+                string="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: %1$s"/>
+            <entry
+                name="requirement"
+                string="android.permission.ACCESS_NETWORK_STATE"/>
+        </map>
+    </incident>
+
+</incidents>

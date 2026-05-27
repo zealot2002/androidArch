@@ -1,1 +1,15 @@
 com.joy.common
+id flIconCircle
+id gvMenu
+id iconClose
+id iconTop
+id ivIcon
+id llQuickHeader
+id llQuickPanel
+id tvBadge
+id tvQuickTitle
+id tvTitle
+id viewDismiss
+layout item_quick_menu
+layout layout_quick_menu_popup
+layout view_scroll_to_top_float

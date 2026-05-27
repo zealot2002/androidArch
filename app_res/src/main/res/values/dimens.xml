@@ -3,10 +3,12 @@
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_6">6dp</dimen>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_11">11dp</dimen>
     <dimen name="dp_12">12dp</dimen>
     <dimen name="dp_13">13dp</dimen>
     <dimen name="dp_14">14dp</dimen>
@@ -16,6 +18,8 @@
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_22">22dp</dimen>
     <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
     <dimen name="dp_36">36dp</dimen>
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_44">44dp</dimen>
@@ -23,8 +27,14 @@
     <dimen name="dp_52">52dp</dimen>
     <dimen name="dp_56">56dp</dimen>
     <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
     <dimen name="dp_96">96dp</dimen>
     <dimen name="dp_120">120dp</dimen>
+    <dimen name="dp_124">124dp</dimen>
     <dimen name="dp_140">140dp</dimen>
+    <dimen name="dp_160">160dp</dimen>
+    <dimen name="dp_164">164dp</dimen>
+    <dimen name="dp_168">168dp</dimen>
     <dimen name="dp_460">460dp</dimen>
+    <dimen name="home_product_grid_img">@dimen/dp_164</dimen>
 </resources>

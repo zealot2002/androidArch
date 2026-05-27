@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="goodsDetailTitleBarPaddingH">@dimen/dp_12</dimen>
+    <dimen name="goodsDetailTitleActionSize">@dimen/dp_36</dimen>
+    <dimen name="goodsDetailTitleActionGap">@dimen/dp_8</dimen>
+    <dimen name="goodsDetailTitleTrailingWidth">@dimen/dp_168</dimen>
+    <dimen name="goodsDetailTitleTrailingActionsWidth">@dimen/dp_124</dimen>
+    <dimen name="goodsDetailTitleMoreBadgeMarginTop">@dimen/dp_8</dimen>
+    <dimen name="goodsDetailTitleMoreBadgeMarginEnd">@dimen/dp_10</dimen>
+</resources>

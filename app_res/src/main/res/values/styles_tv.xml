@@ -98,8 +98,17 @@
     </style>
 
     <!-- 黑次级 + 字号 -->
+    <style name="tv_black_2_size_12" parent="tv_black_2" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="tv_black_2_size_13" parent="tv_black_2" tools:ignore="ResourceName">
         <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_black_3_size_11" parent="tv_black_3" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_black_3_size_12" parent="tv_black_3" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <!-- 灰 + 字号 -->
@@ -123,22 +132,52 @@
     </style>
 
     <!-- 白 + 字号 -->
+    <style name="tv_white_1_size_10" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="tv_white_1_size_11" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_white_1_size_12" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="tv_white_1_size_13" parent="tv_white_1" tools:ignore="ResourceName">
         <item name="android:textSize">13sp</item>
+    </style>
+    <style name="tv_white_1_size_14" parent="tv_white_1" tools:ignore="ResourceName">
+        <item name="android:textSize">14sp</item>
     </style>
     <style name="tv_white_1_size_15" parent="tv_white_1" tools:ignore="ResourceName">
         <item name="android:textSize">15sp</item>
     </style>
 
     <!-- 橙 + 字号 -->
+    <style name="tv_orange_1_size_11" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_orange_1_size_12" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="tv_orange_1_size_14" parent="tv_orange_1" tools:ignore="ResourceName">
         <item name="android:textSize">14sp</item>
     </style>
     <style name="tv_orange_1_size_15" parent="tv_orange_1" tools:ignore="ResourceName">
         <item name="android:textSize">15sp</item>
     </style>
+    <style name="tv_orange_1_size_16" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="tv_orange_1_size_28" parent="tv_orange_1" tools:ignore="ResourceName">
+        <item name="android:textSize">28sp</item>
+    </style>
 
     <!-- 红 / 蓝 / 绿 + 字号 -->
+    <style name="tv_red_1_size_11" parent="tv_red_1" tools:ignore="ResourceName">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="tv_red_1_size_12" parent="tv_red_1" tools:ignore="ResourceName">
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="tv_red_1_size_14" parent="tv_red_1" tools:ignore="ResourceName">
         <item name="android:textSize">14sp</item>
     </style>

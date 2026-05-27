@@ -4,10 +4,10 @@ package com.joy.featuregoods.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.joy.featuregoods.R;
@@ -17,19 +17,19 @@ import java.lang.String;
 
 public final class ItemGoodsImageBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final FrameLayout rootView;
 
   @NonNull
   public final ImageView ivGoods;
 
-  private ItemGoodsImageBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivGoods) {
+  private ItemGoodsImageBinding(@NonNull FrameLayout rootView, @NonNull ImageView ivGoods) {
     this.rootView = rootView;
     this.ivGoods = ivGoods;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public FrameLayout getRoot() {
     return rootView;
   }
 
@@ -60,7 +60,7 @@ public final class ItemGoodsImageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemGoodsImageBinding((ConstraintLayout) rootView, ivGoods);
+      return new ItemGoodsImageBinding((FrameLayout) rootView, ivGoods);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

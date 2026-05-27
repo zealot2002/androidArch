@@ -1,0 +1,9 @@
+com.joy.common-pngs-0 /Users/zzy/github/androidArch/common/build/generated/res/pngs/release
+com.joy.common-updated_navigation_xml-1 /Users/zzy/github/androidArch/common/build/generated/updated_navigation_xml/release
+com.joy.common-mergeReleaseResources-2 /Users/zzy/github/androidArch/common/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.joy.common-mergeReleaseResources-3 /Users/zzy/github/androidArch/common/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.joy.common-release-4 /Users/zzy/github/androidArch/common/build/intermediates/merged_res/release/mergeReleaseResources
+com.joy.common-release-5 /Users/zzy/github/androidArch/common/build/intermediates/packaged_res/release/packageReleaseResources
+com.joy.common-main-6 /Users/zzy/github/androidArch/common/src/main/res
+com.joy.common-release-7 /Users/zzy/github/androidArch/common/src/release/res
+gradleHome-0 /Users/zzy/.gradle

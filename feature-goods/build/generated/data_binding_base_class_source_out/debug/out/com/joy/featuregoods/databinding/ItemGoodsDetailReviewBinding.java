@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.flexbox.FlexboxLayout;
 import com.joy.featuregoods.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,7 +22,22 @@ public final class ItemGoodsDetailReviewBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final ImageView ivAvatar;
+  public final FlexboxLayout flReviewTags;
+
+  @NonNull
+  public final ImageView ivReviewAvatar;
+
+  @NonNull
+  public final LinearLayout llReviewImages;
+
+  @NonNull
+  public final LinearLayout llReviewStars;
+
+  @NonNull
+  public final LinearLayout llViewAllReviews;
+
+  @NonNull
+  public final LinearLayout rowReviewHeader;
 
   @NonNull
   public final TextView tvPositiveRate;
@@ -30,20 +46,33 @@ public final class ItemGoodsDetailReviewBinding implements ViewBinding {
   public final TextView tvReviewContent;
 
   @NonNull
-  public final TextView tvReviewCount;
+  public final TextView tvReviewTitle;
 
   @NonNull
-  public final TextView tvUserName;
+  public final TextView tvReviewUser;
 
-  private ItemGoodsDetailReviewBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivAvatar,
+  @NonNull
+  public final TextView tvViewAllReviews;
+
+  private ItemGoodsDetailReviewBinding(@NonNull LinearLayout rootView,
+      @NonNull FlexboxLayout flReviewTags, @NonNull ImageView ivReviewAvatar,
+      @NonNull LinearLayout llReviewImages, @NonNull LinearLayout llReviewStars,
+      @NonNull LinearLayout llViewAllReviews, @NonNull LinearLayout rowReviewHeader,
       @NonNull TextView tvPositiveRate, @NonNull TextView tvReviewContent,
-      @NonNull TextView tvReviewCount, @NonNull TextView tvUserName) {
+      @NonNull TextView tvReviewTitle, @NonNull TextView tvReviewUser,
+      @NonNull TextView tvViewAllReviews) {
     this.rootView = rootView;
-    this.ivAvatar = ivAvatar;
+    this.flReviewTags = flReviewTags;
+    this.ivReviewAvatar = ivReviewAvatar;
+    this.llReviewImages = llReviewImages;
+    this.llReviewStars = llReviewStars;
+    this.llViewAllReviews = llViewAllReviews;
+    this.rowReviewHeader = rowReviewHeader;
     this.tvPositiveRate = tvPositiveRate;
     this.tvReviewContent = tvReviewContent;
-    this.tvReviewCount = tvReviewCount;
-    this.tvUserName = tvUserName;
+    this.tvReviewTitle = tvReviewTitle;
+    this.tvReviewUser = tvReviewUser;
+    this.tvViewAllReviews = tvViewAllReviews;
   }
 
   @Override
@@ -73,9 +102,39 @@ public final class ItemGoodsDetailReviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ivAvatar;
-      ImageView ivAvatar = ViewBindings.findChildViewById(rootView, id);
-      if (ivAvatar == null) {
+      id = R.id.flReviewTags;
+      FlexboxLayout flReviewTags = ViewBindings.findChildViewById(rootView, id);
+      if (flReviewTags == null) {
+        break missingId;
+      }
+
+      id = R.id.ivReviewAvatar;
+      ImageView ivReviewAvatar = ViewBindings.findChildViewById(rootView, id);
+      if (ivReviewAvatar == null) {
+        break missingId;
+      }
+
+      id = R.id.llReviewImages;
+      LinearLayout llReviewImages = ViewBindings.findChildViewById(rootView, id);
+      if (llReviewImages == null) {
+        break missingId;
+      }
+
+      id = R.id.llReviewStars;
+      LinearLayout llReviewStars = ViewBindings.findChildViewById(rootView, id);
+      if (llReviewStars == null) {
+        break missingId;
+      }
+
+      id = R.id.llViewAllReviews;
+      LinearLayout llViewAllReviews = ViewBindings.findChildViewById(rootView, id);
+      if (llViewAllReviews == null) {
+        break missingId;
+      }
+
+      id = R.id.rowReviewHeader;
+      LinearLayout rowReviewHeader = ViewBindings.findChildViewById(rootView, id);
+      if (rowReviewHeader == null) {
         break missingId;
       }
 
@@ -91,20 +150,27 @@ public final class ItemGoodsDetailReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvReviewCount;
-      TextView tvReviewCount = ViewBindings.findChildViewById(rootView, id);
-      if (tvReviewCount == null) {
+      id = R.id.tvReviewTitle;
+      TextView tvReviewTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvReviewTitle == null) {
         break missingId;
       }
 
-      id = R.id.tvUserName;
-      TextView tvUserName = ViewBindings.findChildViewById(rootView, id);
-      if (tvUserName == null) {
+      id = R.id.tvReviewUser;
+      TextView tvReviewUser = ViewBindings.findChildViewById(rootView, id);
+      if (tvReviewUser == null) {
         break missingId;
       }
 
-      return new ItemGoodsDetailReviewBinding((LinearLayout) rootView, ivAvatar, tvPositiveRate,
-          tvReviewContent, tvReviewCount, tvUserName);
+      id = R.id.tvViewAllReviews;
+      TextView tvViewAllReviews = ViewBindings.findChildViewById(rootView, id);
+      if (tvViewAllReviews == null) {
+        break missingId;
+      }
+
+      return new ItemGoodsDetailReviewBinding((LinearLayout) rootView, flReviewTags, ivReviewAvatar,
+          llReviewImages, llReviewStars, llViewAllReviews, rowReviewHeader, tvPositiveRate,
+          tvReviewContent, tvReviewTitle, tvReviewUser, tvViewAllReviews);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

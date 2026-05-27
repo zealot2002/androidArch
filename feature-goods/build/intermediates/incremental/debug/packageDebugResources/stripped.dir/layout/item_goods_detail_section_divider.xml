@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 勿用裸 View 作根节点：RecyclerView item 可能量成 0 高度 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_8"
+    android:background="@color/func_gray_bg_1"
+    android:importantForAccessibility="no" />

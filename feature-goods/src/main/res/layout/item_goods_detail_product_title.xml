@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvProductTitle"
+    style="@style/tv_black_1_size_18"
+    android:background="@color/func_white_bg_1"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_12"
+    android:textStyle="bold"
+    tools:text="挪威进口顶级三文鱼刺身(200g/盒) 顺丰冷链直达" />

@@ -61,6 +61,8 @@ class GoodsRepository {
         )
     }
 
+    suspend fun loadMoreRecommended(): List<BrowseProduct> = emptyList()
+
     private fun resolveProductId(spuId: String): Int {
         spuId.toIntOrNull()?.let { return it }
         val h = spuId.hashCode()

@@ -63,4 +63,11 @@
     <string name="iconfont_service">&#xe692;</string>
     <string name="iconfont_settings">&#xe693;</string>
     <string name="iconfont_add_cart">&#xe694;</string>
+    <string name="iconfont_row_chevron">&#xe775;</string>
+    <string name="iconfont_follow_fill">&#xe8b9;</string>
+    <string name="iconfont_shop">&#xe736;</string>
+    <string name="iconfont_feedback">&#xe738;</string>
+    <string name="iconfont_star_fill">&#xe732;</string>
+    <string name="iconfont_check_outline">&#xe731;</string>
+    <string name="iconfont_top2">&#xe76c;</string>
 </resources>

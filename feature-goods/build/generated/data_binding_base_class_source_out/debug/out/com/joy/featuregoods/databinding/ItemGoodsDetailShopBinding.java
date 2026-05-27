@@ -21,23 +21,87 @@ public final class ItemGoodsDetailShopBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView btnEnterShop;
+
+  @NonNull
   public final ImageView ivShopLogo;
 
   @NonNull
-  public final TextView tvEnterShop;
+  public final LinearLayout layoutRatingDesc;
 
   @NonNull
-  public final TextView tvShopInfo;
+  public final LinearLayout layoutRatingLogistics;
+
+  @NonNull
+  public final LinearLayout layoutRatingService;
+
+  @NonNull
+  public final TextView tvFollowers;
+
+  @NonNull
+  public final TextView tvItemCount;
+
+  @NonNull
+  public final TextView tvRatingDescLabel;
+
+  @NonNull
+  public final TextView tvRatingDescLevel;
+
+  @NonNull
+  public final TextView tvRatingDescScore;
+
+  @NonNull
+  public final TextView tvRatingLogisticsLabel;
+
+  @NonNull
+  public final TextView tvRatingLogisticsLevel;
+
+  @NonNull
+  public final TextView tvRatingLogisticsScore;
+
+  @NonNull
+  public final TextView tvRatingServiceLabel;
+
+  @NonNull
+  public final TextView tvRatingServiceLevel;
+
+  @NonNull
+  public final TextView tvRatingServiceScore;
+
+  @NonNull
+  public final TextView tvSelfOperatedTag;
 
   @NonNull
   public final TextView tvShopName;
 
-  private ItemGoodsDetailShopBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivShopLogo,
-      @NonNull TextView tvEnterShop, @NonNull TextView tvShopInfo, @NonNull TextView tvShopName) {
+  private ItemGoodsDetailShopBinding(@NonNull LinearLayout rootView, @NonNull TextView btnEnterShop,
+      @NonNull ImageView ivShopLogo, @NonNull LinearLayout layoutRatingDesc,
+      @NonNull LinearLayout layoutRatingLogistics, @NonNull LinearLayout layoutRatingService,
+      @NonNull TextView tvFollowers, @NonNull TextView tvItemCount,
+      @NonNull TextView tvRatingDescLabel, @NonNull TextView tvRatingDescLevel,
+      @NonNull TextView tvRatingDescScore, @NonNull TextView tvRatingLogisticsLabel,
+      @NonNull TextView tvRatingLogisticsLevel, @NonNull TextView tvRatingLogisticsScore,
+      @NonNull TextView tvRatingServiceLabel, @NonNull TextView tvRatingServiceLevel,
+      @NonNull TextView tvRatingServiceScore, @NonNull TextView tvSelfOperatedTag,
+      @NonNull TextView tvShopName) {
     this.rootView = rootView;
+    this.btnEnterShop = btnEnterShop;
     this.ivShopLogo = ivShopLogo;
-    this.tvEnterShop = tvEnterShop;
-    this.tvShopInfo = tvShopInfo;
+    this.layoutRatingDesc = layoutRatingDesc;
+    this.layoutRatingLogistics = layoutRatingLogistics;
+    this.layoutRatingService = layoutRatingService;
+    this.tvFollowers = tvFollowers;
+    this.tvItemCount = tvItemCount;
+    this.tvRatingDescLabel = tvRatingDescLabel;
+    this.tvRatingDescLevel = tvRatingDescLevel;
+    this.tvRatingDescScore = tvRatingDescScore;
+    this.tvRatingLogisticsLabel = tvRatingLogisticsLabel;
+    this.tvRatingLogisticsLevel = tvRatingLogisticsLevel;
+    this.tvRatingLogisticsScore = tvRatingLogisticsScore;
+    this.tvRatingServiceLabel = tvRatingServiceLabel;
+    this.tvRatingServiceLevel = tvRatingServiceLevel;
+    this.tvRatingServiceScore = tvRatingServiceScore;
+    this.tvSelfOperatedTag = tvSelfOperatedTag;
     this.tvShopName = tvShopName;
   }
 
@@ -68,21 +132,105 @@ public final class ItemGoodsDetailShopBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnEnterShop;
+      TextView btnEnterShop = ViewBindings.findChildViewById(rootView, id);
+      if (btnEnterShop == null) {
+        break missingId;
+      }
+
       id = R.id.ivShopLogo;
       ImageView ivShopLogo = ViewBindings.findChildViewById(rootView, id);
       if (ivShopLogo == null) {
         break missingId;
       }
 
-      id = R.id.tvEnterShop;
-      TextView tvEnterShop = ViewBindings.findChildViewById(rootView, id);
-      if (tvEnterShop == null) {
+      id = R.id.layoutRatingDesc;
+      LinearLayout layoutRatingDesc = ViewBindings.findChildViewById(rootView, id);
+      if (layoutRatingDesc == null) {
         break missingId;
       }
 
-      id = R.id.tvShopInfo;
-      TextView tvShopInfo = ViewBindings.findChildViewById(rootView, id);
-      if (tvShopInfo == null) {
+      id = R.id.layoutRatingLogistics;
+      LinearLayout layoutRatingLogistics = ViewBindings.findChildViewById(rootView, id);
+      if (layoutRatingLogistics == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutRatingService;
+      LinearLayout layoutRatingService = ViewBindings.findChildViewById(rootView, id);
+      if (layoutRatingService == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFollowers;
+      TextView tvFollowers = ViewBindings.findChildViewById(rootView, id);
+      if (tvFollowers == null) {
+        break missingId;
+      }
+
+      id = R.id.tvItemCount;
+      TextView tvItemCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvItemCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingDescLabel;
+      TextView tvRatingDescLabel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingDescLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingDescLevel;
+      TextView tvRatingDescLevel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingDescLevel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingDescScore;
+      TextView tvRatingDescScore = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingDescScore == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingLogisticsLabel;
+      TextView tvRatingLogisticsLabel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingLogisticsLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingLogisticsLevel;
+      TextView tvRatingLogisticsLevel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingLogisticsLevel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingLogisticsScore;
+      TextView tvRatingLogisticsScore = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingLogisticsScore == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingServiceLabel;
+      TextView tvRatingServiceLabel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingServiceLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingServiceLevel;
+      TextView tvRatingServiceLevel = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingServiceLevel == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRatingServiceScore;
+      TextView tvRatingServiceScore = ViewBindings.findChildViewById(rootView, id);
+      if (tvRatingServiceScore == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSelfOperatedTag;
+      TextView tvSelfOperatedTag = ViewBindings.findChildViewById(rootView, id);
+      if (tvSelfOperatedTag == null) {
         break missingId;
       }
 
@@ -92,8 +240,11 @@ public final class ItemGoodsDetailShopBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemGoodsDetailShopBinding((LinearLayout) rootView, ivShopLogo, tvEnterShop,
-          tvShopInfo, tvShopName);
+      return new ItemGoodsDetailShopBinding((LinearLayout) rootView, btnEnterShop, ivShopLogo,
+          layoutRatingDesc, layoutRatingLogistics, layoutRatingService, tvFollowers, tvItemCount,
+          tvRatingDescLabel, tvRatingDescLevel, tvRatingDescScore, tvRatingLogisticsLabel,
+          tvRatingLogisticsLevel, tvRatingLogisticsScore, tvRatingServiceLabel,
+          tvRatingServiceLevel, tvRatingServiceScore, tvSelfOperatedTag, tvShopName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
