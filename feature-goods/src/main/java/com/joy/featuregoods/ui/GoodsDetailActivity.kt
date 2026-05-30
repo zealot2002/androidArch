@@ -131,7 +131,7 @@ class GoodsDetailActivity : BaseActivity() {
 
         binding.sharePanelOverlay.btnSharePoster.onClick200 {
             sharePanelController.hide()
-            AppRouter.openBill(this, currentSpuId)
+            AppRouter.openGoodsBill(this, currentSpuId)
         }
     }
 

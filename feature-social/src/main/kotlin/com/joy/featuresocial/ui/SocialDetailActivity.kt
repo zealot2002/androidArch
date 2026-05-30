@@ -47,7 +47,7 @@ class SocialDetailActivity : BaseActivity() {
         }
         binding.sharePanelOverlay.btnSharePoster.onClick200 {
             sharePanelController.hide()
-            AppRouter.openBill(this, MOCK_POST_ID)
+            AppRouter.openSocialBill(this, MOCK_POST_ID)
         }
     }
 

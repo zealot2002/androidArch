@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardRoot"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white_1"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12">
+
+    <TextView
+        android:id="@+id/tvNickname"
+        style="@style/tv_black_1_size_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        style="@style/tv_black_1_size_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:lineSpacingExtra="2dp" />
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@color/func_gray_bg_2"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        style="@style/tv_black_1_size_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="@string/bill_social_footer"
+        android:textColor="@color/func_black_text_2" />
+
+</LinearLayout>

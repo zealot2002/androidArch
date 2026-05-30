@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".ui.BillMainActivity"
+            android:name=".ui.BillActivity"
             android:exported="false" />
     </application>
 

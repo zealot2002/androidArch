@@ -15,4 +15,10 @@ object RouterConstants {
     /** 商品 SPU（详情页查询主键） */
     const val EXTRA_GOODS_SPU_ID = "goods_spu_id"
     const val EXTRA_SOCIAL_POST_ID = "social_post_id"
+
+    /** 海报业务类型（bill = poster） */
+    const val EXTRA_BILL_CASE = "bill_case"
+    const val EXTRA_BILL_ID = "bill_id"
+    const val BILL_CASE_GOODS = 1
+    const val BILL_CASE_SOCIAL = 2
 }

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="bill_main_title">海报</string>
+    <string name="bill_generating">海报生成中…</string>
+    <string name="bill_preview_cd">海报预览</string>
+    <string name="bill_goods_footer">— 商品海报 · Template Method Demo —</string>
+    <string name="bill_social_footer">— 社交海报 · Template Method Demo —</string>
 </resources>

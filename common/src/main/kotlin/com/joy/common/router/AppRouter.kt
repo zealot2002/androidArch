@@ -32,13 +32,23 @@ object AppRouter {
             .navigation(context)
     }
 
-    /** 打开海报页（bill = poster） */
-    fun openBill(context: Context?, spuId: String) {
-        val id = spuId.trim()
+    /** 商品详情海报 */
+    fun openGoodsBill(context: Context?, goodsId: String) {
+        openBill(context, goodsId, RouterConstants.BILL_CASE_GOODS)
+    }
+
+    /** 社交详情海报 */
+    fun openSocialBill(context: Context?, postId: String) {
+        openBill(context, postId, RouterConstants.BILL_CASE_SOCIAL)
+    }
+
+    private fun openBill(context: Context?, billId: String, billCase: Int) {
+        val id = billId.trim()
         if (id.isEmpty()) return
         ARouter.getInstance()
             .build(RouterConstants.BILL_MAIN)
-            .withString(RouterConstants.EXTRA_GOODS_SPU_ID, id)
+            .withInt(RouterConstants.EXTRA_BILL_CASE, billCase)
+            .withString(RouterConstants.EXTRA_BILL_ID, id)
             .navigation(context)
     }
 
