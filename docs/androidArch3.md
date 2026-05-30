@@ -432,7 +432,110 @@ private fun showReviewListPanel() {
 
 ---
 
-## 八、Lego 思想的落地回顾
+## 八、项目结构总览
+
+### 8.1 模块目录树
+
+```
+androidArch/
+│
+├── app/                          # 应用入口
+│   ├── App.kt                    # Application
+│   └── MainActivity.kt           # 首页
+│
+├── common/                       # 公共基础（可被所有模块依赖）
+│   ├── base/
+│   │   ├── BaseActivity.kt       # Activity 基类（封装埋点、生命周期）
+│   │   └── BaseViewModel.kt      # ViewModel 基类
+│   │
+│   ├── utils/
+│   │   ├── ToastUtils.kt         # 全局吐司
+│   │   ├── StatusBarUtils.kt     # 状态栏操作
+│   │   └── PaletteColorUtils.kt  # 颜色提取
+│   │
+│   ├── router/
+│   │   └── AppRouter.kt         # 路由导航
+│   │
+│   └── widgets/
+│       ├── GridSpacingDecoration.kt   # 通用网格间距装饰器
+│       └── IconFontView.kt           # 图标字体组件
+│
+├── app_res/                      # 资源中心（颜色、尺寸、Drawable）
+│   ├── res/
+│   │   ├── drawable/             # 50+ 通用 Drawable
+│   │   ├── values/colors_*.xml   # 三层颜色体系
+│   │   └── values/dimens.xml      # 尺寸 Token
+│   └── assets/iconfont.ttf        # 图标字体
+│
+├── feature-goods/                # 商品模块
+│   ├── ui/
+│   │   ├── GoodsDetailActivity.kt    # 商品详情页（主控制器）
+│   │   ├── GoodsDetailAdapter.kt     # 列表适配器（14种ViewType）
+│   │   ├── GoodsDetailListItem.kt    # 列表项 sealed class
+│   │   ├── GoodsDetailListAssembler.kt   # 列表组装器
+│   │   ├── GoodsDetailProductSectionMapper.kt  # 数据→UI状态
+│   │   ├── GoodsDetailReviewMapper.kt
+│   │   ├── GoodsDetailShopMapper.kt
+│   │   ├── ReviewListPanelController.kt  # 评价面板控制器
+│   │   ├── GoodsReviewListFragment.kt   # 评价列表（独立Fragment）
+│   │   └── DetailAnchorTab.kt           # Tab枚举
+│   │
+│   ├── viewmodel/
+│   │   └── GoodsDetailViewModel.kt  # 状态协调者
+│   │
+│   ├── model/
+│   │   ├── GoodsDetail.kt              # 原始数据模型
+│   │   ├── GoodsDetailProductSectionState.kt  # UI状态模型
+│   │   ├── GoodsDetailReviewState.kt
+│   │   └── BrowseProduct.kt
+│   │
+│   └── data/
+│       ├── GoodsRepository.kt          # 数据仓库
+│       └── GoodsDetailMockCatalog.kt   # Mock数据
+│
+├── feature-login/                # 登录模块
+│   ├── ui/LoginActivity.kt
+│   ├── domain/UserRepository.kt
+│   └── viewmodel/LoginViewModel.kt
+│
+└── tools/                       # 纯工具（跨项目复用）
+    └── utils/
+        ├── DateUtils.kt
+        ├── StringUtils.kt
+        └── ValidateUtils.kt
+```
+
+### 8.2 核心类职责说明
+
+| 模块 | 类名 | 职责 | 代码行数 |
+|------|------|------|----------|
+| **ui** | GoodsDetailActivity | 视图绑定、生命周期、用户交互转发 | ~500 |
+| **ui** | GoodsDetailAdapter | 14种ViewType的列表渲染 | ~400 |
+| **ui** | GoodsDetailListAssembler | 动态组装列表项 | ~80 |
+| **ui** | GoodsDetailListItem | 列表项类型定义 | ~50 |
+| **ui** | ReviewListPanelController | 评价面板动画与Fragment管理 | ~150 |
+| **ui** | DetailAnchorTab | Tab枚举（独立小类） | ~10 |
+| **mapper** | GoodsDetailProductSectionMapper | 数据→商品区UI状态 | ~60 |
+| **mapper** | GoodsDetailReviewMapper | 数据→评价区UI状态 | ~30 |
+| **mapper** | GoodsDetailShopMapper | 数据→店铺区UI状态 | ~20 |
+| **vm** | GoodsDetailViewModel | 数据加载、状态持有、触发重建 | ~150 |
+| **common** | BaseActivity | 封装埋点、Edge-to-Edge | ~50 |
+| **common** | GridSpacingDecoration | 通用网格间距装饰器 | ~40 |
+| **common** | ToastUtils | 全局吐司 | ~30 |
+
+### 8.3 数据流向
+
+```
+后端数据          Mapper转换         Assembler组装         ViewModel持有        Activity观察
+   │                  │                   │                    │                  │
+   ▼                  ▼                   ▼                    ▼                  ▼
+GoodsDetail ──► GoodsDetailProduct ──► List<GoodsDetail ──► _listItems ─────► notifyDataSetChanged
+                SectionState             ListItem>
+```
+
+---
+
+## 九、Lego 思想的落地回顾
 
 本实战案例完整践行了第二篇提出的 Lego 架构核心准则：
 
