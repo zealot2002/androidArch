@@ -6,6 +6,8 @@ package com.joy.common.router
 object RouterConstants {
     const val GOODS_DETAIL = "/goods/detail"
     const val LOGIN_MAIN = "/login/main"
+    const val HOME_MAIN = "/home/main"
+    const val ORDER_CONFIRM = "/order/confirm"
 
     /** 商品 SPU（详情页查询主键） */
     const val EXTRA_GOODS_SPU_ID = "goods_spu_id"

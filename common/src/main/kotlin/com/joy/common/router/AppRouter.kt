@@ -19,4 +19,16 @@ object AppRouter {
             .withString(RouterConstants.EXTRA_GOODS_SPU_ID, id)
             .navigation(context)
     }
+
+    fun openHome(context: Context?) {
+        ARouter.getInstance()
+            .build(RouterConstants.HOME_MAIN)
+            .navigation(context)
+    }
+
+    fun openConfirmOrder(context: Context?) {
+        ARouter.getInstance()
+            .build(RouterConstants.ORDER_CONFIRM)
+            .navigation(context)
+    }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joy.featureorder">
+
+    <application>
+        <activity
+            android:name=".ui.ConfirmOrderActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
