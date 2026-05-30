@@ -189,7 +189,6 @@ object GoodsDetailListAssembler {
 - 调用 Mapper 和 Assembler 生成新的 UI 状态
 - 将状态暴露给 View 进行观察
 
-`ViewModel` 不包含任何 UI 逻辑，也不包含复杂的业务逻辑——所有的数据转换和列表组装都下沉到了 `Mapper` 和 `Assembler` 这些**职责边界清晰**的积木中。
 
 ```kotlin
 class GoodsDetailViewModel : ViewModel() {
@@ -335,7 +334,7 @@ class GoodsDetailActivity : BaseActivity() {
 ## 六、独立组件
 ### 6.1 网格间距装饰器
 
-**【职责：GridSpacingDecoration】** 通用的 RecyclerView 网格间距装饰器，负责在网格布局中为每个 item 添加等距的外边距。放在 `common` 模块中，可以在任何需要网格布局的项目中直接复用。（[源码链接](file:///Users/zzy/github/androidArch/common/src/main/kotlin/com/joy/common/widgets/recyclerview/GridSpacingDecoration.kt)）
+**【职责：GridSpacingDecoration】** 通用的 RecyclerView 网格间距装饰器，负责在网格布局中为每个 item 添加等距的外边距。放在 `common` 模块中，可以在任何需要网格布局的项目中直接复用。（[源码链接](https://github.com/zealot2002/androidArch/blob/main/feature-goods/src/main/java/com/joy/featuregoods/ui/GoodsDetailActivity.kt)）
 
 ### 6.2 评价面板：最小化侵入的页面组合
 
@@ -456,7 +455,7 @@ Lego 架构的完整体系可以概括为：
 当你真正用 Lego 思想来构建应用时，你会发现：**复杂的不是应用本身，而是你没有把它拆成足够小的积木，并且没有持续的治理和迭代。**
 
 ---
-
-**下一篇预告：** 我们将探讨设计模式如何作为 Lego 架构的粘合剂，让你的积木组合更加灵活、更加稳固。敬请期待！
+当然，优秀工程师还需具备更多素养：精通设计模式、拥有代码审美、以及一双「发现积木的眼睛」。
+下一篇预告： 我们将探讨设计模式如何作为 Lego 架构的粘合剂，让你的积木组合更加灵活、更加稳固。敬请期待！
 
 ---
