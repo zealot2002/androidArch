@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
 import com.joy.common.router.RouterConstants
+import com.joy.common.service.AppModuleService
 import com.joy.featurehome.R
 import com.joy.featurehome.databinding.ActivityHomeMainBinding
 
@@ -27,7 +28,7 @@ class HomeMainActivity : BaseActivity() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId) {
                 R.id.nav_home -> HomeFragment()
-                R.id.nav_social -> SocialFragment()
+                R.id.nav_social -> AppModuleService.requireSocialHomeFragment().createSocialFragment()
                 R.id.nav_cart -> CartFragment()
                 R.id.nav_profile -> ProfileFragment()
                 else -> return@setOnItemSelectedListener false

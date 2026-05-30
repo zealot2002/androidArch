@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.arouter.gradle.plugin)
 }
 
 android {
@@ -44,6 +45,7 @@ dependencies {
     implementation(project(":feature-home"))
     implementation(project(":feature-order"))
     implementation(project(":feature-bill"))
+    implementation(project(":feature-social"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -1,11 +1,11 @@
-package com.joy.featurehome.ui
+package com.joy.featuresocial.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.joy.common.base.BaseFragment
-import com.joy.featurehome.R
+import com.joy.featuresocial.R
 
 class SocialFragment : BaseFragment() {
 
@@ -13,7 +13,7 @@ class SocialFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = inflater.inflate(R.layout.fragment_placeholder, container, false)
+    ): View = inflater.inflate(R.layout.fragment_social, container, false)
 
     override fun initView(view: View) {
         view.findViewById<android.widget.TextView>(R.id.tvPlaceholder)
