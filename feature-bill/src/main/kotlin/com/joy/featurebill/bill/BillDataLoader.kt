@@ -17,7 +17,11 @@ object BillDataLoader {
             else -> GoodsBillData(
                 spuId = id,
                 title = "挪威三文鱼刺身 200g",
+                subtitle = "新鲜直达 · 当日发货",
                 price = "¥68.00",
+                tag = "限时特惠",
+                tips = "仅1件在售，欲购从速",
+                shopName = "JoyArch 官方店",
                 imageUrl = "https://picsum.photos/seed/goods-$id/600/400",
             )
         }

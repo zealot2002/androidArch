@@ -1,41 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardRoot"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="@color/white_1"
+    android:background="@drawable/bg_bill_paper"
     android:orientation="vertical"
     android:padding="@dimen/dp_12">
 
-    <ImageView
-        android:id="@+id/ivCover"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/func_gray_bg_2"
-        android:scaleType="centerCrop" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bill_card"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_12">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/tv_black_1_size_16"
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/func_gray_bg_2"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/tv_black_1_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:maxLines="2"
+            android:textStyle="bold"
+            tools:text="挪威三文鱼刺身 200g" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            style="@style/tv_black_1_size_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:maxLines="1"
+            android:textColor="@color/func_black_text_2"
+            tools:text="新鲜直达 · 当日发货" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/tv_black_1_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_4"
+                android:textStyle="bold"
+                tools:text="¥68.00" />
+
+            <TextView
+                android:id="@+id/tvTag"
+                style="@style/tv_black_1_size_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:background="@color/func_orange_bg_1"
+                android:paddingHorizontal="@dimen/dp_4"
+                android:paddingVertical="@dimen/dp_2"
+                android:textColor="@color/func_orange_text_1"
+                android:visibility="gone"
+                tools:text="限时特惠"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTips"
+            style="@style/tv_black_1_size_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textColor="@color/func_black_text_2"
+            tools:text="仅1件在售，欲购从速" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_12"
-        android:maxLines="2" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvPrice"
-        style="@style/tv_black_1_size_14"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
-        android:textColor="@color/red_4" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <TextView
-        style="@style/tv_black_1_size_12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_12"
-        android:text="@string/bill_goods_footer"
-        android:textColor="@color/func_black_text_2" />
+            <TextView
+                android:id="@+id/tvShopName"
+                style="@style/tv_black_1_size_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="JoyArch 官方店" />
+
+            <TextView
+                style="@style/tv_black_1_size_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/bill_qr_hint"
+                android:textColor="@color/func_black_text_2" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivQrCode"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/white_1"
+            android:contentDescription="@null"
+            android:padding="@dimen/dp_4"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_bill_qr_placeholder" />
+    </LinearLayout>
 
 </LinearLayout>

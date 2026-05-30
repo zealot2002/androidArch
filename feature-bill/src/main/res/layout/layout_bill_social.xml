@@ -1,41 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardRoot"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="@color/white_1"
+    android:background="@drawable/bg_bill_paper"
     android:orientation="vertical"
     android:padding="@dimen/dp_12">
 
-    <TextView
-        android:id="@+id/tvNickname"
-        style="@style/tv_black_1_size_16"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold" />
+        android:background="@drawable/bg_bill_card"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_12">
 
-    <TextView
-        android:id="@+id/tvContent"
-        style="@style/tv_black_1_size_14"
+        <TextView
+            android:id="@+id/tvNickname"
+            style="@style/tv_black_1_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="书友小明" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/tv_black_1_size_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:lineSpacingExtra="2dp"
+            tools:text="今天读到了一本很好的架构书，推荐给大家。" />
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/dp_12"
+            android:background="@color/func_gray_bg_2"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
-        android:lineSpacingExtra="2dp" />
-
-    <ImageView
-        android:id="@+id/ivCover"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
         android:layout_marginTop="@dimen/dp_12"
-        android:background="@color/func_gray_bg_2"
-        android:scaleType="centerCrop" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        style="@style/tv_black_1_size_12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_12"
-        android:text="@string/bill_social_footer"
-        android:textColor="@color/func_black_text_2" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/tv_black_1_size_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bill_app_name"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/tv_black_1_size_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/bill_qr_hint"
+                android:textColor="@color/func_black_text_2" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivQrCode"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/white_1"
+            android:contentDescription="@null"
+            android:padding="@dimen/dp_4"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_bill_qr_placeholder" />
+    </LinearLayout>
 
 </LinearLayout>

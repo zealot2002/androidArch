@@ -1,38 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/func_gray_bg_2">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivPreview"
+    <View
+        android:id="@+id/vScrim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/bill_preview_cd"
-        android:scaleType="fitCenter"
-        android:visibility="gone" />
-
-    <ProgressBar
-        android:id="@+id/progressLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:id="@+id/tvLoadingTips"
-        style="@style/tv_black_1_size_14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_48"
-        android:text="@string/bill_generating" />
+        android:background="@color/func_black_alpha_2" />
 
     <FrameLayout
         android:id="@+id/flBillContainer"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:alpha="0"
         android:visibility="invisible" />
 
-</FrameLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollPreview"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/llBottom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/bill_preview_cd"
+            android:scaleType="fitCenter" />
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/llLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvLoadingTips"
+            style="@style/tv_white_1_size_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="@string/bill_generating" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bill_bottom_panel"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_8"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvShareTips"
+            style="@style/tv_black_1_size_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_16"
+            android:text="@string/bill_share_tips_goods"
+            android:textColor="@color/func_black_text_2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_32">
+
+            <LinearLayout
+                android:id="@+id/llWx"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_share_icon_wechat">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_share_wechat" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/bill_wechat"
+                    android:textColor="@color/func_black_text_2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCircle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_share_icon_wechat">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_share_wechat" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/bill_moments"
+                    android:textColor="@color/func_black_text_2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_bill_save_circle">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_bill_save"
+                        app:tint="@color/func_orange_text_1" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/bill_save_image"
+                    android:textColor="@color/func_black_text_2" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@color/func_gray_bg_2" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/tv_black_1_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/bill_cancel"
+            android:textColor="@color/func_black_text_2" />
+    </LinearLayout>
+
+</RelativeLayout>

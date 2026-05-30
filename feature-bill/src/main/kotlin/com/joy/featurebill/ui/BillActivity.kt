@@ -1,5 +1,6 @@
 package com.joy.featurebill.ui
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
 import com.joy.common.router.RouterConstants
+import com.joy.common.utils.ToastUtils
+import com.joy.featurebill.R
 import com.joy.featurebill.bill.BillBitmapUtils
 import com.joy.featurebill.bill.BillDataLoader
+import com.joy.featurebill.bill.BillImageSaver
 import com.joy.featurebill.bill.BillRender
 import com.joy.featurebill.bill.BillRenderFactory
 import com.joy.featurebill.databinding.ActivityBillBinding
@@ -18,14 +22,17 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * 海报页：固定截屏工作流（模版方法在 [BillRender] / [com.joy.featurebill.bill.BaseBillRender]），
- * 具体业务由 Goods / Social 等 Render 子类填充内容并在就绪后回调 [BillRender.Listener.screenReady]。
+ * 海报页：固定截屏工作流（模版方法在 [BillRender] / [BaseBillRender]），
+ * 保存图片、分享入口等交互在 Activity 层处理，Render 只负责内容渲染与 screenReady。
  */
 @Route(path = RouterConstants.BILL_MAIN)
 class BillActivity : BaseActivity() {
 
     private lateinit var binding: ActivityBillBinding
     private lateinit var billRender: BillRender
+    private var billBitmap: Bitmap? = null
+    private var savedToAlbum = false
+    private var billCase = RouterConstants.BILL_CASE_GOODS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +40,11 @@ class BillActivity : BaseActivity() {
         setContentView(binding.root)
         applyEdgeToEdgeInsets(binding.root)
 
-        val billCase = intent.getIntExtra(RouterConstants.EXTRA_BILL_CASE, RouterConstants.BILL_CASE_GOODS)
+        billCase = intent.getIntExtra(RouterConstants.EXTRA_BILL_CASE, RouterConstants.BILL_CASE_GOODS)
         val billId = intent.getStringExtra(RouterConstants.EXTRA_BILL_ID).orEmpty().ifBlank { "mock" }
+
+        initShareTips()
+        initClickListeners()
 
         billRender = BillRenderFactory.make(this, billCase)
         binding.flBillContainer.addView(
@@ -47,10 +57,31 @@ class BillActivity : BaseActivity() {
 
         val billData = BillDataLoader.load(billCase, billId)
         billRender.onBindView(billData, object : BillRender.Listener {
-            override fun screenReady(bgBitmap: android.graphics.Bitmap?) {
+            override fun screenReady(bgBitmap: Bitmap?) {
                 captureBillSnapshot()
             }
         })
+    }
+
+    private fun initShareTips() {
+        val tipsRes = if (billCase == RouterConstants.BILL_CASE_SOCIAL) {
+            R.string.bill_share_tips_social
+        } else {
+            R.string.bill_share_tips_goods
+        }
+        binding.tvShareTips.setText(tipsRes)
+    }
+
+    private fun initClickListeners() {
+        binding.vScrim.setOnClickListener { finish() }
+        binding.tvCancel.setOnClickListener { finish() }
+        binding.llSave.setOnClickListener { saveFile() }
+        binding.llWx.setOnClickListener {
+            ToastUtils.show(this, getString(R.string.bill_wechat))
+        }
+        binding.llCircle.setOnClickListener {
+            ToastUtils.show(this, getString(R.string.bill_moments))
+        }
     }
 
     private fun captureBillSnapshot() {
@@ -60,11 +91,31 @@ class BillActivity : BaseActivity() {
                 val bitmap = withContext(Dispatchers.Default) {
                     BillBitmapUtils.viewToBitmap(billView)
                 }
-                binding.ivPreview.setImageBitmap(bitmap)
-                binding.ivPreview.visibility = View.VISIBLE
-                binding.progressLoading.visibility = View.GONE
-                binding.tvLoadingTips.visibility = View.GONE
+                billBitmap = bitmap
+                binding.ivBill.setImageBitmap(bitmap)
+                binding.llLoading.visibility = View.GONE
                 binding.flBillContainer.visibility = View.GONE
+                binding.scrollPreview.visibility = View.VISIBLE
+                binding.llBottom.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun saveFile() {
+        if (savedToAlbum) {
+            ToastUtils.show(this, getString(R.string.bill_saved))
+            return
+        }
+        val bitmap = billBitmap ?: return
+        lifecycleScope.launch {
+            val path = withContext(Dispatchers.IO) {
+                BillImageSaver.saveToAlbum(this@BillActivity, bitmap)
+            }
+            if (path != null) {
+                savedToAlbum = true
+                ToastUtils.show(this@BillActivity, getString(R.string.bill_saved))
+            } else {
+                ToastUtils.show(this@BillActivity, getString(R.string.bill_save_failed))
             }
         }
     }

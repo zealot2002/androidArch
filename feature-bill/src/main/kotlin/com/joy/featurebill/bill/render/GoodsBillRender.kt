@@ -1,6 +1,7 @@
 package com.joy.featurebill.bill.render
 
 import android.content.Context
+import android.view.View
 import android.view.ViewTreeObserver
 import com.joy.common.image.loadNetworkImage
 import com.joy.featurebill.bill.BaseBillRender
@@ -22,7 +23,16 @@ class GoodsBillRender(context: Context) :
         this.listener = listener
         readyCount = 0
         binding.tvTitle.text = data.title
+        binding.tvSubtitle.text = data.subtitle
         binding.tvPrice.text = data.price
+        binding.tvTips.text = data.tips
+        binding.tvShopName.text = data.shopName
+        if (data.tag.isNullOrBlank()) {
+            binding.tvTag.visibility = View.GONE
+        } else {
+            binding.tvTag.visibility = View.VISIBLE
+            binding.tvTag.text = data.tag
+        }
         binding.cardRoot.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
             override fun onPreDraw(): Boolean {
                 binding.cardRoot.viewTreeObserver.removeOnPreDrawListener(this)
