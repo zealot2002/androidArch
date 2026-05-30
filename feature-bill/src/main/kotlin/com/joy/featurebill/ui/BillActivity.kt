@@ -89,17 +89,24 @@ class BillActivity : BaseActivity() {
     private fun captureBillSnapshot() {
         val billView = billRender.getBillView()
         billView.post {
-            lifecycleScope.launch {
-                val bitmap = withContext(Dispatchers.Default) {
-                    BillBitmapUtils.viewToBitmap(billView)
-                }
-                billBitmap = bitmap
-                binding.ivBill.setImageBitmap(bitmap)
-                binding.llLoading.visibility = View.GONE
-                binding.flBillContainer.visibility = View.GONE
-                binding.scrollPreview.visibility = View.VISIBLE
-                binding.llBottom.visibility = View.VISIBLE
-            }
+            // measure / draw 必须在主线程，与 kfz BillActivity 一致
+            val bitmap = BillBitmapUtils.viewToBitmap(billView)
+            billBitmap = bitmap
+            binding.ivBill.setImageBitmap(bitmap)
+            updatePreviewImageHeight(bitmap)
+            binding.llLoading.visibility = View.GONE
+            binding.flBillContainer.visibility = View.GONE
+            binding.scrollPreview.visibility = View.VISIBLE
+            binding.llBottom.visibility = View.VISIBLE
+        }
+    }
+
+    /** 预览区固定 300dp 宽，按 bitmap 比例算高度，避免 adjustViewBounds 二次缩放导致字号视觉不一致 */
+    private fun updatePreviewImageHeight(bitmap: Bitmap) {
+        val previewWidth = binding.scrollPreview.width.takeIf { it > 0 }
+            ?: (300 * resources.displayMetrics.density + 0.5f).toInt()
+        binding.ivBill.layoutParams = binding.ivBill.layoutParams.apply {
+            height = bitmap.height * previewWidth / bitmap.width
         }
     }
 

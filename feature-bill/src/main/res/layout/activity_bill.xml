@@ -36,7 +36,6 @@
             android:id="@+id/ivBill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
             android:contentDescription="@string/bill_preview_cd"
             android:scaleType="fitCenter" />
     </androidx.core.widget.NestedScrollView>
