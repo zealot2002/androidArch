@@ -347,7 +347,9 @@ class GoodsDetailActivity : BaseActivity() {
             ToastUtils.show(this, getString(R.string.goods_action_cart_hint))
         }
         binding.btnAddCart.onClick300 {
-            ToastUtils.show(this, getString(R.string.goods_action_add_cart_hint))
+            loginRouter.runBlock {
+                ToastUtils.show(this, getString(R.string.goods_action_add_cart_hint))
+            }
         }
         binding.btnBuyNow.onClick300 {
             loginRouter.runBlock {

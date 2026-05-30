@@ -15,12 +15,6 @@ loginRouter = LoginRouter(this)
 loginRouter.runBLock {
 ARouter.getInstance().build(RouterConstants.SHOP_CART).navigation(context)
 }
-
-loginRouter.runBLock {
-ARouter.getInstance().build(RouterConstants.HOME_HOME)
-.withString("index",index)
-.navigation(context);
-}
 ...
  *
  * */
