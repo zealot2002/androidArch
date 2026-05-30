@@ -1,6 +1,8 @@
-# Android 架构系列博文（共4篇）
+## Android 架构系列博文（共4篇）  
 
 ## 第一篇：主流 Android 架构十年演化史——我们到底在解决什么问题？
+
+> **系列导航**：[第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5) | [第三篇：用 Lego 架构重构商品详情页](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
 
 ### 前言：学会了所有架构，代码真的变好了吗？
 
@@ -34,7 +36,7 @@ View ←→ Controller ←→ Model
 └───────────────────────┘
 ```
 
-在 Android 中，Activity/Fragment 更是同时充当 View 和 Controller，导致上千行的“Massive View Controller”成为常态。一次数据变动可能牵动所有层，根本理不清。
+在 Android 中，Activity/Fragment 更是同时充当 View 和 Controller，导致上千行的"Massive View Controller"成为常态。一次数据变动可能牵动所有层，根本理不清。
 
 #### 2. MVP：切断直连（4 根连线）
 
@@ -43,7 +45,7 @@ MVP 做出了一项革命性简化：**彻底禁止 View 与 Model 直接交互�
 所有跨层通信必须经过 Presenter，三角形被打破，变成了线性依赖：
 
 ```
-View ←→ Presenter ←→ Model 
+View ←→ Presenter ←→ Model
 ```
 
 连线数从 6 降到 4，复杂度立降 33%。View 只做展示，Model 只做数据，业务逻辑全在 Presenter。2015-2018 年间，这几乎拯救了整个 Android 开发社区。
@@ -88,11 +90,12 @@ MVI 是最新的进化，它在 MVVM 的基础上，把**数据流**也彻底拉
 2. **God State**：一个 State 对象塞进 30 个互不相关的字段，更新时牵一发动全身。
 3. **网状依赖**：多个 Intent 相互调用，形成新的混乱调用链，让单向流名存实亡。
 
-本该严谨的有限状态机，就这样被用成了“无限状态机”——这正是 MVI 被一部分人视为灾难的根源。
+本该严谨的有限状态机，就这样被用成了"无限状态机"——这正是 MVI 被一部分人视为灾难的根源。
 
 ---
 
-### 二、架构只是“术”：它无法阻止你写出垃圾代码
+### 二、架构只是"术"：它无法阻止你写出垃圾代码
+
 我亲眼见过许多荒谬的项目：
 - 用着先进的 MVVM，却写出 5000 行的 ViewModel（架构管不到 ViewModel 内部的臃肿）
 - 严格遵循 Clean Architecture，却在 Domain 层塞满业务耦合（架构管不到 UseCase 之间的边界）
@@ -107,13 +110,17 @@ MVI 是最新的进化，它在 MVVM 的基础上，把**数据流**也彻底拉
 - 迁移到 MVVM 后，它又被塞进一个 `LoginViewModel`，里面的 `login()` 方法依然像一团乱麻
 - 再改成 MVI，它变成了一堆杂乱的 Intent 和 State，表面上单向，实际逻辑纠缠如初
 
-**架构是“术”，它只解决了代码的“粗略分区”，比如规定 View、ViewModel、Model 分别放在哪一层，但无法告诉你同一层的代码应该拆多细、怎么组织、怎么复用。**而真正让代码变好的因素至少还包括：**
+**架构是"术"，它只解决了代码的"粗略分区"，比如规定 View、ViewModel、Model 分别放在哪一层，但无法告诉你同一层的代码应该拆多细、怎么组织、怎么复用。**而真正让代码变好的因素至少还包括：**
 
 - **编程思想**：分治、抽象、单一职责等基本原则，决定了我们如何看待和拆解问题。
 - **编码洁癖**：对冗余代码、脏命名、越界逻辑的零容忍，保持代码库的长期健康。
 - **编程素养**：写出可读、可测、可维护代码的习惯与意识，让协作不再痛苦。
 - **科学的实施方案**：可落地的工具封装策略、治理流程、迭代机制，确保思想能真正被执行。
 
-而这些也是一个优秀工程师应该具备的基础能力和素养。具备这些能力的工程师，不需要依赖某种“银弹架构”，也能写出干净、健壮、易演化的代码。
+而这些也是一个优秀工程师应该具备的基础能力和素养。具备这些能力的工程师，不需要依赖某种"银弹架构"，也能写出干净、健壮、易演化的代码。
 
-**下一篇，我会分享一些真实项目的架构实践经验，敬请期待。**
+---
+
+**相关阅读**：
+- [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
+- [第三篇：用 Lego 架构重构商品详情页：从 3000 行到 15 个独立组件](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
