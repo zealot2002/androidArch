@@ -1,7 +1,9 @@
 # Android 架构系列博文（共4篇）
 
 ## 第二篇：Lego架构——分治思想的极致实践
+
 ### 前言：垃圾代码的痛，根源不在架构
+
 上一篇我们谈到，架构只是“术”，它只解决了代码的粗略分区，而粗略分区是远远不够的。这一篇，我们直面项目实施过程中的真实痛点，并提出一套可操作的分治方法论——Lego 架构。
 
 ### 零、灵感：架构迁移之痛引发的思考
@@ -18,7 +20,7 @@
 
 我坐在电脑前，忽然想起小时候玩的 Lego 积木。
 
-为什么几块基础砖能搭出房子、车子、飞船？为什么 10 年前的积木，今天还能和新套装完美拼合？  
+为什么几块基础砖能搭出房子、车子、飞船？为什么 10 年前的积木，今天还能和新套装完美拼合？\
 那一刻，我仿佛看到了所有架构问题的答案。
 
 Lego 最神奇的地方，不在那些炫酷的成品，而在那些 1×1、2×4 基础积木：
@@ -31,15 +33,14 @@ Lego 最神奇的地方，不在那些炫酷的成品，而在那些 1×1、2×4
 
 自 1958 年诞生以来，接口规格从未变过。
 
-
 反观那些为特定模型设计的异形零件——比如千年隼的弧形舱壁——除了拼那一个模型，几乎别无他用。拆下来就成了废料。
 
 **Lego 的核心哲学是：最小颗粒度 = 最高复用性 = 最强灵活性。
-而异形零件，离开模型即废。代码复用与否的道理，与它如出一辙。**  
+而异形零件，离开模型即废。代码复用与否的道理，与它如出一辙。**
 
 由此，我们提炼出一套面向软件工程的 **Lego 架构**——它不是要取代 MVVM 或 MVI，而是一套关于 **“如何拆分、如何沉淀、如何治理”** 的编程思想与工程纪律。
 
----
+***
 
 ### 一、Base类：能没有就没有，不能没有就只剩薄壳
 
@@ -52,6 +53,7 @@ Lego 最神奇的地方，不在那些炫酷的成品，而在那些 1×1、2×4
 Base类只有一个合理的存在理由：**为那些90%页面都需要的、且与生命周期强相关的能力提供一个接缝。**
 
 比如：
+
 - 埋点自动上报页面进入/退出
 - 权限请求的回调分发
 
@@ -82,13 +84,14 @@ abstract class BaseActivity : AppCompatActivity() {
 **好的Base不应该规定顺序，只提供可选的能力。** 甚至连`initView`都不应该出现——让每个页面自己去`onCreate`里写，清晰明了。
 
 #### 1.3 可插拔积木代理Base
+
 通过观察不难发现，Base 类里经常有大量本可以放入 xxxUtils 里的方法或代码块——权限请求、软键盘管理、网络检测……它们被塞进 Base，仅仅因为“多个页面都需要”，而不是真的与 Base 生命周期强相关。
 
 更好的做法：Base 只是一个空壳，所有功能都通过可插拔的积木来提供。
 
 例如，你需要权限请求能力，不一定要写在 Base 里，而是在需要的地方直接使用一个独立的 PermissionHelper：
 
-```kotlin   
+```kotlin
 class PermissionHelper(private val activity: AppCompatActivity) {
     fun request(permission: String, onGranted: () -> Unit) { ... }
 }
@@ -101,30 +104,32 @@ class PermissionHelper(private val activity: AppCompatActivity) {
 业内所有主流架构（MVC、MVP、MVVM、MVI、Clean Architecture……）本质上都是**分治思想**的一种体现——它们把代码按职责、按层级、按数据流向切分。
 
 但它们的粒度通常是**粗的**：
+
 - 一层（View、ViewModel、Model）
 - 一个模块（feature、domain、data）
 - 一个角色（Presenter、UseCase）
 
 它们没有回答一个关键问题：**分到多细才算够？**
 
-Lego积木给出了物理世界的答案：一直分到**不可再分的基础颗粒**。一块2×4的积木，接口统一，可在任何模型、任何位置使用，并且历经68年不改变。
+Lego积木给出了物理世界的答案：一直分到**不可再分的基础颗粒**。一块2×4的积木，接口统一，可在Lego 架构，就是分治思想的极致实践任何模型、任何位置使用，并且历经68年不改变。
 
 **Lego架构，就是分治思想的极致实践：不仅仅是在MVX层面分，而是在所有层面、所有维度上，无限拆分，直到每个单元只做一件事，接口稳定，没有冗余功能。**
 
 这个准则可以应用于：
+
 - UI层：一个`RecyclerView`的每个`ViewHolder`都是一个独立积木
 - 逻辑层：每个`UseCase`只封装一个业务场景
 - 工具层：每个工具方法只做一件事
 - 状态层：每个`State`只描述一个独立域
 
-**只要觉得某个东西还能再拆，那就拆。** 直到你无法再给它起一个更小的名字，无法再减少它内部的条件分支。
+拆分的停止条件很简单：当你无法再给这个单元起一个更小、更准确的名字时，就可以停了。如果一个类或方法的名字里出现了 "和"、"与"、"以及"，那就说明它还可以再拆。
 
 这就是Lego架构与其他架构最本质的区别：
 
-> 其他架构告诉你“代码应该放在哪一层”。  
+> 其他架构告诉你“代码应该放在哪一层”。\
 > Lego架构告诉你“代码应该拆成多小，以及如何持续拆下去”。
 
----
+***
 
 ### 三、Lego思想下的拆分实例
 
@@ -135,6 +140,7 @@ Lego积木给出了物理世界的答案：一直分到**不可再分的基础�
 **反面例子**：一个`DateUtils`里塞了时间格式化、时间戳转换、相对时间计算、时区处理……十几个方法，几百行代码。
 
 **Lego拆分**：
+
 - `DateFormatUtils`：只做日期格式化成字符串
 - `TimestampConverter`：只做时间戳与日期对象互转
 - `RelativeTimeCalculator`：只做“刚刚、几分钟前”这类计算
@@ -147,12 +153,14 @@ Lego积木给出了物理世界的答案：一直分到**不可再分的基础�
 **反面例子**：一个`HomeViewModel`包含了轮播图、推荐列表、用户信息、购物车数量、通知未读数……5000行代码，改一个地方可能影响其他不相关字段。
 
 **Lego拆分**：
+
 - `HomeBannerViewModel`：只负责轮播图数据
 - `HomeRecommendViewModel`：只负责推荐列表
 - `ShoppingCartViewModel`：通用服务，可被多个页面复用
 - `NotificationViewModel`：通用服务，可被多个页面复用
 
 在Activity中组合使用：
+
 ```kotlin
 private val bannerVM: HomeBannerViewModel by viewModels()
 private val cartVM: ShoppingCartViewModel by viewModels()
@@ -166,6 +174,7 @@ private val notificationVM: NotificationViewModel by viewModels()
 **反面例子**：一个`HomeIntent`密封类里塞了200多个意图，包括轮播图的点击、推荐列表的加载更多、用户头像的点击……
 
 **Lego拆分**：将Intent与ViewModel对齐，每个ViewModel对应一个Intent组。
+
 ```kotlin
 sealed class BannerIntent {
     object Load : BannerIntent()
@@ -184,6 +193,7 @@ State同理：不要把所有字段塞进一个`HomeState`，而是拆分为`Ban
 **反面例子**：`UserUseCase`里有登录、注册、修改密码、获取用户信息、上传头像……五个不相关的操作。
 
 **Lego拆分**：每个UseCase只封装一个完整的业务场景。
+
 - `LoginUseCase`
 - `RegisterUseCase`
 - `UpdatePasswordUseCase`
@@ -191,7 +201,7 @@ State同理：不要把所有字段塞进一个`HomeState`，而是拆分为`Ban
 
 这样，任何页面只需要依赖它需要的那个UseCase，而不是整个大杂烩。
 
----
+***
 
 ### 四、工具类的发现与迭代：好的积木是长出来的
 
@@ -218,7 +228,7 @@ internal fun formatPrice(priceYuan: String): String = "¥$priceYuan"
 
 一个共有积木经过线上半年或一年的使用，被百万用户验证稳定后，就可以从`common`模块中独立出来，发布到Maven仓库，成为**远程积木**，供公司所有项目直接依赖。
 
-这时，它就成了**“一生只写一次的工具”**——比如`StringUtils`、`NetworkUtils`、`ScreenUtils`。你永远不需要再重写它们，只需升级版本号。
+这时，它就成了\*\*“一生只写一次的工具”\*\*——比如`StringUtils`、`NetworkUtils`、`ScreenUtils`。你永远不需要再重写它们，只需升级版本号。
 
 #### 4.4 为什么一定要拆到最小颗粒？
 
@@ -226,7 +236,7 @@ internal fun formatPrice(priceYuan: String): String = "¥$priceYuan"
 
 **Lego架构的无限拆分，不是为了拆分而拆分，而是为了让复用机会从“隐形”变成“可见”，从“被动发现”变成“主动扫描”。**
 
----
+***
 
 ### 五、总结：Lego架构，以不变应万变
 
@@ -245,6 +255,6 @@ Lego架构不是要取代你现有的MVVM或MVI，它是一套**编程纪律和�
 
 这就是Lego架构——分治思想的极致实践，一套以不变应万变的方法论。
 
----
+***
 
 **下一篇预告：** 我们将用一个真实的电商App商品详情页，完整演示Lego架构从拆分到组装的全过程。敬请期待。
