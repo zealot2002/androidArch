@@ -21,6 +21,7 @@ import com.joy.common.base.BaseActivity
 import com.joy.appres.R as AppResR
 import com.joy.common.extend.onClick200
 import com.joy.common.extend.onClick300
+import com.joy.common.data.Result
 import com.joy.common.router.AppRouter
 import com.joy.common.router.LoginRouter
 import com.joy.common.router.RouterConstants
@@ -32,8 +33,10 @@ import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
 import com.joy.featuregoods.model.GoodsDetail
 import com.joy.featuregoods.model.GoodsDetailReviewState
 import com.joy.featuregoods.ui.GoodsImagePagerAdapter
+import com.joy.featuregoods.viewmodel.FavViewModel
 import com.joy.featuregoods.viewmodel.GoodsDetailViewModel
 import com.joy.common.widgets.recyclerview.GridSpacingDecoration
+import com.joy.tools.utils.StringUtils
 import kotlin.math.abs
 
 @Route(path = RouterConstants.GOODS_DETAIL)
@@ -43,9 +46,13 @@ class GoodsDetailActivity : BaseActivity() {
     private val viewModel: GoodsDetailViewModel by lazy {
         ViewModelProvider(this)[GoodsDetailViewModel::class.java]
     }
+    private val favViewModel: FavViewModel by lazy {
+        ViewModelProvider(this)[FavViewModel::class.java]
+    }
     private val imageAdapter = GoodsImagePagerAdapter()
     private lateinit var detailAdapter: GoodsDetailAdapter
     private var currentDetail: GoodsDetail? = null
+    private var currentSpuId: String = ""
     private var statusBarShowingTitle2Fill: Boolean = false
     private var pendingDetailAnchorTab: DetailAnchorTab? = null
     private var scrollToTopScreenHeightPx: Int = 0
@@ -83,6 +90,7 @@ class GoodsDetailActivity : BaseActivity() {
         setupActions()
         setupPager()
         observeViewModel()
+        observeFavViewModel()
         loadData()
     }
 
@@ -112,11 +120,46 @@ class GoodsDetailActivity : BaseActivity() {
     }
 
     private fun loadData() {
-        val spuId = intent.getStringExtra(RouterConstants.EXTRA_GOODS_SPU_ID)
+        currentSpuId = intent.getStringExtra(RouterConstants.EXTRA_GOODS_SPU_ID)
             ?: intent.getStringExtra("spuId")
             .orEmpty()
             .ifBlank { "mock-salmon" }
-        viewModel.load(spuId)
+        viewModel.load(currentSpuId)
+        favViewModel.loadFavoriteState(currentSpuId)
+    }
+
+    private fun observeFavViewModel() {
+        favViewModel.isFavorited.observe(this) { favorited ->
+            updateFavoriteUi(favorited)
+        }
+        favViewModel.favResult.observe(this) { result ->
+            when (result) {
+                is Result.Failure -> ToastUtils.show(this, result.exception.message)
+                else -> Unit
+            }
+        }
+    }
+
+    private fun updateFavoriteUi(favorited: Boolean) {
+        val iconRes = if (favorited) {
+            AppResR.string.iconfont_favorite
+        } else {
+            AppResR.string.iconfont_follow_fill
+        }
+        val title1Color = if (favorited) {
+            ContextCompat.getColor(this, AppResR.color.red_4)
+        } else {
+            ContextCompat.getColor(this, AppResR.color.white_1)
+        }
+        val title2Color = if (favorited) {
+            ContextCompat.getColor(this, AppResR.color.red_4)
+        } else {
+            ContextCompat.getColor(this, AppResR.color.func_black_text_1)
+        }
+        binding.iconTitle1Favorite.setText(iconRes)
+        binding.iconTitle1Favorite.setTextColor(title1Color)
+        binding.iconTitle2Favorite.setText(iconRes)
+        binding.iconTitle2Favorite.setTextColor(title2Color)
     }
 
     private fun observeViewModel() {
@@ -265,11 +308,14 @@ class GoodsDetailActivity : BaseActivity() {
         binding.iconTitle1Search.onClick200 { searchFn() }
         binding.layoutTitle2Search.onClick200 { searchFn() }
 
-        val favHint = {
-            ToastUtils.show(this, getString(R.string.goods_action_favorite_off))
+        val favFn = {
+            val targetFavorite = favViewModel.isFavorited.value != true
+            loginRouter.runBlock {
+                favViewModel.setFavorite(currentSpuId, targetFavorite)
+            }
         }
-        binding.iconTitle1Favorite.onClick200 { favHint() }
-        binding.iconTitle2Favorite.onClick200 { favHint() }
+        binding.iconTitle1Favorite.onClick200 { favFn() }
+        binding.iconTitle2Favorite.onClick200 { favFn() }
 
         binding.flTitle1More.onClick200 { showQuickMenu() }
         binding.flTitle2More.onClick200 { showQuickMenu() }
@@ -305,10 +351,8 @@ class GoodsDetailActivity : BaseActivity() {
         }
         binding.btnBuyNow.onClick300 {
             loginRouter.runBlock {
-                //do something
-                //to orderConfirm
-                ToastUtils.show(this,"登陆成功后跳转，比登陆拦截器更加灵活")
-                AppRouter.openGoodsDetail(this,"")
+                //to orderConfirm "登陆成功后跳转，比登陆拦截器更加灵活"
+                AppRouter.openConfirmOrder(this)
             }
         }
     }

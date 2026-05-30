@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
 import com.joy.common.data.Result
+import com.joy.common.livedata.LoginStateLiveData
 import com.joy.featurelogin.domain.MockUserRepository
 import com.joy.common.router.AppRouter
 import com.joy.common.router.RouterConstants
@@ -42,7 +43,8 @@ class LoginActivity : BaseActivity() {
                 is Result.Success -> {
                     LoadingUtils.dismiss()
                     ToastUtils.showSuccess(this, "登录成功")
-                    goToProductDetail()
+                    LoginStateLiveData.value = true
+                    finish()
                 }
                 is Result.Failure -> {
                     LoadingUtils.dismiss()
@@ -55,15 +57,15 @@ class LoginActivity : BaseActivity() {
             val phone = binding.etPhone.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             
-            if (phone.isEmpty()) {
-                ToastUtils.show(this, "请输入手机号")
-                return@setOnClickListener
-            }
-            
-            if (password.isEmpty()) {
-                ToastUtils.show(this, "请输入密码")
-                return@setOnClickListener
-            }
+//            if (phone.isEmpty()) {
+//                ToastUtils.show(this, "请输入手机号")
+//                return@setOnClickListener
+//            }
+//
+//            if (password.isEmpty()) {
+//                ToastUtils.show(this, "请输入密码")
+//                return@setOnClickListener
+//            }
             
             loginViewModel.login(phone, password)
         }

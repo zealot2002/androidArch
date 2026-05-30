@@ -8,4 +8,5 @@
     <string name="placeholder_social">社交占位</string>
     <string name="placeholder_cart">购物车占位</string>
     <string name="placeholder_profile">我的占位</string>
+    <string name="go_goods_detail">进入商品详情</string>
 </resources>
