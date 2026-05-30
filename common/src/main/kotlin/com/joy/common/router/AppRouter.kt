@@ -41,4 +41,13 @@ object AppRouter {
             .withString(RouterConstants.EXTRA_GOODS_SPU_ID, id)
             .navigation(context)
     }
+
+    fun openSocialDetail(context: Context?, postId: String = "mock-social-post") {
+        val id = postId.trim()
+        if (id.isEmpty()) return
+        ARouter.getInstance()
+            .build(RouterConstants.SOCIAL_DETAIL)
+            .withString(RouterConstants.EXTRA_SOCIAL_POST_ID, id)
+            .navigation(context)
+    }
 }

@@ -488,6 +488,6 @@
 
     <include
         android:id="@+id/sharePanelOverlay"
-        layout="@layout/layout_goods_share_panel" />
+        layout="@layout/layout_share_panel" />
 
 </FrameLayout>

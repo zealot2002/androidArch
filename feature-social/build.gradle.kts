@@ -32,6 +32,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation(libs.com.google.android.material)
     implementation(libs.kotlin.stdlib)
 
     ksp(libs.arouter.ksp.compiler)

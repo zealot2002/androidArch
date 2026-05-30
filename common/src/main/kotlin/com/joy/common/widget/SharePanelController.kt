@@ -1,4 +1,4 @@
-package com.joy.featuregoods.ui
+package com.joy.common.widget
 
 import android.view.View
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator

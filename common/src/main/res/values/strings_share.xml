@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_poster">海报</string>
+    <string name="share_wechat">微信</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_cancel">取消</string>
+</resources>

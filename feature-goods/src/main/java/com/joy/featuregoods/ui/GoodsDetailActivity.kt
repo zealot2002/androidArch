@@ -27,6 +27,7 @@ import com.joy.common.router.LoginRouter
 import com.joy.common.router.RouterConstants
 import com.joy.common.utils.SizeUtils
 import com.joy.common.utils.ToastUtils
+import com.joy.common.widget.SharePanelController
 import com.joy.common.widget.popup.QuickMenuPopup
 import com.joy.featuregoods.R
 import com.joy.featuregoods.databinding.ActivityGoodsDetailBinding
