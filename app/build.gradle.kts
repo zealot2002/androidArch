@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":feature-login"))
     implementation(project(":feature-home"))
     implementation(project(":feature-order"))
+    implementation(project(":feature-bill"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

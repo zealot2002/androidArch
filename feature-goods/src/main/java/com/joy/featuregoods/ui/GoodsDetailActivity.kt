@@ -130,7 +130,7 @@ class GoodsDetailActivity : BaseActivity() {
 
         binding.sharePanelOverlay.btnSharePoster.onClick200 {
             sharePanelController.hide()
-            ToastUtils.show(this, getString(R.string.share_poster_hint))
+            AppRouter.openBill(this, currentSpuId)
         }
     }
 

@@ -8,6 +8,8 @@ object RouterConstants {
     const val LOGIN_MAIN = "/login/main"
     const val HOME_MAIN = "/home/main"
     const val ORDER_CONFIRM = "/order/confirm"
+    /** 海报页（bill = poster） */
+    const val BILL_MAIN = "/bill/main"
 
     /** 商品 SPU（详情页查询主键） */
     const val EXTRA_GOODS_SPU_ID = "goods_spu_id"

@@ -31,4 +31,14 @@ object AppRouter {
             .build(RouterConstants.ORDER_CONFIRM)
             .navigation(context)
     }
+
+    /** 打开海报页（bill = poster） */
+    fun openBill(context: Context?, spuId: String) {
+        val id = spuId.trim()
+        if (id.isEmpty()) return
+        ARouter.getInstance()
+            .build(RouterConstants.BILL_MAIN)
+            .withString(RouterConstants.EXTRA_GOODS_SPU_ID, id)
+            .navigation(context)
+    }
 }
