@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sharePanelRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <View
+        android:id="@+id/shareScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/func_black_alpha_2" />
+
+    <LinearLayout
+        android:id="@+id/sharePanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_share_panel_top_round"
+        android:clickable="true"
+        android:elevation="@dimen/dp_8"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_24"
+            android:paddingBottom="@dimen/dp_20">
+
+            <LinearLayout
+                android:id="@+id/btnSharePoster"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_share_icon_poster">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/share_poster"
+                        android:src="@drawable/ic_share_poster" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/share_poster" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnShareWechat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_share_icon_wechat">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/share_wechat"
+                        android:src="@drawable/ic_share_wechat" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/share_wechat" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnShareQq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/dp_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="@dimen/dp_48"
+                    android:background="@drawable/bg_share_icon_qq">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/share_qq"
+                        android:src="@drawable/ic_share_qq" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/tv_black_1_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/share_qq" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_8"
+            android:background="@color/func_gray_bg_2" />
+
+        <TextView
+            android:id="@+id/btnShareCancel"
+            style="@style/tv_black_1_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/share_cancel" />
+
+    </LinearLayout>
+</FrameLayout>

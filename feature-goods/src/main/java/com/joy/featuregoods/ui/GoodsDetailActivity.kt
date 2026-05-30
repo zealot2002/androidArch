@@ -69,11 +69,18 @@ class GoodsDetailActivity : BaseActivity() {
     }
 
     private lateinit var reviewListPanelController: ReviewListPanelController
+    private lateinit var sharePanelController: SharePanelController
     private var currentReviewState: GoodsDetailReviewState? = null
 
     private val reviewPanelBackCallback = object : OnBackPressedCallback(false) {
         override fun handleOnBackPressed() {
             reviewListPanelController.hide()
+        }
+    }
+
+    private val sharePanelBackCallback = object : OnBackPressedCallback(false) {
+        override fun handleOnBackPressed() {
+            sharePanelController.hide()
         }
     }
 
@@ -84,6 +91,7 @@ class GoodsDetailActivity : BaseActivity() {
         setContentView(binding.root)
         applyEdgeToEdgeInsets(binding.root)
         setupReviewListPanel()
+        setupSharePanel()
         setupDetailRecyclerView()
         setupScrollToTop()
         setupTopBarScroll()
@@ -106,6 +114,28 @@ class GoodsDetailActivity : BaseActivity() {
         reviewListPanelController.onVisibilityChanged = { visible ->
             reviewPanelBackCallback.isEnabled = visible
         }
+    }
+
+    private fun setupSharePanel() {
+        onBackPressedDispatcher.addCallback(this, sharePanelBackCallback)
+        sharePanelController = SharePanelController(
+            panelRoot = binding.sharePanelOverlay.root,
+            scrim = binding.sharePanelOverlay.shareScrim,
+            panel = binding.sharePanelOverlay.sharePanel,
+            cancelView = binding.sharePanelOverlay.btnShareCancel,
+        )
+        sharePanelController.onVisibilityChanged = { visible ->
+            sharePanelBackCallback.isEnabled = visible
+        }
+
+        binding.sharePanelOverlay.btnSharePoster.onClick200 {
+            sharePanelController.hide()
+            ToastUtils.show(this, getString(R.string.share_poster_hint))
+        }
+    }
+
+    private fun showSharePanel() {
+        sharePanelController.show()
     }
 
     private fun showReviewListPanel() {
@@ -296,9 +326,7 @@ class GoodsDetailActivity : BaseActivity() {
         binding.iconTitle1Back.onClick200 { finishFn() }
         binding.iconTitle2Back.onClick200 { finishFn() }
 
-        val shareFn = {
-            ToastUtils.show(this, getString(R.string.goods_action_share_hint))
-        }
+        val shareFn = { showSharePanel() }
         binding.iconTitle1Share.onClick200 { shareFn() }
         binding.iconTitle2Share.onClick200 { shareFn() }
 
@@ -541,6 +569,9 @@ class GoodsDetailActivity : BaseActivity() {
         applyMoreBadgeLayout(top)
         binding.llBottomBar.updatePadding(bottom = bottom)
         binding.reviewListPanelOverlay.reviewListPanel.updatePadding(top = top, bottom = bottom)
+        binding.sharePanelOverlay.sharePanel.updatePadding(
+            bottom = bottom + SizeUtils.getDimen(this, AppResR.dimen.dp_12),
+        )
         setWindowStatusBarColor(Color.TRANSPARENT)
         statusBarShowingTitle2Fill = false
     }

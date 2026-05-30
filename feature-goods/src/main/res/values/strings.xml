@@ -34,6 +34,11 @@
     <string name="goods_shop_rating_logistics">物流服务</string>
     <string name="goods_shop_rating_level_high">高</string>
     <string name="goods_action_share_hint">分享链接已复制（演示）</string>
+    <string name="share_poster">海报</string>
+    <string name="share_wechat">微信</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_cancel">取消</string>
+    <string name="share_poster_hint">海报分享（演示）</string>
     <string name="goods_action_service_hint">已接通客服（演示）</string>
     <string name="goods_action_cart_hint">已打开购物车（演示）</string>
     <string name="goods_action_add_cart_hint">已加入购物车（演示）</string>
