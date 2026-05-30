@@ -13,6 +13,7 @@ object BillDataLoader {
                 nickname = "书友小明",
                 content = "今天读到了一本很好的架构书，推荐给大家。",
                 imageUrl = "https://picsum.photos/seed/social-$id/600/400",
+                miniProgramCodeUrl = "https://imgo.hackhome.com/img2017/11/7/18/493881302.jpg",
             )
             else -> GoodsBillData(
                 spuId = id,
@@ -23,6 +24,7 @@ object BillDataLoader {
                 tips = "仅1件在售，欲购从速",
                 shopName = "JoyArch 官方店",
                 imageUrl = "https://picsum.photos/seed/goods-$id/600/400",
+                miniProgramCodeUrl = "https://imgo.hackhome.com/img2017/11/7/18/493881302.jpg",
             )
         }
     }

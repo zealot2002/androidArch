@@ -41,9 +41,35 @@ fun ImageView.loadNetworkImage(
         .into(this)
 }
 
-fun ImageView.loadNetworkImageCircle(data: Any?) {
+fun ImageView.loadNetworkImageCircle(
+    data: Any?,
+    onSuccess: ((Drawable) -> Unit)? = null,
+    onError: (() -> Unit)? = null,
+) {
     Glide.with(this)
         .load(data)
         .transform(CircleCrop())
+        .listener(object : RequestListener<Drawable> {
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>,
+                isFirstResource: Boolean,
+            ): Boolean {
+                onError?.invoke()
+                return false
+            }
+
+            override fun onResourceReady(
+                resource: Drawable,
+                model: Any,
+                target: Target<Drawable>?,
+                dataSource: DataSource,
+                isFirstResource: Boolean,
+            ): Boolean {
+                onSuccess?.invoke(resource)
+                return false
+            }
+        })
         .into(this)
 }

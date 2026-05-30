@@ -9,4 +9,5 @@ data class GoodsBillData(
     val tips: String,
     val shopName: String,
     val imageUrl: String,
+    val miniProgramCodeUrl: String,
 )

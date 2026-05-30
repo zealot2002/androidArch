@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.joy.common.base.BaseActivity
@@ -35,6 +36,7 @@ class BillActivity : BaseActivity() {
     private var billCase = RouterConstants.BILL_CASE_GOODS
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityBillBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -5,4 +5,5 @@ data class SocialBillData(
     val nickname: String,
     val content: String,
     val imageUrl: String,
+    val miniProgramCodeUrl: String,
 )

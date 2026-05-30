@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewTreeObserver
 import com.joy.common.image.loadNetworkImage
+import com.joy.common.image.loadNetworkImageCircle
 import com.joy.featurebill.bill.BaseBillRender
 import com.joy.featurebill.bill.BillRender
 import com.joy.featurebill.bill.model.GoodsBillData
@@ -45,6 +46,11 @@ class GoodsBillRender(context: Context) :
             onSuccess = { markReady() },
             onError = { markReady() },
         )
+        binding.ivQrCode.loadNetworkImageCircle(
+            data = data.miniProgramCodeUrl,
+            onSuccess = { markReady() },
+            onError = { markReady() },
+        )
     }
 
     private fun markReady() {
@@ -53,7 +59,7 @@ class GoodsBillRender(context: Context) :
     }
 
     companion object {
-        private const val READY_TOTAL = 2
+        private const val READY_TOTAL = 3
         private const val SCREEN_READY_DELAY_MS = 100L
     }
 }
