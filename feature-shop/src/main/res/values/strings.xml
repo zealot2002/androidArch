@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shop_home_title">店铺首页</string>
+    <string name="shop_home_back">返回</string>
+    <string name="shop_home_placeholder">店铺首页（占位）</string>
+</resources>

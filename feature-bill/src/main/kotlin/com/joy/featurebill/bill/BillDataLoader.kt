@@ -2,12 +2,21 @@ package com.joy.featurebill.bill
 
 import com.joy.common.router.RouterConstants
 import com.joy.featurebill.bill.model.GoodsBillData
+import com.joy.featurebill.bill.model.ShopBillData
 import com.joy.featurebill.bill.model.SocialBillData
 
 object BillDataLoader {
 
     fun load(case: Int, id: String): Any {
         return when (case) {
+            RouterConstants.BILL_CASE_SHOP -> ShopBillData(
+                shopId = id,
+                name = "JoyArch 官方店",
+                featureDesc = "精选好物 · 品质保障 · 极速发货",
+                onSellDesc = "在售商品 128 件",
+                imageUrl = "https://picsum.photos/seed/shop-$id/600/300",
+                miniProgramCodeUrl = "https://imgo.hackhome.com/img2017/11/7/18/493881302.jpg",
+            )
             RouterConstants.BILL_CASE_SOCIAL -> SocialBillData(
                 postId = id,
                 nickname = "书友小明",

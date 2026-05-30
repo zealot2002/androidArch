@@ -42,6 +42,20 @@ object AppRouter {
         openBill(context, postId, RouterConstants.BILL_CASE_SOCIAL)
     }
 
+    /** 店铺首页海报 */
+    fun openShopBill(context: Context?, shopId: String) {
+        openBill(context, shopId, RouterConstants.BILL_CASE_SHOP)
+    }
+
+    fun openShopHome(context: Context?, shopId: String = "mock-shop") {
+        val id = shopId.trim()
+        if (id.isEmpty()) return
+        ARouter.getInstance()
+            .build(RouterConstants.SHOP_HOME)
+            .withString(RouterConstants.EXTRA_SHOP_ID, id)
+            .navigation(context)
+    }
+
     private fun openBill(context: Context?, billId: String, billCase: Int) {
         val id = billId.trim()
         if (id.isEmpty()) return

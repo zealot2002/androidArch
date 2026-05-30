@@ -66,10 +66,10 @@ class BillActivity : BaseActivity() {
     }
 
     private fun initShareTips() {
-        val tipsRes = if (billCase == RouterConstants.BILL_CASE_SOCIAL) {
-            R.string.bill_share_tips_social
-        } else {
-            R.string.bill_share_tips_goods
+        val tipsRes = when (billCase) {
+            RouterConstants.BILL_CASE_SOCIAL -> R.string.bill_share_tips_social
+            RouterConstants.BILL_CASE_SHOP -> R.string.bill_share_tips_shop
+            else -> R.string.bill_share_tips_goods
         }
         binding.tvShareTips.setText(tipsRes)
     }

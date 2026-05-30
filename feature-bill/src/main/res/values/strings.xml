@@ -4,6 +4,8 @@
     <string name="bill_preview_cd">海报预览</string>
     <string name="bill_share_tips_goods">— 把好物推荐给好友吧 —</string>
     <string name="bill_share_tips_social">— 已为您生成动态海报 —</string>
+    <string name="bill_share_tips_shop">— 已为您生成店铺海报 —</string>
+    <string name="bill_qr_hint_shop">长按识别二维码 · 查看店铺</string>
     <string name="bill_save_image">保存图片</string>
     <string name="bill_wechat">微信好友</string>
     <string name="bill_moments">朋友圈</string>

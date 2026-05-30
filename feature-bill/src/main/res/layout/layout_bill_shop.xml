@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardRoot"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bill_paper"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bill_card"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_12">
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/func_gray_bg_2"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/tv_black_1_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:maxLines="2"
+            android:textStyle="bold"
+            tools:text="JoyArch 官方店" />
+
+        <TextView
+            android:id="@+id/tvFeature"
+            style="@style/tv_black_1_size_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:visibility="gone"
+            tools:text="精选好物 · 品质保障 · 极速发货"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvOnSell"
+            style="@style/tv_black_1_size_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textColor="@color/func_black_text_2"
+            android:visibility="gone"
+            tools:text="在售商品 128 件"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvShopName"
+                style="@style/tv_black_1_size_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="JoyArch 官方店" />
+
+            <TextView
+                style="@style/tv_black_1_size_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/bill_qr_hint_shop"
+                android:textColor="@color/func_black_text_2" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dp_28">
+
+            <ImageView
+                android:id="@+id/ivQrCode"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

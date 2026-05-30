@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":feature-order"))
     implementation(project(":feature-bill"))
     implementation(project(":feature-social"))
+    implementation(project(":feature-shop"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

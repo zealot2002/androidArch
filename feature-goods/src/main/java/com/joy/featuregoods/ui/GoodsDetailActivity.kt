@@ -245,7 +245,7 @@ class GoodsDetailActivity : BaseActivity() {
                 }
 
                 override fun onEnterShopClick() {
-                    ToastUtils.show(this@GoodsDetailActivity, getString(R.string.goods_action_shop))
+                    AppRouter.openShopHome(this@GoodsDetailActivity, MOCK_SHOP_ID)
                 }
 
                 override fun onRecommendProductClick(spuId: String) {
@@ -367,7 +367,7 @@ class GoodsDetailActivity : BaseActivity() {
         }
 
         binding.layoutShop.onClick200 {
-            ToastUtils.show(this, getString(R.string.goods_action_shop))
+            AppRouter.openShopHome(this, MOCK_SHOP_ID)
         }
         binding.layoutService.onClick200 {
             ToastUtils.show(this, getString(R.string.goods_action_service_hint))
@@ -575,5 +575,9 @@ class GoodsDetailActivity : BaseActivity() {
         )
         setWindowStatusBarColor(Color.TRANSPARENT)
         statusBarShowingTitle2Fill = false
+    }
+
+    companion object {
+        private const val MOCK_SHOP_ID = "mock-shop"
     }
 }
