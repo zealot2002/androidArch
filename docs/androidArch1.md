@@ -1,6 +1,4 @@
-## Android 架构系列博文（共4篇）  
-
-## 第一篇：主流 Android 架构十年演化史——我们到底在解决什么问题？
+## Modern Android Architecture (Part 1): A Decade of Android Architecture Evolution: What Problem Are We Really Solving?
 
 > **系列导航**：[第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5) | [第三篇：用 Lego 架构重构商品详情页](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
 
@@ -12,7 +10,7 @@
 
 如果你的回答是“没有”，甚至“只是换了个地方写垃圾代码”——那么这篇文章，就是为你准备的。
 
----
+***
 
 ### 一、架构演化的本质：一场“减少连线”的革命
 
@@ -92,11 +90,12 @@ MVI 是最新的进化，它在 MVVM 的基础上，把**数据流**也彻底拉
 
 本该严谨的有限状态机，就这样被用成了"无限状态机"——这正是 MVI 被一部分人视为灾难的根源。
 
----
+***
 
 ### 二、架构只是"术"：它无法阻止你写出垃圾代码
 
 我亲眼见过许多荒谬的项目：
+
 - 用着先进的 MVVM，却写出 5000 行的 ViewModel（架构管不到 ViewModel 内部的臃肿）
 - 严格遵循 Clean Architecture，却在 Domain 层塞满业务耦合（架构管不到 UseCase 之间的边界）
 - 坚持 MVI 单向流，却在一个 State 里混杂了轮播图、推荐列表和用户信息（架构管不到 State 的粒度）
@@ -110,7 +109,7 @@ MVI 是最新的进化，它在 MVVM 的基础上，把**数据流**也彻底拉
 - 迁移到 MVVM 后，它又被塞进一个 `LoginViewModel`，里面的 `login()` 方法依然像一团乱麻
 - 再改成 MVI，它变成了一堆杂乱的 Intent 和 State，表面上单向，实际逻辑纠缠如初
 
-**架构是"术"，它只解决了代码的"粗略分区"，比如规定 View、ViewModel、Model 分别放在哪一层，但无法告诉你同一层的代码应该拆多细、怎么组织、怎么复用。**而真正让代码变好的因素至少还包括：**
+\*\*架构是"术"，它只解决了代码的"粗略分区"，比如规定 View、ViewModel、Model 分别放在哪一层，但无法告诉你同一层的代码应该拆多细、怎么组织、怎么复用。**而真正让代码变好的因素至少还包括：**
 
 - **编程思想**：分治、抽象、单一职责等基本原则，决定了我们如何看待和拆解问题。
 - **编码洁癖**：对冗余代码、脏命名、越界逻辑的零容忍，保持代码库的长期健康。
@@ -119,8 +118,10 @@ MVI 是最新的进化，它在 MVVM 的基础上，把**数据流**也彻底拉
 
 而这些也是一个优秀工程师应该具备的基础能力和素养。具备这些能力的工程师，不需要依赖某种"银弹架构"，也能写出干净、健壮、易演化的代码。
 
----
+***
 
 **相关阅读**：
+
 - [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
 - [第三篇：用 Lego 架构重构商品详情页：从 3000 行到 15 个独立组件](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
+

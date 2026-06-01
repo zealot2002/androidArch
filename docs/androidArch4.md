@@ -1,6 +1,4 @@
-## Android 架构系列博文（共4篇）
-
-## 第四篇：设计模式——Lego 架构的粘合剂
+## Modern Android Architecture (Part 4): Design Patterns — The Glue of Lego Architecture
 
 > *Design Patterns: The Glue of Lego Architecture*
 
@@ -8,7 +6,7 @@
 >
 > **项目地址**：<https://github.com/zealot2002/androidArch>
 
----
+***
 
 ## 前言：积木拆好了，怎么拼才稳？
 
@@ -28,9 +26,9 @@ GoF 23 种、乃至更多演进中的模式，各自解决不同的"拼接"问�
 
 ![demo 项目运行截图](https://raw.githubusercontent.com/zealot2002/androidArch/main/screenshot/screenshot.png)
 
-*左：第三篇重构后的商品详情页——收藏、加购、立即购买等入口，由 `LoginRouter` 统一粘合登录门禁；右：三种海报分享页（商品 / 社交 / 店铺）——共用 `BillActivity` 截屏流程，各自由 `BaseBillRender` 子类渲染不同布局。*
+*左：第三篇重构后的商品详情页——收藏、加购、立即购买等入口，由* *`LoginRouter`* *统一粘合登录门禁；右：三种海报分享页（商品 / 社交 / 店铺）——共用* *`BillActivity`* *截屏流程，各自由* *`BaseBillRender`* *子类渲染不同布局。*
 
----
+***
 
 ## 一、观察者模式：LoginRouter——登录态的"广播站"
 
@@ -167,7 +165,7 @@ loginRouter.runBlock {
 
 Lego 架构不只要求会拆，还要求会在重复里看见模式、在痛点里发现积木——`LoginRouter` 就是一次这样的提炼。
 
----
+***
 
 ## 二、模版方法模式：BillActivity——固定流程，可变内容
 
@@ -231,7 +229,7 @@ abstract class BaseBillRender<T, B : ViewBinding>(private val context: Context) 
 **这就是模版方法模式的核心：**
 
 - `BaseBillRender` 定义了**算法骨架**（inflate Binding → 调用 `onRenderView` → 暴露 `getBillView`）。
-- 子类只需实现 **`onRenderView` 这一个钩子**，填充各自不同的 UI 逻辑。
+- 子类只需实现 **`onRenderView`** **这一个钩子**，填充各自不同的 UI 逻辑。
 - 公共的 ViewBinding 初始化通过泛型 + 反射完成，子类零样板代码。
 
 #### 第三步：具体子类只关心自己的 UI，只需要实现一个方法即可
@@ -311,14 +309,14 @@ class BillActivity : BaseActivity() {
 
 整个页面的职责边界清晰：
 
-| 组件 | 职责 | 对应模式 |
-| --- | --- | --- |
-| `BillDataLoader` | 按 case 加载 Mock 数据 | 简单工厂 |
-| `BillRenderFactory` | 选择具体 Render 实现 | 简单工厂 |
-| `BaseBillRender` | 固化 inflate + bind 骨架 | **模版方法** |
-| `GoodsBillRender` 等 | 填充具体 UI + 异步就绪检测 | 模版方法的钩子 |
-| `BillActivity` | 编排 加载→渲染→截屏→预览→分享 | 流程控制器 |
-| `BillBitmapUtils` / `BillImageSaver` | 截屏与保存 | 独立工具积木 |
+| 组件                                   | 职责                   | 对应模式     |
+| ------------------------------------ | -------------------- | -------- |
+| `BillDataLoader`                     | 按 case 加载 Mock 数据    | 简单工厂     |
+| `BillRenderFactory`                  | 选择具体 Render 实现       | 简单工厂     |
+| `BaseBillRender`                     | 固化 inflate + bind 骨架 | **模版方法** |
+| `GoodsBillRender` 等                  | 填充具体 UI + 异步就绪检测     | 模版方法的钩子  |
+| `BillActivity`                       | 编排 加载→渲染→截屏→预览→分享    | 流程控制器    |
+| `BillBitmapUtils` / `BillImageSaver` | 截屏与保存                | 独立工具积木   |
 
 ### 2.4 与第二篇的呼应：什么时候该用模版方法？
 
@@ -341,28 +339,28 @@ abstract class BaseActivity : AppCompatActivity() {
 
 为什么 `BaseBillRender` 的模版方法可以接受，而 `BaseActivity` 的不行？
 
-| | 坏的 BaseActivity 模版 | 好的 BaseBillRender 模版 |
-| --- | --- | --- |
-| **流程是否真的一致？** | 不同页面的初始化顺序差异很大 | 所有海报都必须 inflate → bind → render → ready |
-| **约束的是顺序还是结构？** | 强制规定 `initView` 在 `initData` 之前 | 只规定"绑定数据时调用 `onRenderView`" |
-| **子类自由度** | 被四个 abstract 方法绑架 | 只需实现一个 `onRenderView` |
-| **是否可插拔** | 必须继承 Base 才能用 | 实现 `BillRender` 接口即可，不必继承 |
+| <br />          | 坏的 BaseActivity 模版              | 好的 BaseBillRender 模版                    |
+| --------------- | ------------------------------- | --------------------------------------- |
+| **流程是否真的一致？**   | 不同页面的初始化顺序差异很大                  | 所有海报都必须 inflate → bind → render → ready |
+| **约束的是顺序还是结构？** | 强制规定 `initView` 在 `initData` 之前 | 只规定"绑定数据时调用 `onRenderView`"             |
+| **子类自由度**       | 被四个 abstract 方法绑架               | 只需实现一个 `onRenderView`                   |
+| **是否可插拔**       | 必须继承 Base 才能用                   | 实现 `BillRender` 接口即可，不必继承               |
 
 **判断标准很简单：只有当多个子类的算法骨架真正一致时，才用模版方法；如果只是在 Base 里"顺便"塞了一堆可能用也可能不用的初始化步骤，那就是枷锁，不是模版。**
 
----
+***
 
 ## 三、从两个案例看粘合方式
 
 上面两个案例，分别展示了设计模式在 Lego 架构中两种常见的"粘合"方向——**响应变化**与**固化流程**。其他模式解决的则是创建、替换、适配等不同维度的拼接问题，思路相通，此处不再展开。
 
-| 维度 | 观察者（LoginRouter） | 模版方法（BillRender） |
-| --- | --- | --- |
-| **解决什么问题** | A 的状态变了，B 需要自动响应 | 多个子类共享同一算法骨架，只有部分步骤不同 |
-| **连接方式** | 订阅 / 回调 | 继承抽象类 + 实现钩子方法 |
-| **耦合方向** | 被观察者不知道谁在观察（单向） | 子类依赖父类骨架（单向） |
-| **Lego 定位** | 跨模块的事件广播积木 | 同类 Render 的公共骨架积木 |
-| **扩展方式** | 新增观察者，不改 Subject | 新增子类，不改模版骨架 |
+| 维度          | 观察者（LoginRouter） | 模版方法（BillRender）      |
+| ----------- | ---------------- | --------------------- |
+| **解决什么问题**  | A 的状态变了，B 需要自动响应 | 多个子类共享同一算法骨架，只有部分步骤不同 |
+| **连接方式**    | 订阅 / 回调          | 继承抽象类 + 实现钩子方法        |
+| **耦合方向**    | 被观察者不知道谁在观察（单向）  | 子类依赖父类骨架（单向）          |
+| **Lego 定位** | 跨模块的事件广播积木       | 同类 Render 的公共骨架积木     |
+| **扩展方式**    | 新增观察者，不改 Subject | 新增子类，不改模版骨架           |
 
 无论哪种模式，有一个共同前提：**它们都是在 Lego 拆分之后，用来"粘合"积木的——而不是用来替代拆分本身。**
 
@@ -370,15 +368,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
 本篇详述的两个案例之外，demo 项目里还有多处模式在各处默默发挥作用——它们不是主角，但同样是积木之间的连接件：
 
-| 模式 | 在项目中的位置 | 粘合了什么 |
-| --- | --- | --- |
-| **观察者** | `LoginRouter` | 登录态变化 → 跨页面的 pending 后续操作 |
-| **模版方法** | `BaseBillRender` | 多种海报共享 inflate → bind → render 骨架 |
-| **简单工厂** | `BillRenderFactory`、`BillDataLoader` | 按 `billCase` 创建对应 Render / 数据 |
-| **策略** | `BillRender` 及其实现类 | 同一截屏流程下，切换不同海报渲染策略 |
-| **适配器** | `GoodsDetailAdapter` | 14 种 `ListItem` → `RecyclerView` 多类型渲染 |
+| 模式       | 在项目中的位置                              | 粘合了什么                                  |
+| -------- | ------------------------------------ | -------------------------------------- |
+| **观察者**  | `LoginRouter`                        | 登录态变化 → 跨页面的 pending 后续操作              |
+| **模版方法** | `BaseBillRender`                     | 多种海报共享 inflate → bind → render 骨架      |
+| **简单工厂** | `BillRenderFactory`、`BillDataLoader` | 按 `billCase` 创建对应 Render / 数据          |
+| **策略**   | `BillRender` 及其实现类                   | 同一截屏流程下，切换不同海报渲染策略                     |
+| **适配器**  | `GoodsDetailAdapter`                 | 14 种 `ListItem` → `RecyclerView` 多类型渲染 |
 
----
+***
 
 ## 四、Lego 架构完整体系：四篇串联
 
@@ -411,7 +409,7 @@ Lego 架构的完整体系可以概括为：
 - **设计模式不是炫技**，而是在拆分完成后，按场景选用合适的模式，用最少的连线把积木稳稳地拼在一起。
 - **好的代码不是学了一种架构写出来的**，而是具备了分治意识、治理纪律、模式直觉，以及发现积木的那双眼睛。
 
----
+***
 
 ## 系列总结
 
@@ -423,9 +421,11 @@ Lego 架构的完整体系可以概括为：
 
 愿你的代码库，像一盒 Lego——每块积木职责清晰、接口稳定、随意组合，历经多年依然能拼出新的模型。
 
----
+***
 
 **相关阅读**：
+
 - [第一篇：主流 Android 架构十年演化史——我们到底在解决什么问题？](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8)
 - [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
 - [第三篇：用 Lego 架构重构商品详情页：从 3000 行到 15 个独立组件](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
+

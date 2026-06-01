@@ -1,10 +1,10 @@
-## 第三篇：用 Lego 架构重构商品详情页：从 3000 行到 15 个独立组件
+## Modern Android Architecture (Part 3): Refactoring a Product Detail Page with Lego Architecture: From 3000 Lines to 15 Standalone Components
 
 > **系列导航**：[第一篇：主流 Android 架构十年演化史](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8) | [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
 >
 > **项目地址**：<https://github.com/zealot2002/androidArch>
 
----
+***
 
 ## 前言：商品详情页——架构的"试金石"
 
@@ -29,7 +29,7 @@
 
 正如第二篇所述，Lego 架构的核心是分治法与单一职责，以及治理思想、工具迭代、复用发现等实践方法。今天，我们用实际项目代码演示：**如何运用 Lego 架构的"最小颗粒度 + 动态组装"思想，以商品详情页为例，把复杂的 UI 和业务逻辑拆解成独立、可复用、可插拔的积木。**
 
----
+***
 
 ## 一、核心设计：一切皆列表项——最小颗粒度的极致实践
 
@@ -83,7 +83,7 @@ sealed class GoodsDetailListItem {
 - 每个列表项可以独立开发、独立测试、独立迭代
 - 新增一个 UI 区块，只需新增一个子类，**无需修改任何现有代码**
 
----
+***
 
 ## 二、数据分层：原始数据 → UI 状态——用 Mapper 封装数据转换
 
@@ -121,7 +121,7 @@ object GoodsDetailProductSectionMapper {
 - **统一数据格式**：所有 UI 需要的格式化逻辑集中在 Mapper 中
 - **彻底解耦**：UI 层只依赖 UI 状态，不依赖任何后端数据模型
 
----
+***
 
 ## 三、动态组装：Assembler——积木的说明书
 
@@ -184,7 +184,7 @@ object GoodsDetailListAssembler {
 | 解耦性  | 区块是动态组装的，自然避免了逻辑被耦合到具体区块内部  |
 | 可测试性 | 传入不同参数即可验证不同组装结果，无需启动 App   |
 
----
+***
 
 ## 四、ViewModel：纯粹的状态协调者
 
@@ -266,7 +266,7 @@ class GoodsDetailViewModel : ViewModel() {
 
 整个 `ViewModel` 职责单一、逻辑清晰，新人也能快速上手。
 
----
+***
 
 ## 五、Activity：薄薄的一层壳——架构与视图的胶水层
 
@@ -336,7 +336,7 @@ class GoodsDetailActivity : BaseActivity() {
 2. 把用户点击事件转发给 `ViewModel`
 3. 观察 `ViewModel` 的状态并更新 UI
 
----
+***
 
 ## 六、独立组件
 
@@ -377,7 +377,7 @@ class GoodsReviewListFragment : Fragment() {
 }
 ```
 
-2. **干净的 Controller**：面板控制器只负责动画和 Fragment 管理，不包含任何业务逻辑
+1. **干净的 Controller**：面板控制器只负责动画和 Fragment 管理，不包含任何业务逻辑
 
 ```kotlin
 class ReviewListPanelController(
@@ -398,7 +398,7 @@ class ReviewListPanelController(
 }
 ```
 
-3. **主 Activity 极简**：只需要初始化 Controller，评价逻辑完全不侵入主 Activity
+1. **主 Activity 极简**：只需要初始化 Controller，评价逻辑完全不侵入主 Activity
 
 ```kotlin
 private fun setupReviewListPanel() {
@@ -417,7 +417,7 @@ private fun showReviewListPanel() {
 }
 ```
 
-4. **按需创建 Fragment**：评价面板的 Fragment 只在首次点击时创建，不会影响首屏性能。
+1. **按需创建 Fragment**：评价面板的 Fragment 只在首次点击时创建，不会影响首屏性能。
 
 **架构优势**：
 
@@ -426,7 +426,7 @@ private fun showReviewListPanel() {
 - 面板动画和 Fragment 管理封装在 Controller 中
 - 未来可以轻松替换为其他实现（如全屏 Fragment、BottomSheet 等）
 
----
+***
 
 ## 七、项目结构总览
 
@@ -505,19 +505,19 @@ androidArch/
 
 | 模块         | 类名                              | 职责                | 代码行数  |
 | ---------- | ------------------------------- | ----------------- | ----- |
-| **ui**     | GoodsDetailActivity             | 视图绑定、生命周期、用户交互转发  | ~500 |
-| **ui**     | GoodsDetailAdapter              | 14种ViewType的列表渲染  | ~400 |
-| **ui**     | GoodsDetailListAssembler        | 动态组装列表项           | ~80  |
-| **ui**     | GoodsDetailListItem             | 列表项类型定义           | ~50  |
-| **ui**     | ReviewListPanelController       | 评价面板动画与Fragment管理 | ~150 |
-| **ui**     | DetailAnchorTab                 | Tab枚举（独立小类）       | ~10  |
-| **mapper** | GoodsDetailProductSectionMapper | 数据→商品区UI状态        | ~60  |
-| **mapper** | GoodsDetailReviewMapper         | 数据→评价区UI状态        | ~30  |
-| **mapper** | GoodsDetailShopMapper           | 数据→店铺区UI状态        | ~20  |
-| **vm**     | GoodsDetailViewModel            | 数据加载、状态持有、触发重建    | ~150 |
-| **common** | BaseActivity                   | 封装埋点、Edge-to-Edge | ~50  |
-| **common** | GridSpacingDecoration           | 通用网格间距装饰器         | ~40  |
-| **common** | ToastUtils                     | 全局吐司              | ~30  |
+| **ui**     | GoodsDetailActivity             | 视图绑定、生命周期、用户交互转发  | \~500 |
+| **ui**     | GoodsDetailAdapter              | 14种ViewType的列表渲染  | \~400 |
+| **ui**     | GoodsDetailListAssembler        | 动态组装列表项           | \~80  |
+| **ui**     | GoodsDetailListItem             | 列表项类型定义           | \~50  |
+| **ui**     | ReviewListPanelController       | 评价面板动画与Fragment管理 | \~150 |
+| **ui**     | DetailAnchorTab                 | Tab枚举（独立小类）       | \~10  |
+| **mapper** | GoodsDetailProductSectionMapper | 数据→商品区UI状态        | \~60  |
+| **mapper** | GoodsDetailReviewMapper         | 数据→评价区UI状态        | \~30  |
+| **mapper** | GoodsDetailShopMapper           | 数据→店铺区UI状态        | \~20  |
+| **vm**     | GoodsDetailViewModel            | 数据加载、状态持有、触发重建    | \~150 |
+| **common** | BaseActivity                    | 封装埋点、Edge-to-Edge | \~50  |
+| **common** | GridSpacingDecoration           | 通用网格间距装饰器         | \~40  |
+| **common** | ToastUtils                      | 全局吐司              | \~30  |
 
 ### 7.3 数据流向
 
@@ -529,7 +529,7 @@ GoodsDetail ──► GoodsDetailProduct ──► List<GoodsDetail ──► _l
                 SectionState             ListItem>
 ```
 
----
+***
 
 本实战案例完整践行了第二篇提出的 Lego 架构核心准则：
 
@@ -539,7 +539,7 @@ GoodsDetail ──► GoodsDetailProduct ──► List<GoodsDetail ──► _l
 
 关于治理思想、工具迭代三阶段（私有→共有→远程）、复用发现等详细方法论，已在第二篇完整阐述，此处不再赘述。
 
----
+***
 
 ## 八、架构优势对比
 
@@ -552,7 +552,7 @@ GoodsDetail ──► GoodsDetailProduct ──► List<GoodsDetail ──► _l
 | **扩展性**  | 新增区块要改很多地方           | 新增区块只需新增 ListItem 和 Assembler 逻辑 |
 | **并行开发** | 只能串行开发               | 多个开发者可并行开发不同组件                   |
 
----
+***
 
 ## 九、总结：理想的复杂页面
 
@@ -565,11 +565,13 @@ Lego 架构的完整体系可以概括为：
 
 当你真正用 Lego 思想来构建应用时，你会发现：**复杂的不是应用本身，而是你没有把它拆成足够小的积木，并且没有持续的治理和迭代。**
 
----
+***
 
 当然，精通设计模式、代码审美、以及发现积木的眼睛，也是一名优秀工程师所需的基本素养。
 下一篇预告： 我们将继续丰富我们的demo项目，探讨设计模式如何作为 Lego 架构的粘合剂，让你的积木组合更加灵活、更加稳固。敬请期待！
 
 **相关阅读**：
+
 - [第一篇：主流 Android 架构十年演化史——我们到底在解决什么问题？](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8)
 - [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
+

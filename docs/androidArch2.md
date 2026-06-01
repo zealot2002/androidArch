@@ -1,6 +1,4 @@
-## Android 架构系列博文（共4篇）
-
-## 第二篇：Lego架构——分治思想的极致实践
+## Modern Android Architecture (Part 2): The Lego Architecture: Divide and Conquer, Taken to the Extreme
 
 > **系列导航**：[第一篇：主流 Android 架构十年演化史](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8) | [第三篇：用 Lego 架构重构商品详情页](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
 
@@ -230,7 +228,7 @@ internal fun formatPrice(priceYuan: String): String = "¥$priceYuan"
 
 一个共有积木经过线上半年或一年的使用，被百万用户验证稳定后，就可以从`common`模块中独立出来，发布到Maven仓库，成为**远程积木**，供公司所有项目直接依赖。
 
-这时，它就成了**"一生只写一次的工具"**——比如`StringUtils`、`NetworkUtils`、`ScreenUtils`。你永远不需要再重写它们，只需升级版本号。
+这时，它就成了\*\*"一生只写一次的工具"\*\*——比如`StringUtils`、`NetworkUtils`、`ScreenUtils`。你永远不需要再重写它们，只需升级版本号。
 
 #### 4.4 为什么一定要拆到最小颗粒？
 
@@ -261,5 +259,7 @@ Lego架构不是要取代你现有的MVVM或MVI，它是一套**编程纪律和�
 ***
 
 **相关阅读**：
+
 - [第一篇：主流 Android 架构十年演化史——我们到底在解决什么问题？](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8)
 - [第三篇：用 Lego 架构重构商品详情页：从 3000 行到 15 个独立组件](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
+
