@@ -2,6 +2,8 @@
 
 ## 第四篇：设计模式——Lego 架构的粘合剂
 
+> *Design Patterns: The Glue of Lego Architecture*
+
 > **系列导航**：[第一篇：主流 Android 架构十年演化史](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8) | [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5) | [第三篇：用 Lego 架构重构商品详情页](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
 >
 > **项目地址**：<https://github.com/zealot2002/androidArch>
@@ -55,7 +57,7 @@ Lego 架构要求：**把"登录后再执行"这件事，拆成一块独立的�
 `LoginRouter` 由两个可观测源（`LifecycleOwner`、`LoginStateLiveData`）和一个 `pendingBlock` 组成：
 
 1. **`LoginStateLiveData`**——订阅登录态。登录成功后发布 `true`，触发 pending 回调。
-2. **`LifecycleOwner`**——订阅页面生命周期。从登录页返回或页面销毁时清空 pending，避免泄漏与误触发。
+2. **`LifecycleOwner`**——订阅页面生命周期。页面销毁时清空 pending，避免泄漏；`ON_RESUME` 时同样清空——用户从登录页按返回键退出、并未登录成功时，pending 操作也应放弃。
 3. **`pendingBlock`**——暂存"登录后再执行"的操作。未登录时挂起，登录成功后自动 `invoke()`。
 
 核心代码如下：
@@ -73,7 +75,8 @@ class LoginRouter(private var context: Context) {
                     pendingBlock = null
                 }
             }
-            // 生命周期兜底：页面销毁或从登录页返回时，清空 pending
+            // ON_RESUME：用户从登录页返回但未登录（如按返回键），放弃 pending
+            // ON_DESTROY：页面销毁，清理 pending
             (context as LifecycleOwner).lifecycle.addObserver(
                 LifecycleEventObserver { _, event ->
                     when (event) {
@@ -252,6 +255,8 @@ class GoodsBillRender(context: Context) :
 }
 ```
 
+`markReady()` 内部维护一个计数器（商品海报需等布局绘制 + 封面图 + 二维码共 3 项全部就绪），计数凑齐后才触发 `screenReady`，确保截屏时内容完整。
+
 `SocialBillRender`、`ShopBillRender` 结构相同，各自绑定不同的布局和 Data 类型。**新增一种海报，只需新增一个 Render 子类 + 一个 Layout XML，零修改现有代码。**
 
 #### 第四步：工厂选择具体积木
@@ -359,6 +364,16 @@ abstract class BaseActivity : AppCompatActivity() {
 
 如果你还没有把登录逻辑拆成 `LoginRouter`，观察者模式救不了你——你只是在三个 Activity 里各写一套 LiveData 观察。如果你还没有把三种海报拆成独立的 Render，模版方法也救不了你——`BaseBillRender` 里会塞满 `if (case == SOCIAL)` 的分支。工厂、策略等其他模式同理——**先拆，再粘，顺序不能反。**
 
+本篇详述的两个案例之外，demo 项目里还有多处模式在各处默默发挥作用——它们不是主角，但同样是积木之间的连接件：
+
+| 模式 | 在项目中的位置 | 粘合了什么 |
+| --- | --- | --- |
+| **观察者** | `LoginRouter` | 登录态变化 → 跨页面的 pending 后续操作 |
+| **模版方法** | `BaseBillRender` | 多种海报共享 inflate → bind → render 骨架 |
+| **简单工厂** | `BillRenderFactory`、`BillDataLoader` | 按 `billCase` 创建对应 Render / 数据 |
+| **策略** | `BillRender` 及其实现类 | 同一截屏流程下，切换不同海报渲染策略 |
+| **适配器** | `GoodsDetailAdapter` | 14 种 `ListItem` → `RecyclerView` 多类型渲染 |
+
 ---
 
 ## 四、Lego 架构完整体系：四篇串联
@@ -384,7 +399,7 @@ Lego 架构的完整体系可以概括为：
 - **一个公理**：分治法 + 单一职责
 - **多个定理**：治理思想、工具迭代（私有→共有→远程）、复用发现
 - **一套实战**：商品详情页的 15 个独立组件
-- **一层粘合**：设计模式——本篇以观察者（LoginRouter）、模版方法（BillRender）为例，项目中同样可见工厂（`BillRenderFactory`）、策略、适配等模式的身影
+- **一层粘合**：设计模式——本篇以观察者、模版方法为重点展开；项目中还有工厂、策略、适配等模式在各处承担连接职责（见上表）
 
 当你真正用 Lego 思想来构建应用时，你会发现：
 
