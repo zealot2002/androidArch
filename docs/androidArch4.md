@@ -46,16 +46,17 @@ if (UserManager.isLogin()) {
 
 - **重复**：十个按钮，十份相同的判断逻辑。
 - **断裂**：用户登录成功后，原来的操作往往"丢失"了——他还要再点一次按钮。
-- **耦合**：每个页面都直接依赖登录模块的实现细节，改一处牵动全局。
+- **耦合**：甚至有些项目把登录后的跳转直接写到了 `LoginActivity`，让 login 模块耦合了其他模块。
 
 Lego 架构要求：**把"登录后再执行"这件事，拆成一块独立的、可复用的积木。**
 
-### 1.2 解法：LoginRouter + LoginStateLiveData
+### 1.2 解法：观察者模式
 
-项目中的 `LoginRouter` 就是这块积木。它封装了两件事：
+`LoginRouter` 由两个可观测源（`LifecycleOwner`、`LoginStateLiveData`）和一个 `pendingBlock` 组成：
 
-1. **观察登录状态**——通过 `LoginStateLiveData` 订阅全局登录态变化。
-2. **暂存待执行操作**——未登录时跳转登录页，登录成功后自动执行之前挂起的逻辑。
+1. **`LoginStateLiveData`**——订阅登录态。登录成功后发布 `true`，触发 pending 回调。
+2. **`LifecycleOwner`**——订阅页面生命周期。从登录页返回或页面销毁时清空 pending，避免泄漏与误触发。
+3. **`pendingBlock`**——暂存"登录后再执行"的操作。未登录时挂起，登录成功后自动 `invoke()`。
 
 核心代码如下：
 
@@ -132,6 +133,7 @@ private val loginRouter: LoginRouter by lazy { LoginRouter(this) }
 
 // 收藏
 loginRouter.runBlock {
+    // 注意并非页面跳转，如果未登陆则什么也不做
     favViewModel.setFavorite(currentSpuId, targetFavorite)
 }
 
@@ -146,23 +148,17 @@ loginRouter.runBlock {
 }
 ```
 
-页面代码不再关心"用户有没有登录""登录成功后跳哪里"——这些全部委托给 `LoginRouter` 这块积木。
+`LoginRouter` 与路由拦截器的差别在于：拦截器通常只做统一的页面跳转，而 `runBlock` 可以 pending 任意操作——收藏、请求接口、弹 Toast，不限于开新页。后续动作仍由页面就地声明，`LoginActivity` 也不必再当中转分发站，各模块边界清晰、互不耦合。
 
-对比路由拦截器（Interceptor）的"一刀切"方案，`LoginRouter` 更加灵活：不同按钮可以挂不同的 `pendingBlock`，登录成功后各自跳向不同目的地。这正是 Lego 思想中**"最小颗粒 + 按需组合"**的体现。
+### 1.4 缘起与边界
 
-### 1.4 为什么这是好的观察者，而不是坏的观察者
+`LoginRouter` 并非事先设计，而是项目推进中被逼出来的。
 
-第一篇我们说过，MVVM 本质上也是观察者——View 观察 ViewModel 的状态。但 MVI 的 Intent 爆炸、God State 告诉我们：**观察者用错了，比不用更糟。**
+详情页接上收藏、加购、立即购买后，同一套逻辑在多个按钮上反复出现：判登录、跳登录页、登录成功后续接原操作。拦截器只能统一拦跳转，做不了「登录后继续收藏」；把目的地写进 `LoginActivity`，login 模块又和业务缠在一起。几轮 copy-paste 之后，痛点就很清楚了——**缺一块能 pending 任意后续动作的公共积木。**
 
-`LoginRouter` 做对了三件事：
+抽离、观察、抽象：`LoginRouter` 把登录门禁和 pending 续接收成一块，用 `LoginStateLiveData` 与 `LifecycleOwner` 串起时序，优雅地解决了这个痛点问题。
 
-| 原则 | LoginRouter 的做法 |
-| --- | --- |
-| **单一职责** | 只负责"登录门禁 + pending 回调"，不管 UI、不管网络 |
-| **生命周期安全** | 绑定 `LifecycleOwner`，页面销毁自动清理 pending |
-| **全局状态最小化** | `LoginStateLiveData` 只有一个 `Boolean`，不是 30 个字段的 God State |
-
-**Lego 视角**：`LoginRouter` 是一块放在 `common/router` 下的共有积木，任何 feature 模块都可以直接 `LoginRouter(this).runBlock { ... }`，无需继承、无需 Base 类约束。
+Lego 架构不只要求会拆，还要求会在重复里看见模式、在痛点里发现积木——`LoginRouter` 就是一次这样的提炼。
 
 ---
 
@@ -170,7 +166,7 @@ loginRouter.runBlock {
 
 ### 2.1 痛点：三种海报，一套流程
 
-随着 demo 项目的丰富，我们新增了**海报分享**功能——用户可以把商品、社交动态、店铺首页生成一张精美海报，保存到相册或分享到微信。
+我们在 demo 项目里新增了**海报分享**功能——用户可以把商品、社交动态、店铺首页生成一张精美海报，保存到相册或分享到微信。
 
 三种海报的 UI 布局完全不同，但**页面级工作流完全一致**：
 
@@ -180,7 +176,7 @@ loginRouter.runBlock {
 
 如果在 `BillActivity` 里用 `when (billCase)` 写三套渲染逻辑，Activity 会迅速膨胀；如果为每种海报各写一个 Activity，截屏、预览、保存的代码又会被复制三遍。
 
-Lego 架构的解法：**把"不变的流程"固化在模版里，把"变化的部分"留给子类实现。**
+模版方法模式的解法：**把"不变的流程"固化在模版里，把"变化的部分"留给子类实现。**
 
 ### 2.2 架构分层：接口 → 抽象模版 → 具体实现
 
@@ -231,7 +227,7 @@ abstract class BaseBillRender<T, B : ViewBinding>(private val context: Context) 
 - 子类只需实现 **`onRenderView` 这一个钩子**，填充各自不同的 UI 逻辑。
 - 公共的 ViewBinding 初始化通过泛型 + 反射完成，子类零样板代码。
 
-#### 第三步：具体子类只关心自己的 UI
+#### 第三步：具体子类只关心自己的 UI，只需要实现一个方法即可
 
 以商品海报为例：
 
