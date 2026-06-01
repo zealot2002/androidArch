@@ -1,6 +1,6 @@
 ## Modern Android Architecture (Part 1): A Decade of Android Architecture Evolution: What Problem Are We Really Solving?
 
-> **Series Navigation**: [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5) | [Article 3: Refactoring a Product Detail Page with Lego Architecture](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
+> **Series Navigation**: [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7) | [Article 3: Refactoring a Product Detail Page with Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-3-refactoring-a-product-detail-page-with-lego-architecture-4ii4) | [Article 4: Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
 
 ### Foreword: After Learning All Architectures, Did Our Code Actually Get Better?
 
@@ -122,6 +122,7 @@ These are the foundational skills and qualities of an excellent engineer. Engine
 
 **Related Reading**:
 
-- [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
-- [Article 3: Refactoring a Product Detail Page with Lego Architecture: From 3000 Lines to 15 Standalone Components](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
+- [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7)
+- [Article 3: Refactoring a Product Detail Page with Lego Architecture: From 3000 Lines to 15 Standalone Components](https://dev.to/zealot2002/modern-android-architecture-part-3-refactoring-a-product-detail-page-with-lego-architecture-4ii4)
+- [Article 4: Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
 

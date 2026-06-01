@@ -1,6 +1,6 @@
 ## Modern Android Architecture (Part 3): Refactoring a Product Detail Page with Lego Architecture: From 3000 Lines to 15 Standalone Components
 
-> **Series Navigation**: [Article 1: A Decade of Android Architecture Evolution](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8) | [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
+> **Series Navigation**: [Article 1: A Decade of Android Architecture Evolution](https://dev.to/zealot2002/modern-android-architecture-part-1-a-decade-of-android-architecture-evolution-what-problem-are-403f) | [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7) | [Article 4: Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
 >
 > **Project Repository**: <https://github.com/zealot2002/androidArch>
 
@@ -569,10 +569,11 @@ When you truly build applications with Lego thinking, you realize: **Complexity 
 
 Of course, mastery of design patterns, code aesthetics, and the ability to spot reusable bricks are also essential qualities of an excellent engineer.
 
-**Next Article Preview**: We'll continue enriching our demo project and explore how design patterns can serve as the glue for Lego Architecture, making your brick combinations more flexible and robust. Stay tuned!
+**Next Article Preview**: We'll continue enriching our demo project and explore how design patterns can serve as the glue for Lego Architecture, making your brick combinations more flexible and robust. See [Article 4](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f).
 
 **Related Reading**:
 
-- [Article 1: A Decade of Android Architecture Evolution: What Problem Are We Really Solving?](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8)
-- [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5)
+- [Article 1: A Decade of Android Architecture Evolution: What Problem Are We Really Solving?](https://dev.to/zealot2002/modern-android-architecture-part-1-a-decade-of-android-architecture-evolution-what-problem-are-403f)
+- [Article 2: The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7)
+- [Article 4: Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
 
