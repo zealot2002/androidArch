@@ -22,6 +22,10 @@ This is where **design patterns** come in. They are not another "silver bullet a
 
 The 23 GoF patterns and more evolving patterns each solve different "assembly" problems: Factory is responsible for **creating** the right bricks, Strategy for **switching** replaceable behaviors, Adapter for **connecting** incompatible interfaces, Observer for **responding** to state changes, Template Method for **solidifying** invariant processes... Due to space constraints, this article won't cover all of them, but will select two representative cases from the demo project — **Observer** and **Template Method** — to illustrate how design patterns generally work in Lego Architecture.
 
+![Demo project screenshot](https://raw.githubusercontent.com/zealot2002/androidArch/main/screenshot/screenshot.png)
+
+*Left: Product detail page from Article 3 — favorite, add to cart, and buy now gated by `LoginRouter`; Right: Three poster share pages (product / social / store) — sharing the `BillActivity` screenshot flow, each rendered by a different `BaseBillRender` subclass.*
+
 ***
 
 ## I. Observer Pattern: LoginRouter — The "Broadcast Station" for Login State
@@ -132,7 +136,7 @@ private val loginRouter: LoginRouter by lazy { LoginRouter(this) }
 
 // Favorite
 loginRouter.runBlock {
-    // Note: not a page navigation, does nothing if not logged in
+    // Note: this is not a page navigation — it triggers a state update after login
     favViewModel.setFavorite(currentSpuId, targetFavorite)
 }
 
@@ -147,13 +151,13 @@ loginRouter.runBlock {
 }
 ```
 
-The difference between `LoginRouter` and a route interceptor: interceptors usually only do unified page navigation, while `runBlock` can pending any operation — favorite, API request, show Toast, not limited to opening new pages. Subsequent actions are still declared locally in the page, and `LoginActivity` no longer needs to act as a transit hub. Module boundaries are clear and decoupled.
+The difference between `LoginRouter` and a route interceptor: interceptors usually only handle unified page navigation, while `runBlock` can queue any operation as pending — favorite, API request, show Toast, not limited to opening new pages. Subsequent actions are still declared locally in the page, and `LoginActivity` no longer needs to act as a transit hub. Module boundaries are clear and decoupled.
 
 ### 1.4 Origin and Boundaries
 
 `LoginRouter` wasn't designed upfront; it emerged from project pain points.
 
-After connecting favorite, add to cart, and buy now to the detail page, the same logic repeatedly appeared across multiple buttons: check login, navigate to login page, continue original operation after success. Interceptors could only intercept navigation uniformly, not handle "continue favorite after login"; writing destinations into `LoginActivity` would couple the login module with business logic. After several rounds of copy-paste, the pain point became clear — **missing a common brick that can pending any follow-up action.**
+After connecting favorite, add to cart, and buy now to the detail page, the same logic repeatedly appeared across multiple buttons: check login, navigate to login page, continue original operation after success. Interceptors could only intercept navigation uniformly, not handle "continue favorite after login"; writing destinations into `LoginActivity` would couple the login module with business logic. After several rounds of copy-paste, the pain point became clear — **missing a common brick that can queue any follow-up action as pending.**
 
 Extract, observe, abstract: `LoginRouter` combines login guard and pending continuation into one brick, using `LoginStateLiveData` and `LifecycleOwner` to coordinate timing, elegantly solving this pain point.
 

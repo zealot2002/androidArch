@@ -377,7 +377,7 @@ class GoodsReviewListFragment : Fragment() {
 }
 ```
 
-1. **Clean Controller**: Panel controller only handles animations and Fragment management, no business logic
+2. **Clean Controller**: Panel controller only handles animations and Fragment management, no business logic
 
 ```kotlin
 class ReviewListPanelController(
@@ -398,7 +398,7 @@ class ReviewListPanelController(
 }
 ```
 
-1. **Minimal Main Activity**: Only needs to initialize Controller, review logic doesn't intrude into main Activity
+3. **Minimal Main Activity**: Only needs to initialize Controller, review logic doesn't intrude into main Activity
 
 ```kotlin
 private fun setupReviewListPanel() {
@@ -417,7 +417,7 @@ private fun showReviewListPanel() {
 }
 ```
 
-1. **On-Demand Fragment Creation**: Review panel Fragment is only created on first click, no impact on initial screen performance.
+4. **On-Demand Fragment Creation**: Review panel Fragment is only created on first click, no impact on initial screen performance.
 
 **Architectural Benefits**:
 
@@ -505,19 +505,19 @@ androidArch/
 
 | Module     | Class Name                      | Responsibility                                       | Lines of Code |
 | ---------- | ------------------------------- | ---------------------------------------------------- | ------------- |
-| **ui**     | GoodsDetailActivity             | View binding, lifecycle, user interaction forwarding | \~500         |
-| **ui**     | GoodsDetailAdapter              | List rendering for 14 ViewTypes                      | \~400         |
-| **ui**     | GoodsDetailListAssembler        | Dynamic list item assembly                           | \~80          |
-| **ui**     | GoodsDetailListItem             | List item type definition                            | \~50          |
-| **ui**     | ReviewListPanelController       | Review panel animation and Fragment management       | \~150         |
-| **ui**     | DetailAnchorTab                 | Tab enum (independent small class)                   | \~10          |
-| **mapper** | GoodsDetailProductSectionMapper | Data→Product section UI state                        | \~60          |
-| **mapper** | GoodsDetailReviewMapper         | Data→Review section UI state                         | \~30          |
-| **mapper** | GoodsDetailShopMapper           | Data→Shop section UI state                           | \~20          |
-| **vm**     | GoodsDetailViewModel            | Data loading, state holding, trigger rebuild         | \~150         |
-| **common** | BaseActivity                    | Encapsulates analytics, Edge-to-Edge                 | \~50          |
-| **common** | GridSpacingDecoration           | Universal grid spacing decorator                     | \~40          |
-| **common** | ToastUtils                      | Global Toast                                         | \~30          |
+| **ui**     | GoodsDetailActivity             | View binding, lifecycle, user interaction forwarding | approx. 500   |
+| **ui**     | GoodsDetailAdapter              | List rendering for 14 ViewTypes                      | approx. 400   |
+| **ui**     | GoodsDetailListAssembler        | Dynamic list item assembly                           | approx. 80    |
+| **ui**     | GoodsDetailListItem             | List item type definition                            | approx. 50    |
+| **ui**     | ReviewListPanelController       | Review panel animation and Fragment management       | approx. 150   |
+| **ui**     | DetailAnchorTab                 | Tab enum (independent small class)                   | approx. 10    |
+| **mapper** | GoodsDetailProductSectionMapper | Data→Product section UI state                        | approx. 60    |
+| **mapper** | GoodsDetailReviewMapper         | Data→Review section UI state                         | approx. 30    |
+| **mapper** | GoodsDetailShopMapper           | Data→Shop section UI state                           | approx. 20    |
+| **vm**     | GoodsDetailViewModel            | Data loading, state holding, trigger rebuild         | approx. 150   |
+| **common** | BaseActivity                    | Encapsulates analytics, Edge-to-Edge                 | approx. 50    |
+| **common** | GridSpacingDecoration           | Universal grid spacing decorator                     | approx. 40    |
+| **common** | ToastUtils                      | Global Toast                                         | approx. 30    |
 
 ### 7.3 Data Flow
 

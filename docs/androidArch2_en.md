@@ -20,7 +20,7 @@ This pain forced us to ask a fundamental question: **What is the ultimate answer
 
 Sitting in front of my computer, I suddenly remembered the Lego bricks I played with as a child.
 
-Why can a few basic bricks build houses, cars, spaceships? Why can bricks from 10 years ago still perfectly fit with new sets?\
+Why can a few basic bricks build houses, cars, spaceships? Why can bricks from 10 years ago still perfectly fit with new sets?
 At that moment, I seemed to see the answer to all architectural problems.
 
 The most amazing thing about Lego is not the cool finished products, but those basic 1×1 and 2×4 bricks:
@@ -32,7 +32,7 @@ The most amazing thing about Lego is not the cool finished products, but those b
 
 In contrast, those specialized parts designed for specific models — like the curved hull of the Millennium Falcon — are almost useless outside of that one model. Once removed, they become waste.
 
-**Lego's core philosophy is: Minimum granularity = Maximum reusability = Maximum flexibility.**\
+**Lego's core philosophy is: Minimum granularity = Maximum reusability = Maximum flexibility.**
 **Specialized parts become useless outside their model. The same principle applies to code reuse.**
 
 From this, we've distilled a software engineering approach called **Lego Architecture** — it doesn't aim to replace MVVM or MVI, but provides a set of **programming philosophies and engineering disciplines** about "how to split, how to accumulate, how to govern."
@@ -123,7 +123,7 @@ The stopping condition for splitting is simple: stop when you can't give the uni
 
 This is the fundamental difference between Lego Architecture and other architectures:
 
-> Other architectures tell you "which layer code should go to".\
+> Other architectures tell you "which layer code should go to".
 > Lego Architecture tells you "how small code should be split and how to keep splitting".
 
 ***
