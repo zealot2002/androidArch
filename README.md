@@ -58,10 +58,10 @@ git clone https://github.com/zealot2002/androidArch.git
 
 This project is accompanied by a 4-part blog series:
 
-1. **Part 1: Three-Layer Color System** — [A Decade of Android Architecture Evolution](https://dev.to/zealot2002/modern-android-architecture-part-1-a-decade-of-android-architecture-evolution-what-problem-are-403f)
-2. **Part 2: Drawable Layer Conventions** — [The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7)
-3. **Part 3: The Style Layer and Eliminating Redundancy** — [Refactoring a Product Detail Page with Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-3-refactoring-a-product-detail-page-with-lego-architecture-4ii4)
-4. **Part 4: Design Patterns as the Glue** — [Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
+1. **Part 1**: [A Decade of Android Architecture Evolution: What Problem Are We Really Solving?](https://dev.to/zealot2002/modern-android-architecture-part-1-a-decade-of-android-architecture-evolution-what-problem-are-403f)
+2. **Part 2**: [The Lego Architecture: Divide and Conquer, Taken to the Extreme](https://dev.to/zealot2002/modern-android-architecture-part-2-the-lego-architecture-divide-and-conquer-taken-to-the-58j7)
+3. **Part 3**: [Refactoring a Product Detail Page with Lego Architecture: From 3000 Lines to 15 Standalone Components](https://dev.to/zealot2002/modern-android-architecture-part-3-refactoring-a-product-detail-page-with-lego-architecture-4ii4)
+4. **Part 4**: [Design Patterns — The Glue of Lego Architecture](https://dev.to/zealot2002/modern-android-architecture-part-4-design-patterns-the-glue-of-lego-architecture-1e9f)
 
 > **Note**: Chinese versions of all articles are available in the [docs/](docs/) folder.
 
