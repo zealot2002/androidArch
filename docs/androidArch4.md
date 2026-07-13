@@ -1,12 +1,12 @@
-## Modern Android Architecture (Part 4): Design Patterns — The Glue of Lego Architecture
+## Android 架构系列博文（共4篇）
 
-> *Design Patterns: The Glue of Lego Architecture*
+## 第四篇：设计模式——Lego 架构的粘合剂
 
 > **系列导航**：[第一篇：主流 Android 架构十年演化史](https://dev.to/zealot2002/zhu-liu-android-jia-gou-shi-nian-yan-hua-shi-wo-men-dao-di-zai-jie-jue-shi-yao-wen-ti-a-decade-of-android-architecture-evolution-what-problem-are-we-4pc8) | [第二篇：Lego架构——分治思想的极致实践](https://dev.to/zealot2002/lego-jia-gou-fen-zhi-si-xiang-de-ji-zhi-shi-jian-the-lego-architecture-divide-and-conquer-taken-to-the-extreme-1cg5) | [第三篇：用 Lego 架构重构商品详情页](https://dev.to/zealot2002/yong-lego-jia-gou-zhong-gou-shang-pin-xiang-qing-ye-cong-3000-xing-dao-15-ge-du-li-zu-jian-refactoring-a-product-detail-page-with-lego-architecture-from-2843)
 >
-> **项目地址**：<https://github.com/zealot2002/androidArch>
+> **项目地址**：[https://github.com/zealot2002/androidArch](https://github.com/zealot2002/androidArch)
 
-***
+---
 
 ## 前言：积木拆好了，怎么拼才稳？
 
@@ -18,17 +18,13 @@
 
 但有一个问题，第三篇结尾已经点到了——**拆，只是第一步；拼，才决定这套体系能不能长期运转。**
 
-两个页面都需要"登录后才能操作"，你打算复制粘贴两套 `if (isLogin)` 判断吗？三种海报（商品、社交、店铺）共享同一套"渲染 → 截屏 → 预览 → 分享"流程，但 UI 布局各不相同——你打算在 Activity 里写三个 `when` 分支，每个分支几百行吗？
+十个页面都需要"登录后才能操作"，你打算复制粘贴十套 `if (isLogin)` 判断吗？八种海报（商品、社交、店铺）共享同一套"渲染 → 截屏 → 预览 → 分享"流程，但 UI 布局各不相同——你打算在 Activity 里写八个 `when` 分支，每个分支几百行吗？
 
 这时候，**设计模式**就登场了。它不是又一套"银弹架构"，而是 Lego 积木之间的**粘合剂**——用极小的、经过验证的连接方式，把已经拆好的颗粒稳定地组装在一起。
 
 GoF 23 种、乃至更多演进中的模式，各自解决不同的"拼接"问题：工厂负责**创建**合适的积木，策略负责**切换**可替换的行为，适配器负责**对接**不兼容的接口，观察者负责**响应**状态变化，模版方法负责**固化**不变流程……篇幅所限，本篇不会逐一展开，而是选取 demo 项目中两个有代表性的案例——**观察者**与**模版方法**——说明设计模式在 Lego 架构中大致如何发挥作用。
 
-![demo 项目运行截图](https://raw.githubusercontent.com/zealot2002/androidArch/main/screenshot/screenshot.png)
-
-*左：第三篇重构后的商品详情页——收藏、加购、立即购买等入口，由* *`LoginRouter`* *统一粘合登录门禁；右：三种海报分享页（商品 / 社交 / 店铺）——共用* *`BillActivity`* *截屏流程，各自由* *`BaseBillRender`* *子类渲染不同布局。*
-
-***
+---
 
 ## 一、观察者模式：LoginRouter——登录态的"广播站"
 
@@ -50,17 +46,16 @@ if (UserManager.isLogin()) {
 
 - **重复**：十个按钮，十份相同的判断逻辑。
 - **断裂**：用户登录成功后，原来的操作往往"丢失"了——他还要再点一次按钮。
-- **耦合**：甚至有些项目把登录后的跳转直接写到了 `LoginActivity`，让 login 模块耦合了其他模块。
+- **耦合**：一些项目甚至把登陆后的跳转逻辑放入了LoginActivity，通过一个type做分发，让login耦合了多个业务模块。
 
 Lego 架构要求：**把"登录后再执行"这件事，拆成一块独立的、可复用的积木。**
 
-### 1.2 解法：观察者模式
+### 1.2 解法：LoginRouter + LoginStateLiveData
 
-`LoginRouter` 由两个可观测源（`LifecycleOwner`、`LoginStateLiveData`）和一个 `pendingBlock` 组成：
+项目中的 `LoginRouter` 就是这块积木。它封装了两件事：
 
-1. **`LoginStateLiveData`**——订阅登录态。登录成功后发布 `true`，触发 pending 回调。
-2. **`LifecycleOwner`**——订阅页面生命周期。页面销毁时清空 pending，避免泄漏；`ON_RESUME` 时同样清空——用户从登录页按返回键退出、并未登录成功时，pending 操作也应放弃。
-3. **`pendingBlock`**——暂存"登录后再执行"的操作。未登录时挂起，登录成功后自动 `invoke()`。
+1. **观察登录状态**——通过 `LoginStateLiveData` 订阅全局登录态变化。
+2. **暂存待执行操作**——未登录时跳转登录页，登录成功后自动执行之前挂起的逻辑。
 
 核心代码如下：
 
@@ -77,8 +72,7 @@ class LoginRouter(private var context: Context) {
                     pendingBlock = null
                 }
             }
-            // ON_RESUME：用户从登录页返回但未登录（如按返回键），放弃 pending
-            // ON_DESTROY：页面销毁，清理 pending
+            // 生命周期兜底：页面销毁或从登录页返回时，清空 pending
             (context as LifecycleOwner).lifecycle.addObserver(
                 LifecycleEventObserver { _, event ->
                     when (event) {
@@ -138,7 +132,6 @@ private val loginRouter: LoginRouter by lazy { LoginRouter(this) }
 
 // 收藏
 loginRouter.runBlock {
-    // 注意并非页面跳转，如果未登陆则什么也不做
     favViewModel.setFavorite(currentSpuId, targetFavorite)
 }
 
@@ -153,25 +146,33 @@ loginRouter.runBlock {
 }
 ```
 
-`LoginRouter` 与路由拦截器的差别在于：拦截器通常只做统一的页面跳转，而 `runBlock` 可以 pending 任意操作——收藏、请求接口、弹 Toast，不限于开新页。后续动作仍由页面就地声明，`LoginActivity` 也不必再当中转分发站，各模块边界清晰、互不耦合。
+页面代码不再关心"用户有没有登录""登录成功后跳哪里"——这些全部委托给 `LoginRouter` 这块积木。
 
-### 1.4 缘起与边界
+对比路由拦截器（Interceptor）的"一刀切"方案，`LoginRouter` 更加灵活：不同按钮可以挂不同的 `pendingBlock`，登录成功后各自跳向不同目的地。这正是 Lego 思想中**"最小颗粒 + 按需组合"**的体现。
 
-`LoginRouter` 并非事先设计，而是项目推进中被逼出来的。
+### 1.4 为什么这是好的观察者，而不是坏的观察者
 
-详情页接上收藏、加购、立即购买后，同一套逻辑在多个按钮上反复出现：判登录、跳登录页、登录成功后续接原操作。拦截器只能统一拦跳转，做不了「登录后继续收藏」；把目的地写进 `LoginActivity`，login 模块又和业务缠在一起。几轮 copy-paste 之后，痛点就很清楚了——**缺一块能 pending 任意后续动作的公共积木。**
+第一篇我们说过，MVVM 本质上也是观察者——View 观察 ViewModel 的状态。但 MVI 的 Intent 爆炸、God State 告诉我们：**观察者用错了，比不用更糟。**
 
-抽离、观察、抽象：`LoginRouter` 把登录门禁和 pending 续接收成一块，用 `LoginStateLiveData` 与 `LifecycleOwner` 串起时序，优雅地解决了这个痛点问题。
+`LoginRouter` 做对了三件事：
 
-Lego 架构不只要求会拆，还要求会在重复里看见模式、在痛点里发现积木——`LoginRouter` 就是一次这样的提炼。
 
-***
+| 原则          | LoginRouter 的做法                                          |
+| ----------- | -------------------------------------------------------- |
+| **单一职责**    | 只负责"登录门禁 + pending 回调"，不管 UI、不管网络                        |
+| **生命周期安全**  | 绑定 `LifecycleOwner`，页面销毁自动清理 pending                     |
+| **全局状态最小化** | `LoginStateLiveData` 只有一个 `Boolean`，不是 30 个字段的 God State |
+
+
+**Lego 视角**：`LoginRouter` 是一块放在 `common/router` 下的共有积木，任何 feature 模块都可以直接 `LoginRouter(this).runBlock { ... }`，无需继承、无需 Base 类约束。
+
+---
 
 ## 二、模版方法模式：BillActivity——固定流程，可变内容
 
 ### 2.1 痛点：三种海报，一套流程
 
-我们在 demo 项目里新增了**海报分享**功能——用户可以把商品、社交动态、店铺首页生成一张精美海报，保存到相册或分享到微信。
+随着 demo 项目的丰富，我们新增了**海报分享**功能——用户可以把商品、社交动态、店铺首页生成一张精美海报，保存到相册或分享到微信。
 
 三种海报的 UI 布局完全不同，但**页面级工作流完全一致**：
 
@@ -181,7 +182,7 @@ Lego 架构不只要求会拆，还要求会在重复里看见模式、在痛点
 
 如果在 `BillActivity` 里用 `when (billCase)` 写三套渲染逻辑，Activity 会迅速膨胀；如果为每种海报各写一个 Activity，截屏、预览、保存的代码又会被复制三遍。
 
-模版方法模式的解法：**把"不变的流程"固化在模版里，把"变化的部分"留给子类实现。**
+Lego 架构的解法：**把"不变的流程"固化在模版里，把"变化的部分"留给子类实现。**
 
 ### 2.2 架构分层：接口 → 抽象模版 → 具体实现
 
@@ -229,10 +230,10 @@ abstract class BaseBillRender<T, B : ViewBinding>(private val context: Context) 
 **这就是模版方法模式的核心：**
 
 - `BaseBillRender` 定义了**算法骨架**（inflate Binding → 调用 `onRenderView` → 暴露 `getBillView`）。
-- 子类只需实现 **`onRenderView`** **这一个钩子**，填充各自不同的 UI 逻辑。
+- 子类只需实现 `**onRenderView` 这一个钩子**，填充各自不同的 UI 逻辑。
 - 公共的 ViewBinding 初始化通过泛型 + 反射完成，子类零样板代码。
 
-#### 第三步：具体子类只关心自己的 UI，只需要实现一个方法即可
+#### 第三步：具体子类只关心自己的 UI
 
 以商品海报为例：
 
@@ -256,8 +257,6 @@ class GoodsBillRender(context: Context) :
     }
 }
 ```
-
-`markReady()` 内部维护一个计数器（商品海报需等布局绘制 + 封面图 + 二维码共 3 项全部就绪），计数凑齐后才触发 `screenReady`，确保截屏时内容完整。
 
 `SocialBillRender`、`ShopBillRender` 结构相同，各自绑定不同的布局和 Data 类型。**新增一种海报，只需新增一个 Render 子类 + 一个 Layout XML，零修改现有代码。**
 
@@ -309,6 +308,7 @@ class BillActivity : BaseActivity() {
 
 整个页面的职责边界清晰：
 
+
 | 组件                                   | 职责                   | 对应模式     |
 | ------------------------------------ | -------------------- | -------- |
 | `BillDataLoader`                     | 按 case 加载 Mock 数据    | 简单工厂     |
@@ -317,6 +317,7 @@ class BillActivity : BaseActivity() {
 | `GoodsBillRender` 等                  | 填充具体 UI + 异步就绪检测     | 模版方法的钩子  |
 | `BillActivity`                       | 编排 加载→渲染→截屏→预览→分享    | 流程控制器    |
 | `BillBitmapUtils` / `BillImageSaver` | 截屏与保存                | 独立工具积木   |
+
 
 ### 2.4 与第二篇的呼应：什么时候该用模版方法？
 
@@ -339,20 +340,23 @@ abstract class BaseActivity : AppCompatActivity() {
 
 为什么 `BaseBillRender` 的模版方法可以接受，而 `BaseActivity` 的不行？
 
-| <br />          | 坏的 BaseActivity 模版              | 好的 BaseBillRender 模版                    |
+
+|                 | 坏的 BaseActivity 模版              | 好的 BaseBillRender 模版                    |
 | --------------- | ------------------------------- | --------------------------------------- |
 | **流程是否真的一致？**   | 不同页面的初始化顺序差异很大                  | 所有海报都必须 inflate → bind → render → ready |
 | **约束的是顺序还是结构？** | 强制规定 `initView` 在 `initData` 之前 | 只规定"绑定数据时调用 `onRenderView`"             |
 | **子类自由度**       | 被四个 abstract 方法绑架               | 只需实现一个 `onRenderView`                   |
 | **是否可插拔**       | 必须继承 Base 才能用                   | 实现 `BillRender` 接口即可，不必继承               |
 
+
 **判断标准很简单：只有当多个子类的算法骨架真正一致时，才用模版方法；如果只是在 Base 里"顺便"塞了一堆可能用也可能不用的初始化步骤，那就是枷锁，不是模版。**
 
-***
+---
 
 ## 三、从两个案例看粘合方式
 
 上面两个案例，分别展示了设计模式在 Lego 架构中两种常见的"粘合"方向——**响应变化**与**固化流程**。其他模式解决的则是创建、替换、适配等不同维度的拼接问题，思路相通，此处不再展开。
+
 
 | 维度          | 观察者（LoginRouter） | 模版方法（BillRender）      |
 | ----------- | ---------------- | --------------------- |
@@ -362,21 +366,12 @@ abstract class BaseActivity : AppCompatActivity() {
 | **Lego 定位** | 跨模块的事件广播积木       | 同类 Render 的公共骨架积木     |
 | **扩展方式**    | 新增观察者，不改 Subject | 新增子类，不改模版骨架           |
 
+
 无论哪种模式，有一个共同前提：**它们都是在 Lego 拆分之后，用来"粘合"积木的——而不是用来替代拆分本身。**
 
 如果你还没有把登录逻辑拆成 `LoginRouter`，观察者模式救不了你——你只是在三个 Activity 里各写一套 LiveData 观察。如果你还没有把三种海报拆成独立的 Render，模版方法也救不了你——`BaseBillRender` 里会塞满 `if (case == SOCIAL)` 的分支。工厂、策略等其他模式同理——**先拆，再粘，顺序不能反。**
 
-本篇详述的两个案例之外，demo 项目里还有多处模式在各处默默发挥作用——它们不是主角，但同样是积木之间的连接件：
-
-| 模式       | 在项目中的位置                              | 粘合了什么                                  |
-| -------- | ------------------------------------ | -------------------------------------- |
-| **观察者**  | `LoginRouter`                        | 登录态变化 → 跨页面的 pending 后续操作              |
-| **模版方法** | `BaseBillRender`                     | 多种海报共享 inflate → bind → render 骨架      |
-| **简单工厂** | `BillRenderFactory`、`BillDataLoader` | 按 `billCase` 创建对应 Render / 数据          |
-| **策略**   | `BillRender` 及其实现类                   | 同一截屏流程下，切换不同海报渲染策略                     |
-| **适配器**  | `GoodsDetailAdapter`                 | 14 种 `ListItem` → `RecyclerView` 多类型渲染 |
-
-***
+---
 
 ## 四、Lego 架构完整体系：四篇串联
 
@@ -401,7 +396,7 @@ Lego 架构的完整体系可以概括为：
 - **一个公理**：分治法 + 单一职责
 - **多个定理**：治理思想、工具迭代（私有→共有→远程）、复用发现
 - **一套实战**：商品详情页的 15 个独立组件
-- **一层粘合**：设计模式——本篇以观察者、模版方法为重点展开；项目中还有工厂、策略、适配等模式在各处承担连接职责（见上表）
+- **一层粘合**：设计模式——本篇以观察者（LoginRouter）、模版方法（BillRender）为例，项目中同样可见工厂（`BillRenderFactory`）、策略、适配等模式的身影
 
 当你真正用 Lego 思想来构建应用时，你会发现：
 
@@ -409,7 +404,7 @@ Lego 架构的完整体系可以概括为：
 - **设计模式不是炫技**，而是在拆分完成后，按场景选用合适的模式，用最少的连线把积木稳稳地拼在一起。
 - **好的代码不是学了一种架构写出来的**，而是具备了分治意识、治理纪律、模式直觉，以及发现积木的那双眼睛。
 
-***
+---
 
 ## 系列总结
 
@@ -421,7 +416,7 @@ Lego 架构的完整体系可以概括为：
 
 愿你的代码库，像一盒 Lego——每块积木职责清晰、接口稳定、随意组合，历经多年依然能拼出新的模型。
 
-***
+---
 
 **相关阅读**：
 
